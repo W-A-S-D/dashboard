@@ -1,5 +1,3 @@
-import imageMine from '../../img/icon-mine.png';
-
 export const styles = {
   miniCardSetor: {
     height: '64px',
@@ -31,7 +29,6 @@ export const styles = {
     backgroundColor: '#D12F2F'
   },
   alinhamento: {
-    color: '#D12F2F',
     flexDirection: 'row',
     display: 'flex',
     alignItems: 'center'
@@ -49,7 +46,4 @@ export const styles = {
     flexDirection: 'row',
     display: 'flex',
   }
-}
-export const images = {
-  imageMine: `${imageMine}`
 }

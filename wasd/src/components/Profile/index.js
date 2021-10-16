@@ -1,6 +1,6 @@
 import MenuIcon from '@material-ui/icons/Menu';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import { styles } from './style'
+import { styles, images } from './style'
 import MiniCardSetor from '../MiniCardSetor';
 function Profile() {
 	return (
@@ -18,9 +18,9 @@ function Profile() {
 						<div style={styles.contentHolder}>
 							<div style={{ fontSize: '18px', fontWeight: '800', marginTop: '14px' }}>Meus Setores</div>
 						</div>
-						<MiniCardSetor/>
-						<MiniCardSetor borderColor='#D1902F'/>
-						<MiniCardSetor/>
+						<MiniCardSetor status = 'alert' label = 'Minecraft' img = {images.imageMine}/>
+						<MiniCardSetor status = 'warning' label = 'Fortnite' img = {images.imageFort}/>
+						<MiniCardSetor status = 'normal' label = 'League of Legends' img = {images.imageLol}/>
 					</div>
 					<div style={styles.arrowDown}><KeyboardArrowDownIcon fontSize='large'></KeyboardArrowDownIcon></div>
 				</div>

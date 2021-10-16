@@ -1,3 +1,6 @@
+import imageMine from '../../img/icon-mine.png';
+import imageFort from '../../img/icon-fortnite.png';
+import imageLol from '../../img/icon-lol.png';
 export const styles = {
     container: {
         display: 'flex',
@@ -51,3 +54,10 @@ export const styles = {
     }
 
 }
+
+export const images = {
+    imageMine: `${imageMine}`,
+    imageFort: `${imageFort}`,
+    imageLol: `${imageLol}`
+}
+
