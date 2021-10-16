@@ -1,5 +1,3 @@
-import imageMine from '../../img/icon-mine.png';
-
 export const styles = {
     container: {
         display: 'flex',
@@ -50,36 +48,6 @@ export const styles = {
     },
     arrowDown: {
         color: 'rgba(136,136,136, 0.54)'
-    },
-    miniCardSetor: {
-        height: '64px',
-        width: '332px',
-        left: '1497px',
-        top: '484px',
-        borderRadius: '5px',
-        rgba: '(255, 255, 255, 1)',
-        borderTop: '1px solid rgba(211, 211, 211, 1)',
-        borderRight: '1px solid rgba(211, 211, 211, 1)',
-        borderBottom: '1px solid rgba(211, 211, 211, 1)',
-        borderLeft: '6px solid rgba(209, 47, 47, 1)',
-        boxShadow: '4px 4px 8px 0px rgba(0, 0, 0, 0,24)',
-        paddingLeft: '24px',
-        paddingTop: '8px',
-        paddingBottom: '10px'
-    },
-    gameSetor: {
-        fontWeight: 'bold',
-        fontSize: '12px',
-        lineHeight: '16px',
-        paddingLeft: '94px',
-        paddingTop: '13px',
-        paddingBottom: '16px'
-    },
-    setorImages: {
-        width: '46px',
-        height: '46px'
     }
-}
-export const images = {
-    imageMine: `${imageMine}`
+
 }
