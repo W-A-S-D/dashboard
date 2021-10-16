@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/">
             <Login />
           </Route>
-          <Route path="/Cadastro">
+          <Route path="/cadastro">
             <Cadastro />
           </Route>
         </Switch>

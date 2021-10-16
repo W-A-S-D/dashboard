@@ -27,7 +27,7 @@ function InputPass(props) {
         <>
             <FormControl
                 sx={{
-                    width: 450,
+                    width: '100vw',
                     maxWidth: '100%',
                 }}
                 variant="filled">

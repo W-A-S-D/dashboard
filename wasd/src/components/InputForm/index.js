@@ -13,7 +13,7 @@ function InputForm(props) {
       <FormControl
         variant="filled"
         sx={{
-          width: 450,
+          width: '100vw',
           maxWidth: '100%',
         }}
       >

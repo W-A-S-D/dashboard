@@ -3,12 +3,12 @@ import React from "react";
 import { IMaskInput } from "react-imask";
 import PropTypes from 'prop-types';
 
-const CnpjMaskCustom = React.forwardRef(function CnpjMaskCustom(props, ref) {
+const TelefoneMaskCustom = React.forwardRef(function TelefoneMaskCustom(props, ref) {
   const { onChange, ...other } = props;
   return (
     <IMaskInput
       {...other}
-      mask="00.000.000/0000-00"
+      mask="(00)00000-0000"
       inputRef={ref}
       onAccept={(value) => onChange({ target: { name: props.name, value } })}
       overwrite
@@ -16,7 +16,7 @@ const CnpjMaskCustom = React.forwardRef(function CnpjMaskCustom(props, ref) {
   );
 });
 
-CnpjMaskCustom.propTypes = {
+TelefoneMaskCustom.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
@@ -28,7 +28,7 @@ function InputForm(props) {
   const handleChange = (event) => {
     setName(event.target.value);
     console.log(event)
-    setValues({
+    setValues({ 
       ...values,
       [event.target.name]: event.target.name,
     });
@@ -48,8 +48,8 @@ function InputForm(props) {
           id="component-filled"
           value={name}
           onChange={handleChange}
-          name="cnpjmask"
-          inputComponent={CnpjMaskCustom}
+          name="telefoneMask"
+          inputComponent={TelefoneMaskCustom}
         />
       </FormControl>
     </>
