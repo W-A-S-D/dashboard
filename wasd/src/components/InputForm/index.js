@@ -21,8 +21,10 @@ function InputForm(props) {
         <FilledInput
           id="component-filled"
           value={name}
+          type={props.type}
           onChange={handleChange}
           fullWidth
+          required
         />
       </FormControl>
     </>
