@@ -6,7 +6,7 @@ export const styles = {
         display: 'flex',
         flexDirection: 'column',
         width: '416px',
-        height: '80vh',
+        height: '90vh',
         backgroundColor: '#F8F8F8',
         borderRadius: '8px'
     },
