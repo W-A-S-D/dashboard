@@ -37,18 +37,17 @@ export const styles = {
         display: 'flex'
     },
 
-    Dashboard:{
-        margin: '30px 0 0 20px',
-        height: '90vh',
+    Dashboard: {
+        margin: '0px 0 0 20px',
+        height: '90%',
         width: '70vw',
         backgroundColor: '#FFFFFF',
-
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
         borderRadius: '24px',
         display: 'flex'
     },
 
-    Maquinas:{
+    Maquinas: {
         position: 'relative',
         marginLeft: '71px',
         marginTop: '50px',
@@ -56,12 +55,12 @@ export const styles = {
         height: '288px',
         background: '#FFFFFF',
         padding: '20px',
-    /* Destaque - Home - Instável/Estável */
+        /* Destaque - Home - Instável/Estável */
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
-        borderRadius: '24px'  
+        borderRadius: '24px'
     },
 
-    corpoMaquina:{
+    corpoMaquina: {
         display: 'flex'
     }
 }

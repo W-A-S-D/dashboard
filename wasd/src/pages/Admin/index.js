@@ -4,12 +4,14 @@ import { styles } from './style.js';
 
 import ProgressBar from '../../components/ProgressBar/index.js';
 import StatusCard from '../../components/StatusCard/index.js';
+import MenubarAdm from '../../components/MenubarAdm/index.js';
 
 
 const AdminPage = (props) => {
 
     return (
         <>
+        <MenubarAdm/>
             <div style={styles.dashboardAdmin}>
                 <div style={styles.tituloHolder}>
                     <div style={styles.titulo}>Home
