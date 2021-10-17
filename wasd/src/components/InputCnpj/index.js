@@ -10,7 +10,7 @@ const CnpjMaskCustom = React.forwardRef(function CnpjMaskCustom(props, ref) {
       {...other}
       mask="00.000.000/0000-00"
       inputRef={ref}
-      onAccept={(value) => onChange({ target: { name: props.name, value } })}
+      onAccept={(value) => onChange({ target: { name: props.content, value } })}
       overwrite
     />
   );
@@ -22,16 +22,10 @@ CnpjMaskCustom.propTypes = {
 };
 
 function InputForm(props) {
-  const [name, setName] = React.useState("");
-  const [values, setValues] = React.useState();
+  const [content, setCnpj] = React.useState("");
 
   const handleChange = (event) => {
-    setName(event.target.value);
-    console.log(event)
-    setValues({
-      ...values,
-      [event.target.name]: event.target.name,
-    });
+    setCnpj(event.target.value);
   };
 
   return (
@@ -46,9 +40,10 @@ function InputForm(props) {
         <InputLabel htmlFor="component-filled">{props.title}</InputLabel>
         <FilledInput
           id="component-filled"
-          value={name}
+          value={content}
           onChange={handleChange}
           name="cnpjmask"
+          required
           inputComponent={CnpjMaskCustom}
         />
       </FormControl>

@@ -7,8 +7,6 @@ function InputPass(props) {
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
-        weight: '',
-        weightRange: '',
         showPassword: false,
     });
 
@@ -39,6 +37,7 @@ function InputPass(props) {
                     value={values.password}
                     onChange={handleChange('password')}
                     fullWidth
+                    required
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton

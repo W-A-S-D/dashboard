@@ -3,18 +3,19 @@ import React from "react";
 import { IMaskInput } from "react-imask";
 import PropTypes from 'prop-types';
 
-const TelefoneMaskCustom = React.forwardRef(function TelefoneMaskCustom(props, ref) {
-  const { onChange, ...other } = props;
-  return (
-    <IMaskInput
-      {...other}
-      mask="(00)00000-0000"
-      inputRef={ref}
-      onAccept={(value) => onChange({ target: { name: props.name, value } })}
-      overwrite
-    />
-  );
-});
+const TelefoneMaskCustom = React.forwardRef(
+  function TelefoneMaskCustom(props, ref) {
+    const { onChange, ...other } = props;
+    return (
+      <IMaskInput
+        {...other}
+        mask="(00)00000-0000"
+        inputRef={ref}
+        onAccept={(value) => onChange({ target: { name: props.name, value } })}
+        overwrite
+      />
+    );
+  });
 
 TelefoneMaskCustom.propTypes = {
   name: PropTypes.string.isRequired,
@@ -22,16 +23,10 @@ TelefoneMaskCustom.propTypes = {
 };
 
 function InputForm(props) {
-  const [name, setName] = React.useState("");
-  const [values, setValues] = React.useState();
+  const [content, setPhone] = React.useState("");
 
   const handleChange = (event) => {
-    setName(event.target.value);
-    console.log(event)
-    setValues({ 
-      ...values,
-      [event.target.name]: event.target.name,
-    });
+    setPhone(event.target.value);
   };
 
   return (
@@ -46,10 +41,11 @@ function InputForm(props) {
         <InputLabel htmlFor="component-filled">{props.title}</InputLabel>
         <FilledInput
           id="component-filled"
-          value={name}
+          value={content}
           onChange={handleChange}
           name="telefoneMask"
           inputComponent={TelefoneMaskCustom}
+          required
         />
       </FormControl>
     </>

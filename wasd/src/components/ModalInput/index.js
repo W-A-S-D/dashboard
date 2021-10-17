@@ -1,5 +1,3 @@
-import {styles} from './style'
-
 const ModalInput = (props) => {
     return (
         <>

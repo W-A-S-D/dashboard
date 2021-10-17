@@ -6,7 +6,6 @@ import {
 
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
-import ModalComponent from "./components/Modal";
 
 function App() {
   return (
