@@ -13,8 +13,11 @@ export default function Login() {
         <div style={styles.container}>
             <img style={{ height: '10vh', margin: "2rem 2rem 2rem 2rem" }} src={item.img} alt={item.title} />
             <Container maxWidth="xl">
-                <form>
-                    <Grid container lg={4} md={5} xs={12} justifyContent="flex-start" alignItems="flex-start" spacing={2}>
+                <form onSubmit={(event) => {
+                    event.preventDefault();
+                    window.location.href="/admin"
+                }}>
+                    <Grid container item lg={4} md={5} xs={12} justifyContent="flex-start" alignItems="flex-start" spacing={2}>
                         <Grid item xs={12} md={12} mb={15}>
                             <Typography variant="h3" component="div" color="primary" style={{ fontWeight: 'bold' }}>Login</Typography>
                         </Grid>
@@ -29,7 +32,7 @@ export default function Login() {
                         </Grid>
                         <Grid item xs={12} md={6} lg={6} mt={1}>
                             <Typography variant="subtitle1" component="span">
-                                <Link to="/Cadastro" style={{ fontWeight: 'bold', textDecoration: 'none', color: '#A29BFE' }}>
+                                <Link to="/cadastro" style={{ fontWeight: 'bold', textDecoration: 'none', color: '#A29BFE' }}>
                                     Esqueceu a senha?
                                 </Link>
                             </Typography>
@@ -43,3 +46,4 @@ export default function Login() {
         </div>
     )
 }
+

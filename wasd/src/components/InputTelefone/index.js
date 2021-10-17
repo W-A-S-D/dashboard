@@ -26,7 +26,9 @@ function InputForm(props) {
   const [content, setPhone] = React.useState("");
 
   const handleChange = (event) => {
-    setPhone(event.target.value);
+    if (event.target.value.length === 14) {
+      setPhone(event.target.value);
+    }
   };
 
   return (
