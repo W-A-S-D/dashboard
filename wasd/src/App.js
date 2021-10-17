@@ -6,7 +6,7 @@ import {
 
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
-
+import AdminPage from "./pages/Admin";
 
 function App() {
   return (
@@ -18,6 +18,9 @@ function App() {
           </Route>
           <Route path="/cadastro">
             <Cadastro />
+          </Route>
+          <Route path="/admin">
+            <AdminPage />
           </Route>
         </Switch>
       </Router>

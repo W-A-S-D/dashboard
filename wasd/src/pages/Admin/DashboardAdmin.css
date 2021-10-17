@@ -88,9 +88,9 @@
 
 .CardNum {
     position: absolute;
-    margin-left: 67px;
+    margin-left: 70px;
     font-weight: 400;
-
+    font-size: 30px;
 }
 
 .Grafico{
