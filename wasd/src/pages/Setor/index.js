@@ -10,7 +10,7 @@ function Setor() {
             <div id="Dashboard" style={styles.Dashboard}>
                 <MenubarAdm/>
                 <div id="pagina">
-                    <div id="Setor" style={styles.Setor}>
+                    {/* <div id="Setor" style={styles.Setor}>
                         <div id="Titulo" style={styles.Titulo}>Setor</div>
                         <img id="Adicionar" src="img/icones/mais.svg" alt="" style={styles.Adicionar} />
                         <div class="corpo" style={styles.corpo}>
@@ -18,7 +18,7 @@ function Setor() {
                             <Card imagens="../../img/fortnite.png" descricao="fortnite" nomeJogo="Fortnite" nomeFunc="Carla Francisca" bgColor="#D2B6DE" />
                             <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1"/>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* <div id="Maquinas" style={styles.Maquinas}>
                         <div id="Titulo" style={styles.Titulo}>Dashboard do Setor</div>

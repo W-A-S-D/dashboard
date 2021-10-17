@@ -7,9 +7,9 @@ function MenubarAdm() {
     return (
         <>
             <div id="Menubar" style={styles.Menubar}>
-                <HomeIcon sx={{ fontSize: 56, marginTop: '5vh' }} color="primary"/>
-                <AppsIcon sx={{ fontSize: 56, marginTop: '5vh' }} color="primary"/>
-                <ContactSupportIcon sx={{ fontSize: 56, marginTop: '5vh' }} color="primary"/>  
+                <HomeIcon sx={{ fontSize: 40, marginTop: '5vh' }} color="primary"/>
+                <AppsIcon sx={{ fontSize: 40, marginTop: '5vh' }} color="primary"/>
+                <ContactSupportIcon sx={{ fontSize: 40, marginTop: '5vh' }} color="primary"/>  
             </div>
          </>
      )
