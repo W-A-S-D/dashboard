@@ -14,8 +14,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            {/* <Login /> */}
-            <ModalComponent/>
+            <Login />
           </Route>
           <Route path="/cadastro">
             <Cadastro />
