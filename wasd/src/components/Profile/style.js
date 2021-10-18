@@ -5,7 +5,7 @@ export const styles = {
     container: {
         display: 'flex',
         flexDirection: 'column',
-        width: '20vw',
+        width: '25vw',
         height: '90vh',
         backgroundColor: '#F8F8F8',
         borderRadius: '8px'
