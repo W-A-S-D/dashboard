@@ -4,15 +4,23 @@ import { styles } from './style.js';
 
 import ProgressBar from '../../components/ProgressBar/index.js';
 import StatusCard from '../../components/StatusCard/index.js';
-import MenubarAdm from '../../components/MenubarAdm/index.js';
+import DashboardHolder from '../../components/DashboardHolder/index.js';
+import MainContainer from '../../components/MainContainer/index.js';
+import Profile from '../../components/Profile/index.js';
 
 
 const AdminPage = (props) => {
 
     return (
         <>
-        <MenubarAdm/>
-            <div style={styles.dashboardAdmin}>
+        <DashboardHolder>
+            <MainContainer>
+
+            </MainContainer>
+            <Profile/>
+
+        </DashboardHolder>
+            {/* <div style={styles.dashboardAdmin}>
                 <div style={styles.tituloHolder}>
                     <div style={styles.titulo}>Home
                     </div>
@@ -35,7 +43,7 @@ const AdminPage = (props) => {
                         <ProgressBar label='TFTs' barValue='75%' />
                     </div>  
                 </div>
-            </div>
+            </div> */}
         </>)
 }
 
