@@ -1,16 +1,18 @@
 export const styles = {
     Setor: {
         position: 'relative',
-        marginLeft: '71px',
-        margintop: '71px',
-        width: '1048px',
-        height: '439px',
+        margin: '0 auto',
+        marginTop: '20px',
+        width: '90%',
+        height: '55%',
         background: '#FFFFFF',
         padding: '20px',
+        paddingTop: '5px',
         /* Destaque - Home - Instável/Estável */
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
         borderRadius: '24px',
-        display: 'block'
+        display: 'flex',
+        flexDirection: 'column',
     },
 
     pagina: {
@@ -18,7 +20,7 @@ export const styles = {
     },
 
     Titulo: {
-        margin: '0px 0 30px 20px',
+        margin: '0px 0 1.5% 20px',
         fontFamily: 'Noto Sans',
         fontStyle: 'normal',
         fontWeight: 'bold',
@@ -28,40 +30,36 @@ export const styles = {
     SetorTitulo: {
         display: 'inline-block'
     },
+
     Adicionar: {
-        float: 'right',
+        position: 'absolute',
+        top: 10,
+        right: 10,
         cursor: 'pointer'
     },
 
     corpo: {
-        display: 'flex'
+        display: 'flex',
+        flex: 1,
     },
 
-    Dashboard:{
-        margin: '30px 0 0 20px',
-        height: '90vh',
-        width: '70vw',
-        backgroundColor: '#FFFFFF',
 
-        boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
-        borderRadius: '24px',
-        display: 'flex'
-    },
-
-    Maquinas:{
+    Maquinas: {
         position: 'relative',
-        marginLeft: '71px',
-        marginTop: '50px',
-        width: '1048px',
-        height: '288px',
+        margin: '0 auto',
+        marginTop: '20px',
+        width: '90%',
         background: '#FFFFFF',
         padding: '20px',
-    /* Destaque - Home - Instável/Estável */
+        paddingTop: '5px',
+        /* Destaque - Home - Instável/Estável */
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
-        borderRadius: '24px'  
+        borderRadius: '24px',
+        display: 'flex',
+        flexDirection: 'column',
     },
 
-    corpoMaquina:{
+    corpoMaquina: {
         display: 'flex'
     }
 }

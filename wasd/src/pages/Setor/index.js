@@ -1,27 +1,25 @@
 import Card from "../../components/Card"
 import Maquina from "../../components/Maquina"
 import MenubarAdm from "../../components/MenubarAdm"
-import { styles } from "./style"
+import DashboardHolder from "../../components/DashboardHolder";
+import MainContainer from "../../components/MainContainer";
+import { styles } from "./styles";
+import Profile from "../../components/Profile";
 
 function Setor() {
     return (
-        < div style={{ backgroundColor: '#252525' }}>
-            <div id="Dashboard" style={styles.Dashboard}>
-                <MenubarAdm/>
-                <div id="pagina">
-
-                    <div id="Setor" style={styles.Setor}>
-                        <div id="Titulo" style={styles.Titulo}>Setor</div>
-                        <img id="Adicionar" src="img/icones/mais.svg" alt="" style={styles.Adicionar} />
-                        <div class="corpo" style={styles.corpo}>
-                            <Card imagens="../../img/minecraft.png" descricao="minecraft" nomeJogo="Minecraft" nomeFunc="Carla Fracisca" bgColor="#5BD7F4"/>
-                            <Card imagens="../../img/fortnite.png" descricao="fortnite" nomeJogo="Fortnite" nomeFunc="Carla Francisca" bgColor="#D2B6DE" />
-                            <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1"/>
-                        </div>
-
+        <DashboardHolder>
+            <MainContainer>
+                <div id="Setor" style={styles.Setor}>
+                    <div id="Titulo" style={styles.Titulo}>Setor</div>
+                    <img id="Adicionar" src="img/icones/mais.svg" alt="" style={styles.Adicionar} />
+                    <div class="corpo" style={styles.corpo}>
+                        <Card imagens="../../img/minecraft.png" descricao="minecraft" nomeJogo="Minecraft" nomeFunc="Carla Fracisca" bgColor="#5BD7F4" />
+                        <Card imagens="../../img/fortnite.png" descricao="fortnite" nomeJogo="Fortnite" nomeFunc="Carla Francisca" bgColor="#D2B6DE" />
+                        <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
                     </div>
-
-                    <div id="Maquinas" style={styles.Maquinas}>
+                </div>
+                <div id="Maquinas" style={styles.Maquinas}>
                         <div id="Titulo" style={styles.Titulo}>Dashboard do Setor</div>
                         <div class="corpo_maquina" style={styles.corpoMaquina}>
                             <Maquina imagens="../../img/icones/PC1.svg" descricao="Pc1" computador="Computador 001" alertas="Alerta" imagens2="../../img/icones/Ellipse1.svg" descricao2="Bolinha1" bgColorGrad="linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)"/>
@@ -30,10 +28,12 @@ function Setor() {
 
                         </div>
                     </div>
+            </MainContainer>
+            <Profile/>
 
-                </div>
-            </div>
-        </div>
+        
+
+        </DashboardHolder>
 
     )
 }
