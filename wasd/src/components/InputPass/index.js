@@ -10,9 +10,6 @@ function InputPass(props) {
         showPassword: false,
     });
 
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
 
     const handleClickShowPassword = () => {
         setValues({
@@ -34,8 +31,8 @@ function InputPass(props) {
                 <FilledInput
                     id="filled-adornment-password"
                     type={values.showPassword ? 'text' : 'password'}
-                    value={values.password}
-                    onChange={handleChange('password')}
+                    value={props.password}
+                    onChange={props.onChange}
                     fullWidth
                     required
                     endAdornment={

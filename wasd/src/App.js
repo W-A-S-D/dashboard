@@ -23,7 +23,7 @@ function App() {
           <Route path="/admin">
             <AdminPage />
           </Route>
-          <Route path="/setor">
+          <Route exact path="/setor">
             <Setor />
           </Route>
         </Switch>
