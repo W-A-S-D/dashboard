@@ -20,9 +20,9 @@ const AdminPage = (props) => {
                     </div>
                 </div>
                 <div style={styles.cardHolder}>
-                    <StatusCard type='alert' value={50} />
-                    <StatusCard type='warning' value={100} />
-                    <StatusCard type='normal' value={100} />
+                    <StatusCard hoverColor="#D12F2F" type='alert' value={40} />
+                    <StatusCard hoverColor="#D1902F" type='warning' value={12} />
+                    <StatusCard hoverColor="#7FB8C4" type='normal' value={48} />
                 </div>
                 <div style={styles.grafico}>
                     <div style={styles.gameHolder}>
@@ -33,8 +33,8 @@ const AdminPage = (props) => {
                     </div>
                     <div style={styles.layout}>
                         <ProgressBar label='League of Legends' barValue='35%' />
-                        <ProgressBar label='Valorant' barValue='55%' />
-                        <ProgressBar label='TFTs' barValue='75%' />
+                        <ProgressBar label='Fortnite' barValue='55%' />
+                        <ProgressBar label='Minecraft' barValue='75%' />
                     </div>  
                 </div>
             </MainContainer>

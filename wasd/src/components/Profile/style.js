@@ -1,6 +1,8 @@
 import imageMine from '../../img/icon-mine.png';
 import imageFort from '../../img/icon-fortnite.png';
 import imageLol from '../../img/icon-lol.png';
+import Imagem from '../../img/maisa.png'
+
 export const styles = {
     container: {
         display: 'flex',
@@ -25,23 +27,25 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        height: '300px'
+        height: '290px'
     },
     profilePhoto: {
         padding: '5px',
         width: '155px',
         height: '155px',
         borderRadius: '300px',
-        backgroundColor: '#000000'
+        backgroundImage: `url(${Imagem})`,
+        backgroundSize: 'cover',
     },
     profileName: {
-        marginTop: '14px',
+        marginTop: '30px',
         fontSize: '22px',
         fontWeight: '800'
     },
     profileStatus: {
-        font: '22px',
-        fontWeight: '600',
+        marginTop: '5px',
+        fontSize: '22px',
+        fontWeight: '700',
         color: '#8E73DF'
     },
     setor: {

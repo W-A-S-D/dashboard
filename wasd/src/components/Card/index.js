@@ -1,7 +1,22 @@
+import React from "react";
 import { styles } from "./style"
 
 
 function Card(props) {
+    let [over, setOver] = React.useState(false);
+
+    let hoverstyle = {
+        backgroundColor: ''
+    }
+
+    if (over) {
+        hoverstyle.borderRadius = '25px 25px 25px 25px';
+        hoverstyle.boxShadow = `0 8px 16px 0 ${props.bgColor}`;
+    }
+    else {
+        hoverstyle.backgroundColor = '';
+    }
+    
     return (
         <>
             {/* <div style={styles.Card}>
@@ -11,9 +26,11 @@ function Card(props) {
                     <p style={styles.CardP}>{props.nomeFunc}</p>
                 </div>
             </div> */}
-
-
-            <div style={styles.Card}>
+            <div
+                style={{ ...styles.Card, ...hoverstyle }}
+                onMouseOver={() => setOver(true)}
+                onMouseOut={() => setOver(false)}
+            >
                 <div>
                     <img style={styles.cardImage} src={props.imagens} alt={props.descricao} />
                 </div>

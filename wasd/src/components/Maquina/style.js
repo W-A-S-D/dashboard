@@ -6,6 +6,7 @@ export const styles = {
         height: '133.57px',
         borderRadius: '14px 14px 14px 14px',
         marginLeft: '20px',
+        marginRight: '20px',
         textAlign: 'center',
         padding: '13px',
         fontFamily: 'Noto Sans',
@@ -16,15 +17,12 @@ export const styles = {
         background: 'linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)',
         boxSizing: 'border-box'
     },
-    /*MaqMaq1:hover{
-        border: 0.4px solid #D12F2F;   
-    }*/
-    
-    
+
     MaqH5:{
         margin: '0',
         marginTop: '10px'
     },
+
     MaqP:{
         margin: '0',
         display: 'inline-block',

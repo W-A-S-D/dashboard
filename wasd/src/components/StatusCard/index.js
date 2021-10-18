@@ -1,6 +1,20 @@
+import React from "react";
 import { Chart } from "react-google-charts";
 
 const StatusCard = (props) => {
+    let [over, setOver] = React.useState(false);
+
+    let hoverstyle = {
+        border: ''
+    }
+
+    if (over) {
+        hoverstyle.border = `1px solid ${props.hoverColor}`;
+    }
+    else {
+        hoverstyle.border = '';
+    }
+
     const statusEnum = {
         alert: 'alert',
         warning: 'warning',
@@ -10,9 +24,10 @@ const StatusCard = (props) => {
     return (
         <>
             <div style={{
+                ...hoverstyle,
                 position: 'relative',
                 marginLeft: '71px',
-                marginTop: '71px',
+                marginTop: '4vh',
                 width: '312px',
                 height: '208px',
                 background: props.type === statusEnum.alert ? 'linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)' : props.type === statusEnum.warning ? 'linear-gradient(114.39deg, rgba(209, 144, 47, 0.38) 1.37%, rgba(255, 255, 255, 0.38) 98.13%)' : 'linear-gradient(114.7deg, rgba(127, 184, 196, 0.38) 0%, rgba(255, 255, 255, 0.38) 97.69%)',
@@ -20,7 +35,10 @@ const StatusCard = (props) => {
                 borderRadius: '14px',
                 display: 'flex',
                 alignItems: 'center',
-            }}>
+            }}
+                onMouseOver={() => setOver(true)}
+                onMouseOut={() => setOver(false)}
+            >
                 <Chart
                     width={'190px'}
                     height={'190px'}
@@ -39,30 +57,30 @@ const StatusCard = (props) => {
                         pieStartAngle: 90,
                         tooltip: { trigger: 'none' },
                         backgroundColor: 'none',
-                        // Just add this option
                         pieHole: 0.8,
                         marginTop: 0,
                         slices: {
                             0: { color: props.type === statusEnum.alert ? `#D12F2F` : props.type === statusEnum.warning ? `#D1902F` : `#36ADC6` },
-                            1: { color: props.type === statusEnum.alert ? `#F9A4A4` : props.type === statusEnum.warning ? `#000` : `#000` },
+                            1: { color: props.type === statusEnum.alert ? `#F9A4A4` : props.type === statusEnum.warning ? `#E4C494` : `#87C8D6` },
                         },
                     }}
                     rootProps={{ 'data-testid': '3' }}
                 />
-                
+
                 <div style={{
                     color: props.type === statusEnum.alert ? `#D12F2F` : props.type === statusEnum.warning ? `#D1902F` : `#36ADC6`,
                     position: 'absolute',
-                    marginLeft: props.type === statusEnum.alert ? '70px': '20%',
+                    marginLeft: '70px',
                     fontWeight: '400',
                     fontSize: '30px',
                 }}>{props.value}%
                 </div>
 
-                <div style={{ 
+                <div style={{
                     fontFamily: 'Noto sans',
                     fontSize: '22px',
-                    color: props.type === statusEnum.alert ? `#D12F2F` : props.type === statusEnum.warning ? `#D1902F` : `#36ADC6` }}>{props.type === statusEnum.alert ? 'Alerta' : props.type === statusEnum.warning ? 'Atenção' : 'Normal'} </div>
+                    color: props.type === statusEnum.alert ? `#D12F2F` : props.type === statusEnum.warning ? `#D1902F` : `#36ADC6`
+                }}>{props.type === statusEnum.alert ? 'Alerta' : props.type === statusEnum.warning ? 'Atenção' : 'Normal'} </div>
             </div>
         </>
     )

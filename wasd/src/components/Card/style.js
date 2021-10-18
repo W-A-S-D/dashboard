@@ -13,14 +13,9 @@ export const styles = {
         flexDirection: 'column',
         justifyContent: 'end',
         marginLeft: '20px',
+        marginRight: '20px',
         cursor: 'pointer',
     },
-
-    // /*CardCard1:hover:{
-    //     borderRadius: '25px 25px 25px 25px',
-    //     boxShadow: '0 8px 16px 0 #5BD7F4'
-    // },*/
-
 
     container1: {
         backgroundColor: '#5BD7F4',
@@ -31,8 +26,7 @@ export const styles = {
         maxHeight: '140px',
         fontFamily: 'noto sans',
         color: '#fff',
-        paddingLeft: '10px'
-
+        paddingLeft: '15px'
     },
 
     cardImage: {

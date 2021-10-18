@@ -1,7 +1,7 @@
 import Card from "../../components/Card"
 import Maquina from "../../components/Maquina"
-import MenubarAdm from "../../components/MenubarAdm"
 import DashboardHolder from "../../components/DashboardHolder";
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import MainContainer from "../../components/MainContainer";
 import { styles } from "./styles";
 import Profile from "../../components/Profile";
@@ -20,19 +20,43 @@ function Setor() {
                     </div>
                 </div>
                 <div id="Maquinas" style={styles.Maquinas}>
-                        <div id="Titulo" style={styles.Titulo}>Dashboard do Setor</div>
-                        <div class="corpo_maquina" style={styles.corpoMaquina}>
-                            <Maquina imagens="../../img/icones/PC1.svg" descricao="Pc1" computador="Computador 001" alertas="Alerta" imagens2="../../img/icones/Ellipse1.svg" descricao2="Bolinha1" bgColorGrad="linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)"/>
-                            <Maquina imagens="../../img/icones/PC2.svg" descricao="Pc2" computador="Computador 002" alertas="Atenção" imagens2="../../img/icones/Ellipse2.svg" descricao2="Bolinha2" bgColorGrad="linear-gradient(114.39deg, rgba(209, 144, 47, 0.38) 1.37%, rgba(255, 255, 255, 0.38) 98.13%)"/>
-                            <Maquina imagens="../../img/icones/PC3.svg" descricao="Pc3" computador="Computador 003" alertas="Normal" imagens2="../../img/icones/Ellipse3.svg" descricao2="Bolinha3" bgColorGrad="linear-gradient(114.7deg, rgba(127, 184, 196, 0.38) 0%, rgba(255, 255, 255, 0.38) 97.69%)"/>
-
-                        </div>
+                    <div id="Titulo" style={styles.Titulo}>Dashboard do Setor</div>
+                    <div class="corpo_maquina" style={styles.corpoMaquina}>
+                        <Maquina
+                            imagens="../../img/icones/PC1.svg"
+                            hoverColor="#D12F2F"
+                            descricao="Pc1"
+                            computador="Computador 001"
+                            alertas="Alerta"
+                            imagens2="../../img/icones/Ellipse1.svg"
+                            descricao2="Bolinha1"
+                            bgColorGrad="linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)"
+                        />
+                        <Maquina
+                            imagens="../../img/icones/PC2.svg"
+                            hoverColor="#D1902F"
+                            descricao="Pc2"
+                            computador="Computador 002"
+                            alertas="Atenção"
+                            imagens2="../../img/icones/Ellipse2.svg"
+                            descricao2="Bolinha2"
+                            bgColorGrad="linear-gradient(114.39deg, rgba(209, 144, 47, 0.38) 1.37%, rgba(255, 255, 255, 0.38) 98.13%)"
+                        />
+                        <Maquina
+                            imagens="../../img/icones/PC3.svg"
+                            hoverColor="#7FB8C4"
+                            descricao="Pc3"
+                            computador="Computador 003"
+                            alertas="Normal"
+                            imagens2="../../img/icones/Ellipse3.svg"
+                            descricao2="Bolinha3"
+                            bgColorGrad="linear-gradient(114.7deg, rgba(127, 184, 196, 0.38) 0%, rgba(255, 255, 255, 0.38) 97.69%)"
+                        />
                     </div>
+                </div>
+                <div style={styles.arrowDown}><KeyboardArrowDownIcon fontSize='large'></KeyboardArrowDownIcon></div>
             </MainContainer>
-            <Profile/>
-
-        
-
+            <Profile />
         </DashboardHolder>
 
     )

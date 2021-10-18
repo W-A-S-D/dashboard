@@ -1,10 +1,10 @@
 export const styles = {
     Setor: {
         position: 'relative',
-        margin: '0 auto',
+        margin: '4vh auto',
         marginTop: '20px',
         width: '90%',
-        height: '55%',
+        height: '50%',
         background: '#FFFFFF',
         padding: '20px',
         paddingTop: '5px',
@@ -20,7 +20,7 @@ export const styles = {
     },
 
     Titulo: {
-        margin: '0px 0 1.5% 20px',
+        margin: '2vh 0 2.5vh 20px',
         fontFamily: 'Noto Sans',
         fontStyle: 'normal',
         fontWeight: 'bold',
@@ -43,12 +43,12 @@ export const styles = {
         flex: 1,
     },
 
-
     Maquinas: {
         position: 'relative',
         margin: '0 auto',
         marginTop: '20px',
         width: '90%',
+        height: '30vh',
         background: '#FFFFFF',
         padding: '20px',
         paddingTop: '5px',
@@ -61,5 +61,11 @@ export const styles = {
 
     corpoMaquina: {
         display: 'flex'
+    },
+
+    arrowDown: {
+        marginTop: '2vh',
+        marginLeft: '30vw',
+        color: 'rgba(136,136,136, 0.54)'
     }
 }

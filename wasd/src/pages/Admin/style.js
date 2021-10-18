@@ -20,7 +20,7 @@ export const styles = {
         fontFamily: 'Noto Sans',
         fontSize: '32px',
         fontWeight: '700',
-        marginTop: '2%',
+        marginTop: '3%',
         marginLeft: '72px',
     },
 
@@ -30,12 +30,6 @@ export const styles = {
         display: 'flex',
         flexDirection: 'row',
     },
-
-
-
-    // .Card2:hover {
-    //     border: 1px solid #D1902F; 
-    // }
 
     card3: {
         position: 'relative',
@@ -50,10 +44,6 @@ export const styles = {
         alignItems: 'center',
     },
 
-    // .Card3:hover {
-    //     border: 1px solid #36ADC6;
-    // }
-
     cardNum: {
         position: 'absolute',
         marginLeft: '70px',
@@ -63,9 +53,8 @@ export const styles = {
 
     grafico: {
         marginLeft: '71px',
-        marginTop: '71px',
         width: '1079px',
-        height: '439px',
+        height: '43vh',
         background: '#FFFFFF',
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
         borderRadius: '24px',
