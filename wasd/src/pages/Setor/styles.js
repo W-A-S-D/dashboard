@@ -46,15 +46,17 @@ export const styles = {
 
     Maquinas: {
         position: 'relative',
-        marginLeft: '71px',
-        marginTop: '50px',
-        width: '1048px',
-        height: '288px',
+        margin: '0 auto',
+        marginTop: '20px',
+        width: '90%',
         background: '#FFFFFF',
         padding: '20px',
+        paddingTop: '5px',
         /* Destaque - Home - Instável/Estável */
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
-        borderRadius: '24px'
+        borderRadius: '24px',
+        display: 'flex',
+        flexDirection: 'column',
     },
 
     corpoMaquina: {

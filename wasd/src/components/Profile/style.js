@@ -5,7 +5,7 @@ export const styles = {
     container: {
         display: 'flex',
         flexDirection: 'column',
-        width: '416px',
+        width: '20vw',
         height: '90vh',
         backgroundColor: '#F8F8F8',
         borderRadius: '8px'
@@ -60,4 +60,3 @@ export const images = {
     imageFort: `${imageFort}`,
     imageLol: `${imageLol}`
 }
-

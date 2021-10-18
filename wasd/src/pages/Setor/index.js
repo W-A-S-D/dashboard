@@ -3,7 +3,8 @@ import Maquina from "../../components/Maquina"
 import MenubarAdm from "../../components/MenubarAdm"
 import DashboardHolder from "../../components/DashboardHolder";
 import MainContainer from "../../components/MainContainer";
-import { styles } from "./styles"
+import { styles } from "./styles";
+import Profile from "../../components/Profile";
 
 function Setor() {
     return (
@@ -18,10 +19,7 @@ function Setor() {
                         <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
                     </div>
                 </div>
-
-            </MainContainer>
-
-            {/* <div id="Maquinas" style={styles.Maquinas}>
+                <div id="Maquinas" style={styles.Maquinas}>
                         <div id="Titulo" style={styles.Titulo}>Dashboard do Setor</div>
                         <div class="corpo_maquina" style={styles.corpoMaquina}>
                             <Maquina imagens="../../img/icones/PC1.svg" descricao="Pc1" computador="Computador 001" alertas="Alerta" imagens2="../../img/icones/Ellipse1.svg" descricao2="Bolinha1" bgColorGrad="linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)"/>
@@ -29,7 +27,11 @@ function Setor() {
                             <Maquina imagens="../../img/icones/PC3.svg" descricao="Pc3" computador="Computador 003" alertas="Normal" imagens2="../../img/icones/Ellipse3.svg" descricao2="Bolinha3" bgColorGrad="linear-gradient(114.7deg, rgba(127, 184, 196, 0.38) 0%, rgba(255, 255, 255, 0.38) 97.69%)"/>
 
                         </div>
-                    </div> */}
+                    </div>
+            </MainContainer>
+            <Profile/>
+
+        
 
         </DashboardHolder>
 
