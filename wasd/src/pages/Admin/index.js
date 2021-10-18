@@ -15,12 +15,6 @@ const AdminPage = (props) => {
         <>
         <DashboardHolder>
             <MainContainer>
-
-            </MainContainer>
-            <Profile/>
-
-        </DashboardHolder>
-            {/* <div style={styles.dashboardAdmin}>
                 <div style={styles.tituloHolder}>
                     <div style={styles.titulo}>Home
                     </div>
@@ -43,7 +37,11 @@ const AdminPage = (props) => {
                         <ProgressBar label='TFTs' barValue='75%' />
                     </div>  
                 </div>
-            </div> */}
+            </MainContainer>
+            <Profile/>
+
+        </DashboardHolder>
+        
         </>)
 }
 

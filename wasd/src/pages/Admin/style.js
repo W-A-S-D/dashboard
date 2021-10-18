@@ -1,14 +1,14 @@
 export const styles = {
-    dashboardAdmin: {
-        width: '1348px',
-        height: '984px',
-        backgroundColor: '#fff',
-        borderRadius: '24px',
-        color: '#000',
-        boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
-        display: 'flex',
-        flexDirection: 'column',
-    },
+    // dashboardAdmin: {
+    //     width: '1348px',
+    //     height: '984px',
+    //     backgroundColor: '#fff',
+    //     borderRadius: '24px',
+    //     color: '#000',
+    //     boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    // },
 
     tituloHolder: {
         display: 'flex',
@@ -43,7 +43,7 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
     },
-    
+
     // .Card1:hover {
     //     border: 1px solid #D12F2F; 
     // }
@@ -81,7 +81,7 @@ export const styles = {
     // .Card3:hover {
     //     border: 1px solid #36ADC6;
     // }
-    
+
     cardNum: {
         position: 'absolute',
         marginLeft: '70px',
