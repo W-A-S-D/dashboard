@@ -20,7 +20,7 @@ export const styles = {
         fontFamily: 'Noto Sans',
         fontSize: '32px',
         fontWeight: '700',
-        marginTop: '50px',
+        marginTop: '2%',
         marginLeft: '72px',
     },
 
@@ -31,35 +31,7 @@ export const styles = {
         flexDirection: 'row',
     },
 
-    card1: {
-        position: 'relative',
-        marginLeft: '71px',
-        marginTop: '71px',
-        width: '312px',
-        height: '208px',
-        background: 'linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)',
-        boxShadow: '2px 2px 15px rgba(0, 0, 0, 0.1)',
-        borderRadius: '14px',
-        display: 'flex',
-        alignItems: 'center',
-    },
 
-    // .Card1:hover {
-    //     border: 1px solid #D12F2F; 
-    // }
-
-    card2: {
-        position: 'relative',
-        marginLeft: '71px',
-        marginTop: '71px',
-        width: '312px',
-        height: '208px',
-        background: 'linear-gradient(114.39deg, rgba(209, 144, 47, 0.38) 1.37%, rgba(255, 255, 255, 0.38) 98.13%)',
-        boxShadow: '2px 2px 15px rgba(0, 0, 0, 0.1)',
-        borderRadius: '14px',
-        display: 'flex',
-        alignItems: 'center',
-    },
 
     // .Card2:hover {
     //     border: 1px solid #D1902F; 
