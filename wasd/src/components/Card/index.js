@@ -4,11 +4,22 @@ import { styles } from "./style"
 function Card(props) {
     return (
         <>
-            <div class="Card1" id="Card" style={{...styles.Card,...styles.Card1}}>
-                <img src={props.imagens} alt={props.descricao} />
-                <div class="container1" style={{...styles.container1, backgroundColor: props.bgColor}}>
+            {/* <div style={styles.Card}>
+                <img style={styles.cardImage} src={props.imagens} alt={props.descricao} />
+                <div style={{ ...styles.container1, backgroundColor: props.bgColor }}>
                     <h4 style={styles.CardH4}><b>{props.nomeJogo}</b></h4>
                     <p style={styles.CardP}>{props.nomeFunc}</p>
+                </div>
+            </div> */}
+
+
+            <div style={styles.Card}>
+                <div>
+                    <img style={styles.cardImage} src={props.imagens} alt={props.descricao} />
+                </div>
+                <div style={{ ...styles.container1, backgroundColor: props.bgColor }}>
+                    <h4 ><b>{props.nomeJogo}</b></h4>
+                    <p >{props.nomeFunc}</p>
                 </div>
             </div>
         </>
