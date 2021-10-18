@@ -20,7 +20,7 @@ export const styles = {
     },
 
     Titulo: {
-        margin: '0px 0 10px 20px',
+        margin: '0px 0 1.5% 20px',
         fontFamily: 'Noto Sans',
         fontStyle: 'normal',
         fontWeight: 'bold',
