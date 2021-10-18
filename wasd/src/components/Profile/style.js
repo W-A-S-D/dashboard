@@ -5,7 +5,7 @@ export const styles = {
     container: {
         display: 'flex',
         flexDirection: 'column',
-        width: '25vw',
+        width: '22.5vw',
         height: '90vh',
         backgroundColor: '#F8F8F8',
         borderRadius: '8px'
@@ -45,9 +45,12 @@ export const styles = {
         color: '#8E73DF'
     },
     setor: {
-        paddingBottom: '14px',
+        width: `70%`,
+        paddingTop: '20px',
+        paddingBottom: '35px',
         borderTop: '2px solid rgba(136,136,136, 0.54)',
-        borderBottom: '2px solid rgba(136,136,136, 0.54)'
+        borderBottom: '2px solid rgba(136,136,136, 0.54)',
+        marginBottom: '30px'
     },
     arrowDown: {
         color: 'rgba(136,136,136, 0.54)'
