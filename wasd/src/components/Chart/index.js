@@ -4,7 +4,7 @@ function ChartFuncionario(props) {
 
   return (
     <Chart
-      width={'600px'}
+      width={'800px'}
       height={'400px'}
       chartType="LineChart"
       loader={<div>Loading Chart</div>}
@@ -28,8 +28,8 @@ function ChartFuncionario(props) {
           viewWindow: {
             min: props.min,
             max: props.max
-          }
-        },
+          }          
+        },        
         series: {
           0: { curveType: 'function' },
         },
