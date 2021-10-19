@@ -10,6 +10,7 @@ import AdminPage from "./pages/Admin";
 import Setor from "./pages/Setor";
 import DadosSetor from './pages/DadosSetor'
 
+
 function App() {
   return (
     <>
