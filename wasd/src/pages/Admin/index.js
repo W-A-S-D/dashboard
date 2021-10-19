@@ -7,6 +7,7 @@ import StatusCard from '../../components/StatusCard/index.js';
 import DashboardHolder from '../../components/DashboardHolder/index.js';
 import MainContainer from '../../components/MainContainer/index.js';
 import Profile from '../../components/Profile/index.js';
+import Title from '../../components/Title/index';
 
 
 const AdminPage = (props) => {
@@ -15,10 +16,7 @@ const AdminPage = (props) => {
         <>
         <DashboardHolder>
             <MainContainer>
-                <div style={styles.tituloHolder}>
-                    <div style={styles.titulo}>Home
-                    </div>
-                </div>
+              <Title value='Home'/>
                 <div style={styles.cardHolder}>
                     <StatusCard hoverColor="#D12F2F" type='alert' value={40} />
                     <StatusCard hoverColor="#D1902F" type='warning' value={12} />
