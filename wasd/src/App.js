@@ -8,7 +8,6 @@ import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import AdminPage from "./pages/Admin";
 import Setor from "./pages/Setor";
-import HomeFunc from "./pages/HomeFuncionario";
 
 
 function App() {
@@ -27,9 +26,6 @@ function App() {
           </Route>
           <Route path="/setor">
             <Setor />
-          </Route>
-          <Route path="/HomeFuncionario">
-            <HomeFunc />
           </Route>
         </Switch>
       </Router>

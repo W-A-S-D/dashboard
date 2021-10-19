@@ -1,8 +1,8 @@
 import { Container, Grid, Button } from "@material-ui/core"
-import ChartFuncionario from "../../components/Chart"
+import ChartFuncionario from "../Chart"
 import * as React from 'react';
 
-export default function HomeFunc() {
+export default function DefaultGraph() {
     const [title, setTitle] = React.useState('CPU');
     const [TemDes, setTemDes] = React.useState('Temperatura');
     const [Minimo, setMinimo] = React.useState();
