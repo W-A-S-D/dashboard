@@ -13,5 +13,7 @@ export const styles = {
         borderRadius: '24px',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 }

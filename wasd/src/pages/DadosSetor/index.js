@@ -4,6 +4,7 @@ import MainContainer from '../../components/MainContainer';
 import Profile from '../../components/Profile';
 import Title from '../../components/Title';
 import { styles } from './styles';
+import DefaultGraph from '../../components/DefaultGraph';
 
 const DadosSetor = () => {
     return (
@@ -12,7 +13,7 @@ const DadosSetor = () => {
                 <MainContainer>
                     <Title value='Detalhamento'/>
                     <div style={styles.container}>
-                        
+                        <DefaultGraph />
                     </div>
                 </MainContainer>
                 <Profile />
