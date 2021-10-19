@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Card from "../../components/Card"
 import Maquina from "../../components/Maquina"
 import DashboardHolder from "../../components/DashboardHolder";
@@ -5,14 +6,19 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import MainContainer from "../../components/MainContainer";
 import { styles } from "./styles";
 import Profile from "../../components/Profile";
+import ModalComponent from "../../components/Modal";
 
 function Setor() {
+    const [modalState, setModalState] = React.useState(false)
     return (
         <DashboardHolder>
             <MainContainer>
                 <div id="Setor" style={styles.Setor}>
                     <div id="Titulo" style={styles.Titulo}>Setor</div>
-                    <img id="Adicionar" src="img/icones/mais.svg" alt="" style={styles.Adicionar} />
+                    
+                    <img onClick={() => {
+                        setModalState(true);
+                    }} id="Adicionar" src="img/icones/mais.svg" alt="" style={styles.Adicionar} />
                     <div class="corpo" style={styles.corpo}>
                         <Card imagens="../../img/minecraft.png" descricao="minecraft" nomeJogo="Minecraft" nomeFunc="Carla Fracisca" bgColor="#5BD7F4" />
                         <Card imagens="../../img/fortnite.png" descricao="fortnite" nomeJogo="Fortnite" nomeFunc="Carla Francisca" bgColor="#D2B6DE" />
@@ -57,6 +63,9 @@ function Setor() {
                 <div style={styles.arrowDown}><KeyboardArrowDownIcon fontSize='large'></KeyboardArrowDownIcon></div>
             </MainContainer>
             <Profile />
+            <ModalComponent open={modalState} onClick={() => {
+                setModalState(false);
+            }} />
         </DashboardHolder>
 
     )

@@ -8,23 +8,19 @@ import ButtonModal from '../ButtonModal';
 import { styles } from './style.js';
 
 const ModalComponent = (props) => {
-    const [open, setOpen ] = React.useState(true);
-    
-    const handleClose = () => {
-        setOpen(false);
-    }
+   
 
     return (
         <>
             <Modal
-                open={open}
+                open={props.open}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={styles.boxContainer}>
                     <IconButton
                         sx={{position:'absolute', top: 0, right: 0}}
-                        onClick={handleClose}
+                        onClick={props.onClick}
                     >
                         <HighlightOffIcon />
                     </IconButton>
