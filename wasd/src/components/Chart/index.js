@@ -28,13 +28,13 @@ function ChartFuncionario(props) {
           viewWindow: {
             min: props.min,
             max: props.max
-          }          
+          } ,         
         },        
         series: {
           0: { curveType: 'function' },
         },
         legend: {
-          display: false,
+          display: 'none',
         }
       }
       }
