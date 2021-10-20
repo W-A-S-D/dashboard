@@ -22,7 +22,9 @@ const MiniCardSetor = (props) => {
         boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.24)',
         paddingBottom: '10px',
         margin: '15px auto'
-      }}>
+      }}
+      onClick={() => window.location.href = "/setor"}
+      >
         <div style={styles.alertaSetor}>
           <img src={props.img} style={styles.setorImages} alt="Imagem Setor"></img>
           <div style={{ display: 'flex', flexDirection: 'column' }}>

@@ -57,10 +57,10 @@ export default function DefaultGraph() {
     }
 
     return (
-        <div>
+        <div style={{ marginTop: '1vh' }}>
             <Container maxWidth="xl">
                 <Grid container lg={4} md={5} xs={12} justifyContent="flex-start" alignItems="flex-start" spacing={2}>
-                    <div style={{ display: 'flex', flexDirection: 'rows' }}>
+                    <div style={{ display: 'flex', flexDirection: 'rows', marginLeft: '5vw' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                             <Button style={{ color: '#000000', backgroundColor: Cor }} onClick={CPU}>CPU</Button>
                             <Button style={{ color: '#000000', backgroundColor: Cor1 }} onClick={GPU}>GPU</Button>

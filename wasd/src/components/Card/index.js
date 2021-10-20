@@ -1,6 +1,7 @@
 import React from "react";
 import { styles } from "./style"
-
+import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
+import { IconButton } from "@material-ui/core";
 
 function Card(props) {
     let [over, setOver] = React.useState(false);
@@ -16,7 +17,7 @@ function Card(props) {
     else {
         hoverstyle.backgroundColor = '';
     }
-    
+
     return (
         <>
             {/* <div style={styles.Card}>
@@ -36,7 +37,13 @@ function Card(props) {
                 </div>
                 <div style={{ ...styles.container1, backgroundColor: props.bgColor }}>
                     <h4 ><b>{props.nomeJogo}</b></h4>
-                    <p >{props.nomeFunc}</p>
+                    <p>
+                        {props.nomeFunc}
+                        <IconButton color="secondary">
+                            <ChatRoundedIcon></ChatRoundedIcon>
+                        </IconButton>
+                    </p>
+
                 </div>
             </div>
         </>

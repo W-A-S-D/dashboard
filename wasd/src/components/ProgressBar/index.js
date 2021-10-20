@@ -26,7 +26,6 @@ const ProgressBar = (props) => {
                     <div style={{
                         position: 'absolute',
                         height: '44px',
-                        width: '0%',
                         background: 'linear-gradient(90deg, #A29BFE 0%, #7FB8C4 100%)',
                         boxShadow: 'inset 0px 0px 18px rgba(0, 0, 0, 0.25)',
                         borderRadius: '22px 0px 0px 22px',

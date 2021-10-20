@@ -4,7 +4,7 @@ function ChartFuncionario(props) {
 
   return (
     <Chart
-      width={'800px'}
+      width={'900px'}
       height={'400px'}
       chartType="LineChart"
       loader={<div>Loading Chart</div>}
@@ -23,19 +23,21 @@ function ChartFuncionario(props) {
         hAxis: {
           title: 'Horário',
         },
+        colors: ['#422F8A'],
         vAxis: {
           title: props.tipo,
           viewWindow: {
             min: props.min,
             max: props.max
-          } ,         
-        },        
+          },
+        },
         series: {
           0: { curveType: 'function' },
-        },
-        legend: {
-          display: 'none',
-        }
+        }, 
+        legend: 'none',
+        chartArea: {
+          width: '75%'
+      },
       }
       }
       rootProps={{ 'data-testid': '2' }}

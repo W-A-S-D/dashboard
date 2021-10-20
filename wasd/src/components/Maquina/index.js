@@ -19,10 +19,11 @@ function Maquina(props) {
     return (
         <div
             id="Maq"
-            class="maq1"
+            className="maq1"
             style={{ ...styles.Maq, ...styles.MaqMaq1, ...hoverstyle, background: props.bgColorGrad }}
             onMouseOver={() => setOver(true)}
             onMouseOut={() => setOver(false)}
+            onClick={() => window.location.href = "/detail"}
         >
             <img src={props.imagens} alt={props.descricao} />
             <h5 style={styles.MaqH5}><b>{props.computador}</b></h5>

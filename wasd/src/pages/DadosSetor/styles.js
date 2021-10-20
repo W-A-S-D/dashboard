@@ -3,10 +3,9 @@ import Imagem from '../../img/icon-pc.png'
 export const styles = {
     container: {
         position: 'relative',
-        marginTop: '20px',
         width: '90%',
         height: '50%',
-        margin: '20px auto',
+        margin: '4vh auto',
         background: '#FFFFFF',
         padding: '20px',
         paddingTop: '5px',
@@ -20,10 +19,9 @@ export const styles = {
     },
     stylesPc: {
         position: 'relative',
-        marginTop: '20px',
         width: '93%',
         height: '10%',
-        margin: '20px auto',
+        margin: '4vh auto',
         background: ' rgba(255, 255, 255, 1)',
         padding: '20px',
         paddingTop: '5px',
