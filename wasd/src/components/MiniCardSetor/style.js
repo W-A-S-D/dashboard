@@ -8,7 +8,7 @@ export const styles = {
     borderRight: '1px solid rgba(211, 211, 211, 1)',
     borderBottom: '1px solid rgba(211, 211, 211, 1)',
     borderLeft: '6px solid rgba(209, 47, 47, 1)',
-    boxShadow: '4px 4px 8px 0px rgba(0, 0, 0, 0,24)',
+    boxShadow: '4px 4px 8px 0px rgba(0, 0, 0, 1)',
     paddingLeft: '24px',
     paddingTop: '8px',
     paddingBottom: '10px'

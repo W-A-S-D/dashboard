@@ -1,3 +1,5 @@
+import Imagem from '../../img/icon-pc.png'
+
 export const styles = {
     container: {
         position: 'relative',
@@ -15,5 +17,23 @@ export const styles = {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    stylesPc: {
+        position: 'relative',
+        marginTop: '20px',
+        width: '93%',
+        height: '10%',
+        margin: '20px auto',
+        background: ' rgba(255, 255, 255, 1)',
+        padding: '20px',
+        paddingTop: '5px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
+
+}
+export const images = {
+    ImagemPc: `${Imagem}`,
 }
