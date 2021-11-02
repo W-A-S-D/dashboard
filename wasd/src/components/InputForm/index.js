@@ -2,11 +2,7 @@ import { FilledInput, FormControl, InputLabel } from "@material-ui/core";
 import React from "react";
 
 function InputForm(props) {
-  const [name, setName] = React.useState();
-
-  const handleChange = (event) => {
-    setName(event.target.value);
-  };
+  
 
   return (
     <>
@@ -20,9 +16,9 @@ function InputForm(props) {
         <InputLabel htmlFor="component-filled">{props.title}</InputLabel>
         <FilledInput
           id="component-filled"
-          value={name}
+          value={props.value}
           type={props.type}
-          onChange={handleChange}
+          onChange={props.onChange}
           fullWidth
           required
         />

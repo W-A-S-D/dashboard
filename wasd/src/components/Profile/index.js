@@ -2,6 +2,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { styles, images } from './style'
 import MiniCardSetor from '../MiniCardSetor';
+
 function Profile() {
 	return (
 		<>

@@ -1,9 +1,7 @@
 export const styles = {
   miniCardSetor: {
     height: '64px',
-    width: '332px',
-    left: '1497px',
-    top: '484px',
+    width: '90%',
     borderRadius: '5px',
     rgba: '(255, 255, 255, 1)',
     borderTop: '1px solid rgba(211, 211, 211, 1)',

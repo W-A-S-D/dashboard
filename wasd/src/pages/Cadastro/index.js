@@ -14,8 +14,11 @@ export default function Cadastro() {
         <div style={styles.container}>
             <img style={{ height: '10vh', margin: "2rem 2rem 2rem 2rem" }} src={item.img} alt={item.title} />
             <Container maxWidth="xl" fixed>
-                <form>
-                    <Grid container lg={5} md={6} xs={12} justifyContent="flex-start" alignItems="flex-start" spacing={2}>
+                <form onSubmit={(event) => {
+                    event.preventDefault();
+                    window.location.href="/"
+                }}>
+                    <Grid container item lg={5} md={6} xs={12} justifyContent="flex-start" alignItems="flex-start" spacing={2}>
                         <Grid item xs={12} md={12} mb={5}>
                             <Typography variant="h3" component="div" color="primary" style={{ fontWeight: 'bold' }}>Cadastro</Typography>
                         </Grid>

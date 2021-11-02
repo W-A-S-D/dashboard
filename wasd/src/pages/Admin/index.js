@@ -4,21 +4,23 @@ import { styles } from './style.js';
 
 import ProgressBar from '../../components/ProgressBar/index.js';
 import StatusCard from '../../components/StatusCard/index.js';
+import DashboardHolder from '../../components/DashboardHolder/index.js';
+import MainContainer from '../../components/MainContainer/index.js';
+import Profile from '../../components/Profile/index.js';
+import Title from '../../components/Title/index';
 
 
 const AdminPage = (props) => {
 
     return (
         <>
-            <div style={styles.dashboardAdmin}>
-                <div style={styles.tituloHolder}>
-                    <div style={styles.titulo}>Home
-                    </div>
-                </div>
+        <DashboardHolder>
+            <MainContainer>
+              <Title value='Home'/>
                 <div style={styles.cardHolder}>
-                    <StatusCard type='alert' value={50} />
-                    <StatusCard type='warning' value={100} />
-                    <StatusCard type='normal' value={100} />
+                    <StatusCard hoverColor="#D12F2F" type='alert' value={40} />
+                    <StatusCard hoverColor="#D1902F" type='warning' value={12} />
+                    <StatusCard hoverColor="#7FB8C4" type='normal' value={48} />
                 </div>
                 <div style={styles.grafico}>
                     <div style={styles.gameHolder}>
@@ -29,11 +31,15 @@ const AdminPage = (props) => {
                     </div>
                     <div style={styles.layout}>
                         <ProgressBar label='League of Legends' barValue='35%' />
-                        <ProgressBar label='Valorant' barValue='55%' />
-                        <ProgressBar label='TFTs' barValue='75%' />
+                        <ProgressBar label='Fortnite' barValue='55%' />
+                        <ProgressBar label='Minecraft' barValue='75%' />
                     </div>  
                 </div>
-            </div>
+            </MainContainer>
+            <Profile/>
+
+        </DashboardHolder>
+        
         </>)
 }
 

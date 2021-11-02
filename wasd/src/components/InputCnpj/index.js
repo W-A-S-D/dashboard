@@ -25,7 +25,9 @@ function InputForm(props) {
   const [content, setCnpj] = React.useState("");
 
   const handleChange = (event) => {
-    setCnpj(event.target.value);
+    if (event.target.value.length === 18) {
+      setCnpj(event.target.value);
+    }
   };
 
   return (
