@@ -15,9 +15,9 @@ function MenubarAdm() {
                 <Link to="/setor" >
                     <AppsIcon sx={{ fontSize: 40, marginTop: '5vh' }} color="primary" />
                 </Link>
-                <Link onClick={() => { window.location.href = "https://wasdenterprise.atlassian.net/servicedesk/customer/user/login?destination=portals" }} >
+                <div onClick={() => { window.location.href = "https://wasdenterprise.atlassian.net/servicedesk/customer/user/login?destination=portals" }} >
                     <ContactSupportIcon sx={{ fontSize: 40, marginTop: '5vh' }} color="primary" />
-                </Link>
+                </div>
                 <Link to="/" >
                     <ExitToAppOutlinedIcon sx={{ fontSize: 40, marginTop: '53vh' }} color="primary" />
                 </Link>
