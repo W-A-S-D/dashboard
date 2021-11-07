@@ -7,6 +7,9 @@ import {
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import AdminPage from "./pages/Admin";
+import Setor from "./pages/Setor";
+import DadosSetor from './pages/DadosSetor'
+
 
 function App() {
   return (
@@ -21,6 +24,12 @@ function App() {
           </Route>
           <Route path="/admin">
             <AdminPage />
+          </Route>
+          <Route exact path="/setor">
+            <Setor />
+          </Route>
+          <Route exact path="/detail">
+            <DadosSetor />
           </Route>
         </Switch>
       </Router>
