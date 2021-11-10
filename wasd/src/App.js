@@ -9,7 +9,8 @@ import Cadastro from "./pages/Cadastro";
 import AdminPage from "./pages/Admin";
 import Setor from "./pages/Setor";
 import DadosSetor from './pages/DadosSetor'
-
+import CadastroEmpresa from "./pages/CadastroEmpresa";
+import Func from "./pages/Func";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Login />
+          </Route>
+          <Route path="/cadastro-empresa">
+            <CadastroEmpresa />
           </Route>
           <Route path="/cadastro">
             <Cadastro />
@@ -30,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/detail">
             <DadosSetor />
+          </Route>
+          <Route exact path="/func">
+            <Func />
           </Route>
         </Switch>
       </Router>

@@ -6,7 +6,7 @@ export const styles = {
         height: '133.57px',
         borderRadius: '14px 14px 14px 14px',
         marginLeft: '20px',
-        marginRight: '20px',
+        marginRight: '5px',
         textAlign: 'center',
         padding: '13px',
         fontFamily: 'Noto Sans',

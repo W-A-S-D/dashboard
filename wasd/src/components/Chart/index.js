@@ -4,8 +4,8 @@ function ChartFuncionario(props) {
 
   return (
     <Chart
-      width={'900px'}
-      height={'400px'}
+      width={'45vw'}
+      height={'33vh'}
       chartType="LineChart"
       loader={<div>Loading Chart</div>}
       data={[
@@ -36,7 +36,7 @@ function ChartFuncionario(props) {
         }, 
         legend: 'none',
         chartArea: {
-          width: '75%'
+          width: '90%'
       },
       }
       }

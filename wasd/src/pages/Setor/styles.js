@@ -44,14 +44,12 @@ export const styles = {
     },
 
     Maquinas: {
-        position: 'relative',
         margin: '0 auto',
         marginTop: '20px',
         width: '90%',
-        height: '30vh',
         background: '#FFFFFF',
-        padding: '20px',
-        paddingTop: '5px',
+        padding: '20px 20px 4% 20px',
+        overflow: 'auto',
         /* Destaque - Home - Instável/Estável */
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
         borderRadius: '24px',
@@ -60,12 +58,6 @@ export const styles = {
     },
 
     corpoMaquina: {
-        display: 'flex'
-    },
-
-    arrowDown: {
-        marginTop: '2vh',
-        marginLeft: '30vw',
-        color: 'rgba(136,136,136, 0.54)'
+        display: 'flex',
     }
 }

@@ -1,104 +1,48 @@
 export const styles = {
-    // dashboardAdmin: {
-    //     width: '1348px',
-    //     height: '984px',
-    //     backgroundColor: '#fff',
-    //     borderRadius: '24px',
-    //     color: '#000',
-    //     boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    // },
+  cardHolder: {
+    display: "flex",
+    margin: "0 auto",
+    width: "90%",
+    overflowX: "hidden",
+    overflowY: "hidden",
+  },
 
-  
-    cardHolder: {
-        height: '300px',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-    },
+  grafico: {
+    display: "flex",
+    margin: "20px auto",
+    width: "89%",
+    overflowX: "hidden",
+    overflowY: "hidden",
+    background: "#FFFFFF",
+    boxShadow: "0px 0px 24px rgba(0, 0, 0, 0.22)",
+    borderRadius: "24px",
+    flexDirection: "column",
+    marginTop: "4%",
+  },
 
-    card3: {
-        position: 'relative',
-        marginLeft: '71px',
-        marginTop: '71px',
-        width: '312px',
-        height: '208px',
-        background: 'linear-gradient(114.7deg, rgba(127, 184, 196, 0.38) 0%, rgba(255, 255, 255, 0.38) 97.69%)',
-        boxShadow: '2px 2px 15px rgba(0, 0, 0, 0.1)',
-        borderRadius: '24px',
-        display: 'flex',
-        alignItems: 'center',
-    },
+  gameHolder: {
+    justifyContent: "flex-end",
+    width: "90%",
+  },
 
-    cardNum: {
-        position: 'absolute',
-        marginLeft: '70px',
-        fontWeight: '400',
-        fontSize: '30px',
-    },
+  dadosHolder: {
+    marginTop: "50px",
+    marginLeft: "37%",
+  },
 
-    grafico: {
-        marginLeft: '71px',
-        width: '1079px',
-        height: '43vh',
-        background: '#FFFFFF',
-        boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
-        borderRadius: '24px',
-    },
+  dadosTxt: {
+    fontFamily: "Noto Sans",
+    fontWeight: "700",
+    fontSize: "22px",
+    marginRight: "70%",
+    display: "inline",
+  },
 
-    dadosHolder: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: '50px',
-        marginLeft: '300px',
-        marginRight: '50px',
-    },
-
-    dadosTxt: {
-        fontFamily: 'Noto Sans',
-        fontWeight: '700',
-        fontSize: '22px',
-        marginLeft: '565px',
-    },
-
-    layout: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-    },
-
-    gameHolder: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-    },
-
-    nomeGame: {
-        fontFamily: 'Noto Sans',
-        fontWeight: '400',
-        fontSize: '20px',
-        marginRight: '50px',
-        marginTop: '50px',
-    },
-
-    barraGame: {
-        position: 'relative',
-        height: '44px',
-        width: '730px',
-        boxShadow: 'inset 0px 0px 18px rgba(0, 0, 0, 0.25)',
-        borderRadius: '22px 22px 22px 22px',
-        marginRight: '50px',
-        marginTop: '45px',
-    },
-
-    innerBarraGame: {
-        position: 'absolute',
-        height: '44px',
-        width: '0%',
-        background: 'linear-gradient(90deg, #A29BFE 0%, #7FB8C4 100%)',
-        boxShadow: 'inset 0px 0px 18px rgba(0, 0, 0, 0.25)',
-        borderRadius: '22px 0px 0px 22px',
-    },
-}
+  layout: {
+    display: "flex",
+    flexDirection: "column",
+    width: "90%",
+    marginLeft: "5%",
+    marginBottom: "5%",
+  },
+};

@@ -27,13 +27,20 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        height: '290px'
+        height: '50%'
+    },
+    profileBorder: {
+        padding: '4px',
+        background: 'linear-gradient(90deg, rgba(128, 184, 197, 0.6) 0%, rgba(162, 157, 253, 0.6) 100%)',
+        borderRadius: '50%',
+        lineHeight: '0'
     },
     profilePhoto: {
         padding: '5px',
         width: '155px',
         height: '155px',
         borderRadius: '300px',
+        border: '2px solid #FFF',
         backgroundImage: `url(${Imagem})`,
         backgroundSize: 'cover',
     },
@@ -50,11 +57,12 @@ export const styles = {
     },
     setor: {
         width: `70%`,
-        paddingTop: '20px',
-        paddingBottom: '35px',
+        paddingTop: '10px',
+        paddingBottom: '25px',
         borderTop: '2px solid rgba(136,136,136, 0.54)',
         borderBottom: '2px solid rgba(136,136,136, 0.54)',
-        marginBottom: '30px'
+        marginBottom: '8%',
+        marginTop: '2%'
     },
     arrowDown: {
         color: 'rgba(136,136,136, 0.54)'

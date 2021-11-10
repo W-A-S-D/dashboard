@@ -14,4 +14,3 @@ export const item = {
     img: `${Logo}`,
     title: 'Logo',
 }
-

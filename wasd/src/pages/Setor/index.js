@@ -2,7 +2,6 @@ import * as React from 'react';
 import Card from "../../components/Card"
 import Maquina from "../../components/Maquina"
 import DashboardHolder from "../../components/DashboardHolder";
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import MainContainer from "../../components/MainContainer";
 import { styles } from "./styles";
 import Profile from "../../components/Profile";
@@ -120,7 +119,6 @@ function Setor() {
                         />
                     </div>
                 </div>
-                <div style={styles.arrowDown}><KeyboardArrowDownIcon fontSize='large'></KeyboardArrowDownIcon></div>
             </MainContainer>
             <Profile />
             <ModalComponent open={modalState} onClick={() => {

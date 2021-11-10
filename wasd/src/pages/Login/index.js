@@ -19,9 +19,6 @@ export default function Login() {
         setSenha(event.target.value);
     };
 
-
-
-
     return (
         <div style={styles.container}>
             <img style={{ height: '10vh', margin: "2rem 2rem 2rem 2rem" }} src={item.img} alt={item.title} />
