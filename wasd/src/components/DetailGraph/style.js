@@ -5,12 +5,11 @@ export const styles = {
         borderRadius: '5px',
         rgba: '(255, 255, 255, 1)',
         paddingLeft: '24px',
-        paddingTop: '8px',
-        paddingBottom: '10px'
+        paddingTop: '8px'
     },
     gameSetorName: {
         marginLeft: '24px',
-        paddingBottom: '15px',
+        paddingBottom: '5%',
         fontWeight: 'bold',
         fontSize: '20px',
         lineHeight: '16px',
@@ -30,7 +29,7 @@ export const styles = {
     gameSetorTittle: {
         marginLeft: '10px',
         fontSize: '12px',
-        lineHeight: '16px',
+        lineHeight: '5%',
     },
     setorImages: {
         width: '8%',
@@ -39,7 +38,7 @@ export const styles = {
     linediv: { 
         borderTop: '2px solid rgba(136, 136, 136, 0.54)',   
         width: '90%',      
-        paddingTop: '15px', 
+        paddingTop: '5%', 
         marginLeft: '24px',
         fontWeight: 'bold',
         fontSize: '20px',

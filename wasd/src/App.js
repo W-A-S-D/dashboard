@@ -11,6 +11,8 @@ import Setor from "./pages/Setor";
 import DadosSetor from './pages/DadosSetor'
 import CadastroEmpresa from "./pages/CadastroEmpresa";
 import Func from "./pages/Func";
+import CadastroFunc from "./pages/CadastroFunc";
+
 
 function App() {
   return (
@@ -29,14 +31,17 @@ function App() {
           <Route path="/admin">
             <AdminPage />
           </Route>
-          <Route exact path="/setor">
+          <Route path="/setor">
             <Setor />
           </Route>
-          <Route exact path="/detail">
+          <Route path="/detail">
             <DadosSetor />
           </Route>
-          <Route exact path="/func">
+          <Route path="/func">
             <Func />
+          </Route>
+          <Route path="/cadastro-func">
+            <CadastroFunc />
           </Route>
         </Switch>
       </Router>

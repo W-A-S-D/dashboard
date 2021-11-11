@@ -7,7 +7,6 @@ import DetailGraph from "../../components/DetailGraph";
 import MainContainer from "../../components/MainContainer";
 import Maquina from "../../components/Maquina";
 import Profile from "../../components/Profile";
-import Title from "../../components/Title";
 import { styles, images } from "./style";
 
 function Func() {
@@ -44,7 +43,7 @@ function Func() {
   return (
     <DashboardHolder>
       <MainContainer>
-        <Title value="Setor" />
+        <div style={styles.title}>Setor</div>
 
         <div id="Maquinas" style={styles.maquinasContainer}>
           <AddCircleOutlineIcon

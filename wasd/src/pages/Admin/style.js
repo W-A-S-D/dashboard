@@ -26,7 +26,7 @@ export const styles = {
   },
 
   dadosHolder: {
-    marginTop: "50px",
+    marginTop: "4%",
     marginLeft: "37%",
   },
 

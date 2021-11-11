@@ -1,4 +1,6 @@
 import * as React from 'react';
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+
 import Card from "../../components/Card"
 import Maquina from "../../components/Maquina"
 import DashboardHolder from "../../components/DashboardHolder";
@@ -69,9 +71,13 @@ function Setor() {
             <MainContainer>
                 <div id="Setor" style={styles.Setor}>
                     <div id="Titulo" style={styles.Titulo}>Setor</div>
-                    <img onClick={() => {
-                        setModalState(true);
-                    }} id="Adicionar" src="img/icones/mais.svg" alt="" style={styles.Adicionar} />
+
+                    <AddCircleOutlineIcon
+                        onClick={() => {
+                            setModalState(true);
+                        }}
+                        style={styles.Adicionar}
+                    />
                     <div className="corpo" style={styles.corpo}>
                         <div onClick={changeDetails}>
                             <Card imagens="../../img/minecraft.png" descricao="minecraft" nomeJogo="Minecraft" nomeFunc="Carla Fracisca" bgColor="#5BD7F4" />

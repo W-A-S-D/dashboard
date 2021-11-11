@@ -77,20 +77,16 @@ export default function DefaultGraph() {
     }
 
     return (
-        <div style={{ marginTop: '1vh' }}>
-            <Container maxWidth="xl">
-                <Grid container lg={4} md={5} xs={12} justifyContent="flex-start" alignItems="flex-start" spacing={2}>
-                    <div style={{ display: 'flex', flexDirection: 'row' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '3%' }}>
-                            <Button style={{ color: CorFont, backgroundColor: Cor }} onClick={CPU}>CPU</Button>
-                            <Button style={{ color: CorFont1, backgroundColor: Cor1 }} onClick={GPU}>GPU</Button>
-                            <Button style={{ color: CorFont2, backgroundColor: Cor2 }} onClick={Disco}>Disco</Button>
-                            <Button style={{ color: CorFont3, backgroundColor: Cor3 }} onClick={RAM}>RAM</Button>
-                        </div>
-                        <ChartFuncionario min={Minimo} max={Maximo} tipo={TemDes} titulo={title}></ChartFuncionario>
-                    </div>
-                </Grid>
-            </Container>
+        <div style={{ margin: '0 auto' }}>
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '3%' }}>
+                    <Button style={{ color: CorFont, backgroundColor: Cor }} onClick={CPU}>CPU</Button>
+                    <Button style={{ color: CorFont1, backgroundColor: Cor1 }} onClick={GPU}>GPU</Button>
+                    <Button style={{ color: CorFont2, backgroundColor: Cor2 }} onClick={Disco}>Disco</Button>
+                    <Button style={{ color: CorFont3, backgroundColor: Cor3 }} onClick={RAM}>RAM</Button>
+                </div>
+                <ChartFuncionario min={Minimo} max={Maximo} tipo={TemDes} titulo={title}></ChartFuncionario>
+            </div>
         </div>
     )
 }

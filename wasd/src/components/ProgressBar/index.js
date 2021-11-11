@@ -14,9 +14,9 @@ const ProgressBar = (props) => {
             fontFamily: "Noto Sans",
             fontWeight: "400",
             fontSize: "20px",
-            marginRight: "5%",
+            marginRight: "2%",
             overflowX: "hidden",
-            marginTop: "5%",
+            marginTop: "4%",
           }}
         >
           {props.label}
@@ -29,7 +29,7 @@ const ProgressBar = (props) => {
             width: "70%",
             boxShadow: "inset 0px 0px 18px rgba(0, 0, 0, 0.25)",
             borderRadius: "22px 22px 22px 22px",
-            marginTop: "45px",
+            marginTop: "4%",
             overflowX: "hidden",
           }}
         >

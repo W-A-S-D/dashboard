@@ -1,6 +1,7 @@
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import HomeIcon from "@material-ui/icons/HomeOutlined";
 import AppsIcon from "@material-ui/icons/Apps";
+import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import { styles } from "./style";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 import { Link } from "react-router-dom";
@@ -21,6 +22,12 @@ function MenubarAdm() {
             color="primary"
           />
         </Link>
+        <Link to="/cadastro-func">
+          <PersonAddOutlinedIcon
+            sx={{ fontSize: "2.5em", marginTop: "5vh" }}
+            color="primary"
+          />
+        </Link>
         <div
           onClick={() => {
             window.location.href =
@@ -32,10 +39,10 @@ function MenubarAdm() {
             color="primary"
           />
         </div>
-        <Link to="/">
+        <Link to="/" style={{position: 'absolute', bottom: 20}}>
           <ExitToAppOutlinedIcon
-            sx={{ fontSize: "2.5em", marginTop: "50vh" }}
-            color="primary"
+            sx={{ fontSize: "2.5em"}}
+            color="secondary"
           />
         </Link>
       </div>

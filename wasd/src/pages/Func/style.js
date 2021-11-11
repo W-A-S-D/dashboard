@@ -4,7 +4,7 @@ export const styles = {
     maquinasContainer: {
         display: 'flex',
         position: 'relative',
-        margin: '20px auto',
+        margin: '2% auto',
         width: '90%',
         overflowX: 'hidden',
         background: '#FFFFFF',
@@ -14,6 +14,13 @@ export const styles = {
     corpoMaquina: {
         display: 'flex',
         margin: '25px 15px'
+    },
+    title: {
+        fontSize: '30px',
+        fontWeight: 'bold',
+        marginTop: '0',
+        paddingTop: '1%',
+        marginLeft: '5%'
     },
     adicionar: {
         position: 'absolute',
@@ -34,7 +41,8 @@ export const styles = {
         flexDirection: 'column',
     },
     identificacao: {
-        margin: '20px 10px 0 10px'
+        margin: '20px 10px 0 10px',
+        paddingLeft: '10px'
     },
     containerGrafico: {
         margin: '0 auto',

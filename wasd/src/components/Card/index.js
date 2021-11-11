@@ -36,10 +36,10 @@ function Card(props) {
                     <img style={styles.cardImage} src={props.imagens} alt={props.descricao} />
                 </div>
                 <div style={{ ...styles.container1, backgroundColor: props.bgColor }}>
-                    <h4 ><b>{props.nomeJogo}</b></h4>
-                    <p>
+                    <h4 style={{margin: '0', paddingTop: '5%'}}><b>{props.nomeJogo}</b></h4>
+                    <p style={{margin: '0', paddingTop: '5%'}}>
                         {props.nomeFunc}
-                        <IconButton color="secondary">
+                        <IconButton color="third">
                             <ChatRoundedIcon></ChatRoundedIcon>
                         </IconButton>
                     </p>

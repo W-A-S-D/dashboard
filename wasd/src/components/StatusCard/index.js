@@ -98,7 +98,7 @@ const StatusCard = (props) => {
                   ? `#D1902F`
                   : `#36ADC6`,
               fontWeight: "400",
-              fontSize: "1.6rem",
+              fontSize: "2.4ch",
             }}
           >
             {props.value}%

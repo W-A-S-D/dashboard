@@ -10,7 +10,9 @@ export const styles = {
         width: '22.5vw',
         height: '90vh',
         backgroundColor: '#F8F8F8',
-        borderRadius: '8px'
+        borderRadius: '8px',
+        overflowX: 'hidden',
+        overflowY: 'hidden'
     },
     menuIcon: {
         marginRight: '6px',
@@ -27,7 +29,6 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        height: '50%'
     },
     profileBorder: {
         padding: '4px',
@@ -37,15 +38,15 @@ export const styles = {
     },
     profilePhoto: {
         padding: '5px',
-        width: '155px',
-        height: '155px',
+        width: '150px',
+        height: '150px',
         borderRadius: '300px',
         border: '2px solid #FFF',
         backgroundImage: `url(${Imagem})`,
         backgroundSize: 'cover',
     },
     profileName: {
-        marginTop: '30px',
+        marginTop: '5%',
         fontSize: '22px',
         fontWeight: '800'
     },
@@ -62,7 +63,7 @@ export const styles = {
         borderTop: '2px solid rgba(136,136,136, 0.54)',
         borderBottom: '2px solid rgba(136,136,136, 0.54)',
         marginBottom: '8%',
-        marginTop: '2%'
+        marginTop: '2%',
     },
     arrowDown: {
         color: 'rgba(136,136,136, 0.54)'

@@ -5,15 +5,13 @@ function Maquina(props) {
     let [over, setOver] = React.useState(false);
 
     let hoverstyle = {
-        border: ''
+        border: ``
     }
 
     if (over) {
         hoverstyle.border = `0.4px solid ${props.hoverColor}`;
-    }
-    //
-    else {
-        hoverstyle.border = '';
+    } else {
+        hoverstyle.border = ``;
     }
 
     return (

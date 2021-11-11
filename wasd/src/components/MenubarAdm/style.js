@@ -1,6 +1,7 @@
 export const styles = {
   Menubar: {
     height: "100%",
+    position: "relative",
     width: "7.5%",
     background: "#FFFFFF",
     boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.25)",
