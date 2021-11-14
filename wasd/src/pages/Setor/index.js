@@ -71,7 +71,7 @@ function Setor() {
         <DashboardHolder>
             <MainContainer>
 
-                <ContentHolder  minHeight='50%' title="Setor">
+                <ContentHolder minHeight='50%' title="Setor">
 
                     <AddCircleOutlineIcon
                         onClick={() => {
@@ -96,98 +96,89 @@ function Setor() {
 
                 <ContentHolder title={titleSetor}>
 
-              
-                       <Maquina
-                            imagens={machines[0]}
-                            hoverColor={machines[1]}
-                            descricao="Pc1"
-                            computador="Computador 001"
-                            alertas={machines[2]}
-                            imagens2={machines[3]}
-                            descricao2="Bolinha"
-                            bgColorGrad={machines[4]}
-                        />
-                        <Maquina
-                            imagens={machines2[0]}
-                            hoverColor={machines2[1]}
-                            descricao="Pc1"
-                            computador="Computador 002"
-                            alertas={machines2[2]}
-                            imagens2={machines2[3]}
-                            descricao2="Bolinha"
-                            bgColorGrad={machines2[4]}
-                        />
-                        <Maquina
-                            imagens={machines3[0]}
-                            hoverColor={machines3[1]}
-                            descricao="Pc3"
-                            computador="Computador 003"
-                            alertas={machines3[2]}
-                            imagens2={machines3[3]}
-                            descricao2="Bolinha"
-                            bgColorGrad={machines3[4]}
-                        />
-                    
+
+                    <Maquina
+                        imagens={machines[0]}
+                        hoverColor={machines[1]}
+                        descricao="Pc1"
+                        computador="Computador 001"
+                        alertas={machines[2]}
+                        imagens2={machines[3]}
+                        descricao2="Bolinha"
+                        bgColorGrad={machines[4]}
+                    />
+                    <Maquina
+                        imagens={machines2[0]}
+                        hoverColor={machines2[1]}
+                        descricao="Pc1"
+                        computador="Computador 002"
+                        alertas={machines2[2]}
+                        imagens2={machines2[3]}
+                        descricao2="Bolinha"
+                        bgColorGrad={machines2[4]}
+                    />
+                    <Maquina
+                        imagens={machines3[0]}
+                        hoverColor={machines3[1]}
+                        descricao="Pc3"
+                        computador="Computador 003"
+                        alertas={machines3[2]}
+                        imagens2={machines3[3]}
+                        descricao2="Bolinha"
+                        bgColorGrad={machines3[4]}
+                    />
+
+                    <Maquina
+                        imagens={machines3[0]}
+                        hoverColor={machines3[1]}
+                        descricao="Pc3"
+                        computador="Computador 003"
+                        alertas={machines3[2]}
+                        imagens2={machines3[3]}
+                        descricao2="Bolinha"
+                        bgColorGrad={machines3[4]}
+                    />
+
+
+                    <Maquina
+                        imagens={machines3[0]}
+                        hoverColor={machines3[1]}
+                        descricao="Pc3"
+                        computador="Computador 003"
+                        alertas={machines3[2]}
+                        imagens2={machines3[3]}
+                        descricao2="Bolinha"
+                        bgColorGrad={machines3[4]}
+                    />
+
+
+
+                    <Maquina
+                        imagens={machines3[0]}
+                        hoverColor={machines3[1]}
+                        descricao="Pc3"
+                        computador="Computador 003"
+                        alertas={machines3[2]}
+                        imagens2={machines3[3]}
+                        descricao2="Bolinha"
+                        bgColorGrad={machines3[4]}
+                    />
+
+
+
+
+                    <Maquina
+                        imagens={machines3[0]}
+                        hoverColor={machines3[1]}
+                        descricao="Pc3"
+                        computador="Computador 003"
+                        alertas={machines3[2]}
+                        imagens2={machines3[3]}
+                        descricao2="Bolinha"
+                        bgColorGrad={machines3[4]}
+                    />
+
                 </ContentHolder>
-
-                {/* <div id="Setor" style={styles.Setor}>
-                    <div id="Titulo" style={styles.Titulo}>Setor</div>
-
-                    
-                    <div className="corpo" style={styles.corpo}>
-                        <div onClick={changeDetails}>
-                            <Card imagens="../../img/minecraft.png" descricao="minecraft" nomeJogo="Minecraft" nomeFunc="Carla Fracisca" bgColor="#5BD7F4" />
-                        </div>
-                        <div onClick={changeDetails2}>
-                            <Card imagens="../../img/fortnite.png" descricao="fortnite" nomeJogo="Fortnite" nomeFunc="Carla Francisca" bgColor="#D2B6DE" />
-                        </div>
-                        <div onClick={changeDetails3}>
-                            <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                        </div>
-                        <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                        <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                        <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                            <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-
-
-                    </div>
-                </div> */}
-                {/*                 
-                <div id="Maquinas" style={styles.Maquinas}>
-                    <div id="Titulo" style={styles.Titulo}>{titleSetor}</div>
-                    <div className="corpo_maquina" style={styles.corpoMaquina}>
-                        <Maquina
-                            imagens={machines[0]}
-                            hoverColor={machines[1]}
-                            descricao="Pc1"
-                            computador="Computador 001"
-                            alertas={machines[2]}
-                            imagens2={machines[3]}
-                            descricao2="Bolinha"
-                            bgColorGrad={machines[4]}
-                        />
-                        <Maquina
-                            imagens={machines2[0]}
-                            hoverColor={machines2[1]}
-                            descricao="Pc1"
-                            computador="Computador 002"
-                            alertas={machines2[2]}
-                            imagens2={machines2[3]}
-                            descricao2="Bolinha"
-                            bgColorGrad={machines2[4]}
-                        />
-                        <Maquina
-                            imagens={machines3[0]}
-                            hoverColor={machines3[1]}
-                            descricao="Pc3"
-                            computador="Computador 003"
-                            alertas={machines3[2]}
-                            imagens2={machines3[3]}
-                            descricao2="Bolinha"
-                            bgColorGrad={machines3[4]}
-                        />
-                    </div>
-                </div> */}
             </MainContainer>
             <Profile />
             <ModalComponent open={modalState} onClick={() => {
