@@ -71,7 +71,7 @@ function Setor() {
     };
 
     React.useEffect(() => {
-        api.get('sectors').then(response => {
+        api.get('sectors/1').then(response => {
             setSectors(response.data);
         }).catch(error => {
             console.log(error);
@@ -97,7 +97,6 @@ function Setor() {
                             <Card imagens="../../img/lol.png" descricao="lol" nomeJogo={sector.jogo} nomeFunc="Carla Francisca" bgColor="#B28BC1" />
                         )
                     }
-                    {/* <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" /> */}
                 </ContentHolder>
 
                 <ContentHolder title={titleSetor}>
