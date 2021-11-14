@@ -9,9 +9,12 @@ import { styles } from "./styles";
 import Profile from "../../components/Profile";
 import ModalComponent from "../../components/Modal";
 import ContentHolder from '../../components/ContentHolder';
+import api from '../../service/api';
+
 
 function Setor() {
     const [modalState, setModalState] = React.useState(false)
+    const [sectors, setSectors] = React.useState([]);
 
     let machineAlert = [
         "../../img/icones/PC1.svg",
@@ -67,11 +70,21 @@ function Setor() {
         setTitleSetor("League of Legends");
     };
 
+    React.useEffect(() => {
+        api.get('sectors').then(response => {
+            setSectors(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
+    })
+
+
+
     return (
         <DashboardHolder>
             <MainContainer>
 
-                <ContentHolder minHeight='50%' title="Setor">
+                <ContentHolder minHeight='45%' title="Setor">
 
                     <AddCircleOutlineIcon
                         onClick={() => {
@@ -79,19 +92,12 @@ function Setor() {
                         }}
                         style={styles.Adicionar}
                     />
-                    <div onClick={changeDetails}>
-                        <Card imagens="../../img/minecraft.png" descricao="minecraft" nomeJogo="Minecraft" nomeFunc="Carla Fracisca" bgColor="#5BD7F4" />
-                    </div>
-                    <div onClick={changeDetails2}>
-                        <Card imagens="../../img/fortnite.png" descricao="fortnite" nomeJogo="Fortnite" nomeFunc="Carla Francisca" bgColor="#D2B6DE" />
-                    </div>
-                    <div onClick={changeDetails3}>
-                        <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                    </div>
-                    <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                    <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                    <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
-                    <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" />
+                    {
+                        sectors.map((sector) =>
+                            <Card imagens="../../img/lol.png" descricao="lol" nomeJogo={sector.jogo} nomeFunc="Carla Francisca" bgColor="#B28BC1" />
+                        )
+                    }
+                    {/* <Card imagens="../../img/lol.png" descricao="lol" nomeJogo="League of Legends" nomeFunc="Carla Francisca" bgColor="#B28BC1" /> */}
                 </ContentHolder>
 
                 <ContentHolder title={titleSetor}>
