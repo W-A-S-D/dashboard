@@ -5,19 +5,17 @@ function Maquina(props) {
     let [over, setOver] = React.useState(false);
 
     let hoverstyle = {
-        border: ``
+        border: `0.4px solid rgba(0,0,0,0)`
     }
 
     if (over) {
         hoverstyle.border = `0.4px solid ${props.hoverColor}`;
     } else {
-        hoverstyle.border = ``;
+        hoverstyle.border = `0.4px solid rgba(0,0,0,0)`;
     }
 
     return (
         <div
-            id="Maq"
-            className="maq1"
             style={{ ...styles.Maq, ...styles.MaqMaq1, ...hoverstyle, background: props.bgColorGrad }}
             onMouseOver={() => setOver(true)}
             onMouseOut={() => setOver(false)}
