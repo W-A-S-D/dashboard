@@ -21,6 +21,7 @@ const theme = createTheme({
     },
     third: {
       main: '#fff',
+      contrastText: '#000',
     },
   },
 });

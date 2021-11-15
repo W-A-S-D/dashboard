@@ -3,16 +3,15 @@ import Imagem from '../../img/maisa.png'
 export const styles = {
     container: {
         position: 'relative',
-        margin: '3vh auto',
-        width: '20%',
-        height: '30%',
+        margin: '3vh 2vh',
+        overflow: 'auto',
         background: '#FFFFFF',
         padding: '1% 20px 4% 20px',
         /* Destaque - Home - Instável/Estável */
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
         borderRadius: '24px',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'
     },
     profile: {
         marginTop: '5%',
@@ -37,7 +36,13 @@ export const styles = {
     },
     profileText: {
         marginTop: '5%',
-        fontSize: '22px',
-        fontWeight: '800'
+        textAlign: 'center',
+        fontSize: '2.2ch'
+    },
+    profileTextGame: {
+        marginTop: '5%',
+        textAlign: 'center',
+        fontSize: '2.2ch',
+        color: 'rgba(128, 184, 197)'
     },
 }
