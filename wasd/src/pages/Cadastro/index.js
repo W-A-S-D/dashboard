@@ -1,6 +1,6 @@
 import { Container, FormHelperText, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import ButtonForm from "../../components/ButtonForm";
+import ButtonWasd from "../../components/ButtonWasd";
 import InputForm from "../../components/InputForm";
 import InputPass from "../../components/InputPass";
 import { styles, item } from "../Login/styles";
@@ -61,7 +61,7 @@ export default function Cadastro() {
             </Grid>
           </Grid>
           <Box mt={8}>
-            <ButtonForm content="Cadastrar" />
+            <ButtonWasd content="Cadastrar" />
           </Box>
         </form>
       </Container>

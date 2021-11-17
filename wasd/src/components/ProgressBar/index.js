@@ -16,7 +16,7 @@ const ProgressBar = (props) => {
             fontSize: "20px",
             marginRight: "2%",
             overflowX: "hidden",
-            marginTop: "4%",
+            marginTop: "4.5%",
           }}
         >
           {props.label}

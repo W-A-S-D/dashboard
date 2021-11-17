@@ -2,11 +2,12 @@ import { Checkbox, Container, FormControlLabel, Grid, Typography } from "@materi
 import { Box } from "@material-ui/system"
 import * as React from "react"
 import { Link } from "react-router-dom"
-import ButtonForm from "../../components/ButtonForm"
+import ButtonWasd from "../../components/ButtonWasd"
 import InputForm from "../../components/InputForm"
 import InputPass from "../../components/InputPass"
 import { styles, item } from "./styles"
 import api from '../../service/api';
+
 export default function Login() {
     const [login, setLogin] = React.useState('');
     const [senha, setSenha] = React.useState('');
@@ -25,13 +26,15 @@ export default function Login() {
             <Container maxWidth="xl">
                 <form onSubmit={(event) => {
                     event.preventDefault();
-                    console.log(login,senha)
 
                     api.post('authenticate', {
                         email: login,
                         password: senha
                     }).then(response => {
                         console.log(response);
+                        localStorage.setItem('@wasd:token', response.data.token);
+                        api.defaults.headers.common.authorization = `Bearer ${response.data.token}`
+                        window.location.href='/cadastro-func'
                     }).catch(error => {
                         if (error.response.status === 401) {
                             console.log('usuário ou senha coisados');
@@ -61,7 +64,7 @@ export default function Login() {
                         </Grid>
                     </Grid>
                     <Box mt={6}>
-                        <ButtonForm content="Entrar" />
+                        <ButtonWasd content="Entrar" />
                     </Box>
                 </form>
             </Container>

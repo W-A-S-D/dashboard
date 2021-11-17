@@ -23,6 +23,9 @@ const theme = createTheme({
       main: '#fff',
       contrastText: '#000',
     },
+    fourth: {
+      main: '#C5C0FF'
+    },
   },
 });
 

@@ -5,18 +5,19 @@ export const styles = {
     },
     header: {
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        width: '90%',
+        margin: 'auto'
     },
     search: {
         marginTop: '1.2%',
-        marginLeft: '45%',
+        marginLeft: '50%'
     },
     title: {
         fontSize: '30px',
         fontWeight: 'bold',
         marginTop: '0',
-        paddingTop: '2%',
-        marginLeft: '6%',
+        paddingTop: '2%'
     },
     addUser: {
         marginTop: 'auto',

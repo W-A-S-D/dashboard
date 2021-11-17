@@ -4,8 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import IconButton from '@material-ui/core/IconButton';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ModalInput from '../ModalInput';
-import ButtonModal from '../ButtonModal';
 import { styles } from './style.js';
+import ButtonWasd from '../ButtonWasd';
 
 const ModalComponent = (props) => {
    
@@ -37,9 +37,8 @@ const ModalComponent = (props) => {
 
                         </select>
                     </div>
-                    <div style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        <ButtonModal content="Confirmar" />
-
+                    <div style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: "10%" }}>
+                        <ButtonWasd content="Confirmar" back='linear-gradient(90deg, rgba(128, 184, 197, 0.6) 0%, rgba(162, 157, 253, 0.6) 100%)'/>
                     </div>
 
                 </Box>

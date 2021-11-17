@@ -31,8 +31,6 @@ export const styles = {
         height: '100px',
         borderRadius: '300px',
         border: '2px solid #FFF',
-        backgroundImage: `url(${Imagem})`,
-        backgroundSize: 'cover',
     },
     profileText: {
         marginTop: '5%',
@@ -45,4 +43,10 @@ export const styles = {
         fontSize: '2.2ch',
         color: 'rgba(128, 184, 197)'
     },
+    delete: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        color: '#888888',
+    }
 }

@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import ButtonForm from "../../components/ButtonForm";
+import ButtonWasd from "../../components/ButtonWasd";
 import InputCnpj from "../../components/InputCnpj";
 import InputTelefone from "../../components/InputTelefone";
 import SelectEstado from "../../components/SelectEstado";
@@ -75,7 +75,7 @@ export default function CadastroEmpresa() {
             </Grid>
           </Grid>
           <Box mt={6}>
-            <ButtonForm content="Continuar" />
+            <ButtonWasd content="Continuar" />
           </Box>
         </form>
       </Container>
