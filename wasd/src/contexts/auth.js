@@ -12,6 +12,8 @@ export function AuthProvider(props) {
             password: password
         })
 
+        console.log(response)
+
         const { token, user } = response.data
 
         localStorage.setItem('@wasd:token', token);

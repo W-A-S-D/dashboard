@@ -6,11 +6,12 @@ import ButtonWasd from "../../components/ButtonWasd"
 import InputForm from "../../components/InputForm"
 import InputPass from "../../components/InputPass"
 import { styles, item } from "./styles"
-import api from '../../service/api';
+import { AuthContext } from "../../contexts/auth"
 
 export default function Login() {
     const [login, setLogin] = React.useState('');
     const [senha, setSenha] = React.useState('');
+    const { signIn } = React.useContext(AuthContext);
 
     const handleChangeEmail = (event) => {
         setLogin(event.target.value);
@@ -20,27 +21,17 @@ export default function Login() {
         setSenha(event.target.value);
     };
 
+    const handleLogin = () => {
+        signIn(login, senha);
+    }
+
     return (
         <div style={styles.container}>
             <img style={{ height: '10vh', margin: "2rem 2rem 2rem 2rem" }} src={item.img} alt={item.title} />
             <Container maxWidth="xl">
                 <form onSubmit={(event) => {
-                    event.preventDefault();
-
-                    api.post('authenticate', {
-                        email: login,
-                        password: senha
-                    }).then(response => {
-                        console.log(response);
-                        localStorage.setItem('@wasd:token', response.data.token);
-                        api.defaults.headers.common.authorization = `Bearer ${response.data.token}`
-                        window.location.href='/cadastro-func'
-                    }).catch(error => {
-                        if (error.response.status === 401) {
-                            console.log('usuário ou senha coisados');
-                        }
-                           return error;
-                    })
+                    event.preventDefault()
+                    handleLogin()
                 }}>
                     <Grid container item lg={4} md={5} xs={12} justifyContent="flex-start" alignItems="flex-start" spacing={2}>
                         <Grid item xs={12} md={12} mb={15}>
