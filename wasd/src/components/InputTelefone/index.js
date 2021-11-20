@@ -23,13 +23,6 @@ TelefoneMaskCustom.propTypes = {
 };
 
 function InputForm(props) {
-  const [content, setPhone] = React.useState("");
-
-  const handleChange = (event) => {
-    if (event.target.value.length === 14) {
-      setPhone(event.target.value);
-    }
-  };
 
   return (
     <>
@@ -43,8 +36,8 @@ function InputForm(props) {
         <InputLabel htmlFor="component-filled">{props.title}</InputLabel>
         <FilledInput
           id="component-filled"
-          value={content}
-          onChange={handleChange}
+          value={props.value}
+          onChange={props.onChange}
           name="telefoneMask"
           inputComponent={TelefoneMaskCustom}
           required

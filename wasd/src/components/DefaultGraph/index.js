@@ -1,12 +1,13 @@
 import { Button } from "@material-ui/core"
 import ChartFuncionario from "../Chart"
 import * as React from 'react';
+import api from "../../service/api";
 
 export default function DefaultGraph() {
-    const [title, setTitle] = React.useState('CPU');
-    const [TemDes, setTemDes] = React.useState('Temperatura');
-    const [Minimo, setMinimo] = React.useState();
-    const [Maximo, setMaximo] = React.useState();
+    const [TemDes, setTemDes] = React.useState('Desempenho %');
+    const [Minimo, setMinimo] = React.useState(0);
+    const [Maximo, setMaximo] = React.useState(100);
+    const [maximoRam, setMaximoRam] = React.useState(32);
     const [Cor, setCor] = React.useState('#A29BFE');
     const [Cor1, setCor1] = React.useState('#FFF');
     const [Cor2, setCor2] = React.useState('#FFF');
@@ -16,10 +17,16 @@ export default function DefaultGraph() {
     const [CorFont2, setCorFont2] = React.useState('#000000');
     const [CorFont3, setCorFont3] = React.useState('#000000');
 
+    React.useEffect(() => {
+        api.get("/log/3").then((response) => {
+          response.data.forEach((log) => {
+            setMaximoRam(parseInt(log.maquina.ram))
+          });
+        });
+      }, []);
+    
     function CPU() {
-        setTitle("CPU")
         setTemDes("Desempenho %")
-        setMinimo(0)
         setMaximo(100)
         setCor('#A29BFE')
         setCor1('#FFF')
@@ -32,10 +39,8 @@ export default function DefaultGraph() {
     }
 
     function GPU() {
-        setTitle("GPU")
         setTemDes("Temperatura Cº")
-        setMinimo()
-        setMaximo()
+        setMaximo(100)
         setCor('#FFF')
         setCor1('#A29BFE')
         setCor2('#FFF')
@@ -47,9 +52,7 @@ export default function DefaultGraph() {
     }
 
     function Disco() {
-        setTitle("Disco")
         setTemDes("Desempenho %")
-        setMinimo(0)
         setMaximo(100)
         setCor('#FFF')
         setCor1('#FFF')
@@ -62,10 +65,8 @@ export default function DefaultGraph() {
     }
 
     function RAM() {
-        setTitle("RAM")
-        setTemDes("Desempenho %")
-        setMinimo(0)
-        setMaximo(100)
+        setTemDes("Memória Usada GB")
+        setMaximo(maximoRam)
         setCor('#FFF')
         setCor1('#FFF')
         setCor2('#FFF')
@@ -77,15 +78,15 @@ export default function DefaultGraph() {
     }
 
     return (
-        <div style={{ margin: '0 auto' }}>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '3%' }}>
-                    <Button style={{ color: CorFont, backgroundColor: Cor }} onClick={CPU}>CPU</Button>
-                    <Button style={{ color: CorFont1, backgroundColor: Cor1 }} onClick={GPU}>GPU</Button>
-                    <Button style={{ color: CorFont2, backgroundColor: Cor2 }} onClick={Disco}>Disco</Button>
-                    <Button style={{ color: CorFont3, backgroundColor: Cor3 }} onClick={RAM}>RAM</Button>
+        <div>
+            <div style={{display: 'flex', flexDirection: 'row', margin: '0 auto'}}>
+                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '1%', width: '20%'}}>
+                    <Button style={{ color: CorFont, backgroundColor: Cor, fontSize: '1rem' }} onClick={CPU}>Desempenho CPU</Button>
+                    <Button style={{ color: CorFont1, backgroundColor: Cor1, fontSize: '1rem' }} onClick={GPU}>Temperatura GPU</Button>
+                    <Button style={{ color: CorFont2, backgroundColor: Cor2, fontSize: '1rem' }} onClick={Disco}>Disco</Button>
+                    <Button style={{ color: CorFont3, backgroundColor: Cor3, fontSize: '1rem' }} onClick={RAM}>Uso RAM</Button>
                 </div>
-                <ChartFuncionario min={Minimo} max={Maximo} tipo={TemDes} titulo={title}></ChartFuncionario>
+                <ChartFuncionario min={Minimo} max={Maximo} tipo={TemDes}></ChartFuncionario>
             </div>
         </div>
     )

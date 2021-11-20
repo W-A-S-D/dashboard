@@ -1,7 +1,6 @@
 import imageMine from '../../img/icon-mine.png';
 import imageFort from '../../img/icon-fortnite.png';
 import imageLol from '../../img/icon-lol.png';
-import Imagem from '../../img/maisa.png'
 
 export const styles = {
     container: {
@@ -41,9 +40,7 @@ export const styles = {
         width: '150px',
         height: '150px',
         borderRadius: '300px',
-        border: '2px solid #FFF',
-        backgroundImage: `url(${Imagem})`,
-        backgroundSize: 'cover',
+        border: '2px solid #FFF'
     },
     profileName: {
         marginTop: '5%',

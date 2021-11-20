@@ -12,15 +12,15 @@ function CardFunc(props) {
       <Grid item lg={3} md={2} sm={12} style={styles.container}>
         <div style={styles.profile}>
           <div style={styles.delete}>
-            <IconButton>
-              <DeleteForeverOutlinedIcon
-                onClick={() => {
-                  setModalState(true);
-                }}
-              />
+            <IconButton
+              onClick={() => {
+                setModalState(true);
+              }}
+            >
+              <DeleteForeverOutlinedIcon />
             </IconButton>
           </div>
-          <div style={styles.profileBorder}>
+          <div id={props.id} style={styles.profileBorder}>
             <div
               style={{
                 ...styles.profilePhoto,
@@ -30,6 +30,7 @@ function CardFunc(props) {
             ></div>
           </div>
           <div style={styles.profileText}>{props.nome}</div>
+          <div style={{...styles.profileText, color: "#808080"}}>{props.email}</div>
           <div style={styles.profileTextGame}>{props.jogo}</div>
         </div>
       </Grid>

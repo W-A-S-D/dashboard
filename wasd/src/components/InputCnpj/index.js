@@ -22,13 +22,6 @@ CnpjMaskCustom.propTypes = {
 };
 
 function InputForm(props) {
-  const [content, setCnpj] = React.useState("");
-
-  const handleChange = (event) => {
-    if (event.target.value.length === 18) {
-      setCnpj(event.target.value);
-    }
-  };
 
   return (
     <>
@@ -42,8 +35,8 @@ function InputForm(props) {
         <InputLabel htmlFor="component-filled">{props.title}</InputLabel>
         <FilledInput
           id="component-filled"
-          value={content}
-          onChange={handleChange}
+          value={props.value}
+          onChange={props.onChange}
           name="cnpjmask"
           required
           inputComponent={CnpjMaskCustom}

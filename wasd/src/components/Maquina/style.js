@@ -33,7 +33,8 @@ export const styles = {
 
     Icone: {
         display: 'inline-block',
-        margin: '0'
+        margin: '0',
+        marginTop: '4.5px'
     },
 
     alerta: {

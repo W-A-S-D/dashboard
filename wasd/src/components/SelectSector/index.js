@@ -18,7 +18,7 @@ const names = [
   'Valorant'
 ];
 
-export default function SelectSector() {
+export default function SearchFunc() {
   const [sectorName, setSectorName] = React.useState([]);
 
   const handleChange = (event) => {

@@ -28,7 +28,7 @@ const MiniCardSetor = (props) => {
       onClick={() => window.location.href = "/setor"}
       >
         <div style={styles.alertaSetor}>
-          <img src={props.img} style={styles.setorImages} alt="Imagem Setor"></img>
+          <img src={props.img} style={styles.setorImages}></img>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={styles.gameSetorName}>`{props.label}</div>
             <div style={styles.alinhamento}>

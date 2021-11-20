@@ -7,7 +7,7 @@ export const styles = {
         display: 'flex',
         flexDirection: 'row',
         width: '90%',
-        margin: 'auto'
+        margin: '1% auto'
     },
     search: {
         marginTop: '1.2%',

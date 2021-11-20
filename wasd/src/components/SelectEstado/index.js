@@ -1,18 +1,13 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
 import React from "react";
 
-function SelectEstado() {
-  const [estado, setEstado] = React.useState("");
-
-  const handleChange = (event) => {
-    setEstado(event.target.value);
-  };
+function SelectEstado(props) {
 
   return (
     <>
       <FormControl variant="filled" sx={{ width: "100vw", maxWidth: "100%" }}>
         <InputLabel id="demo-simple-select-standard-label">Estado</InputLabel>
-        <Select value={estado} onChange={handleChange} label="Age">
+        <Select value={props.valor} onChange={props.onChange} label="Age">
           <MenuItem value="AC">AC</MenuItem>
           <MenuItem value="AL">AL</MenuItem>
           <MenuItem value="AM">AM</MenuItem>

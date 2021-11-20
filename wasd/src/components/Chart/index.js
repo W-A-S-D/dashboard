@@ -1,48 +1,64 @@
+import { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
+import api from "../../service/api";
 
 function ChartFuncionario(props) {
+  const [data, setData] = useState();
+  const [dataDisco, setDataDisco] = useState();
+  var dados = [["x", "Temperatura"]];
+  var dadosDisco = [["x", "Disco utilizado GB"]];
+
+  const getLogDiscos = (log) => {
+    api.get(`/logDiscos/${log.log_id}`).then((response) => {
+      response.data.forEach((disco) => {
+        let x = [log.criado, parseFloat(disco.uso_disco)];
+        dadosDisco.push(x);
+      });
+      setDataDisco(dadosDisco);
+    });
+  };
+
+  useEffect(() => {
+    api.get("/log/3").then((response) => {
+      response.data.forEach((log) => {
+        let x = [log.criado, parseFloat(log.freq_cpu)];
+        dados.push(x);
+      });
+
+      setData(dados);
+    });
+  }, []);
 
   return (
     <Chart
-      width={'45vw'}
-      height={'33vh'}
+      width={"38vw"}
+      height={"33vh"}
       chartType="LineChart"
-      loader={<div>Loading Chart</div>}
-      data={[
-        ['x', props.titulo],
-        [0, Math.random() * 20],
-        [1, Math.random() * 20],
-        [2, Math.random() * 20],
-        [3, Math.random() * 20],
-        [4, Math.random() * 20],
-        [5, Math.random() * 20],
-        [6, Math.random() * 20],
-        [7, Math.random() * 20],
-      ]}
+      loader={<div>Carregando informações...</div>}
+      data={data}
       options={{
         hAxis: {
-          title: 'Horário',
+          title: "Horário",
         },
-        colors: ['#422F8A'],
+        colors: ["#422F8A"],
         vAxis: {
           title: props.tipo,
           viewWindow: {
             min: props.min,
-            max: props.max
+            max: props.max,
           },
         },
         series: {
-          0: { curveType: 'function' },
-        }, 
-        legend: 'none',
+          0: { curveType: "function" },
+        },
+        legend: "none",
         chartArea: {
-          width: '90%'
-      },
-      }
-      }
-      rootProps={{ 'data-testid': '2' }}
+          width: "90%",
+        },
+      }}
+      rootProps={{ "data-testid": "2" }}
     />
-  )
+  );
 }
 
 export default ChartFuncionario;

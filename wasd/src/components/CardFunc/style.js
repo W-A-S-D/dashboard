@@ -1,4 +1,3 @@
-import Imagem from '../../img/maisa.png'
 
 export const styles = {
     container: {
@@ -6,7 +5,7 @@ export const styles = {
         margin: '3vh 2vh',
         overflow: 'auto',
         background: '#FFFFFF',
-        padding: '1% 20px 4% 20px',
+        padding: '1% 15px 4% 15px',
         /* Destaque - Home - Instável/Estável */
         boxShadow: '0px 0px 24px rgba(0, 0, 0, 0.22)',
         borderRadius: '24px',

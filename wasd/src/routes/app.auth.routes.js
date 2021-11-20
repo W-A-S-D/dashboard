@@ -10,9 +10,9 @@ import Cadastro from "../pages/Cadastro";
 export const SignRoutes = () => {
     return (
         <Router>
-            <Route path="/" component={Login} />
-            <Route path="/cadastro" component={Cadastro} />
-            <Route path="/cadastro/empresa" component={CadastroEmpresa} />
+            <Route exact path="/" component={Login} />
+            <Route exact path="/cadastro" component={Cadastro} />
+            <Route exact path="/cadastro/empresa" component={CadastroEmpresa} />
         </ Router>
     )
 }

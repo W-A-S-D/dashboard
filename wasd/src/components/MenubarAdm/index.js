@@ -18,7 +18,7 @@ function MenubarAdm() {
   return (
     <>
       <div id="Menubar" style={styles.Menubar}>
-        <Link to="/admin">
+        <Link to="/">
           <HomeIcon
             sx={{ fontSize: "2.5em", marginTop: "5vh" }}
             color="primary"
@@ -30,7 +30,7 @@ function MenubarAdm() {
             color="primary"
           />
         </Link>
-        <Link to="/cadastro-func">
+        <Link to="/funcionarios">
           <PersonAddOutlinedIcon
             sx={{ fontSize: "2.5em", marginTop: "5vh" }}
             color="primary"

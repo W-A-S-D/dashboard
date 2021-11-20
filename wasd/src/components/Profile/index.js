@@ -2,8 +2,20 @@ import MenuIcon from "@material-ui/icons/Menu";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import { styles, images } from "./style";
 import MiniCardSetor from "../MiniCardSetor";
+import { AuthContext } from "../../contexts/auth";
+import { useContext, useEffect, useState } from "react";
+import api from "../../service/api";
 
 function Profile() {
+  const { user } = useContext(AuthContext);
+  const [sectors, setSector] = useState([]);
+
+  useEffect(() => {
+    api.get("/sectors/company").then((response) => {
+      setSector(response.data);
+    });
+  }, []);
+
   return (
     <>
       <div style={styles.container}>
@@ -13,10 +25,18 @@ function Profile() {
         <div style={styles.contentHolder}>
           <div style={styles.profile}>
             <div style={styles.profileBorder}>
-              <div style={styles.profilePhoto}></div>
+              <div
+                style={{
+                  ...styles.profilePhoto,
+                  backgroundImage: `url(${user.avatar})`,
+                  backgroundSize: "cover",
+                }}
+              ></div>
             </div>
-            <div style={styles.profileName}>Olá, Maria Silva</div>
-            <div style={styles.profileStatus}>ADM</div>
+            <div style={styles.profileName}>Olá, {user.nome}</div>
+            <div style={styles.profileStatus}>
+              {user.nivelAcesso == 1 ? "ADM" : "Funcionário"}
+            </div>
           </div>
 
           <div style={styles.setor}>
@@ -31,21 +51,16 @@ function Profile() {
                 Meus Setores
               </div>
             </div>
-            <MiniCardSetor
-              status="alert"
-              label="Minecraft"
-              img={images.imageMine}
-            />
-            <MiniCardSetor
-              status="warning"
-              label="Fortnite"
-              img={images.imageFort}
-            />
-            <MiniCardSetor
-              status="normal"
-              label="League of Legends"
-              img={images.imageLol}
-            />
+            {sectors.map((sector) => {
+              return (
+                <MiniCardSetor
+                  key={sector.setor_id}
+                  status="normal"
+                  label={sector.jogo}
+                  img={sector.jogo_avatar}
+                />
+              );
+            })}
           </div>
           <div style={styles.arrowDown}>
             <KeyboardArrowDownIcon fontSize="large"></KeyboardArrowDownIcon>
