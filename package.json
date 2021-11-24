@@ -4,9 +4,8 @@
     "description": "wasd dashboard",
     "private": "true",
     "scripts": {
-      "preinstall": "cd wasd"
       "start": "react-scripts start",
-      "postinstall": "npm install"
+      "postinstall": "cd wasd && npm install"
     },
     "author": "wasd"
 }
