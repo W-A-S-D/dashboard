@@ -1,0 +1,12 @@
+{
+    "name": "wasd-monitoramento",
+    "version": "1.0.0",
+    "description": "wasd dashboard",
+    "main": "app.js",
+    "private": "true",
+    "scripts": {
+      "start": "react-scripts start",
+      "postinstall": "cd wasd & npm install"
+    },
+    "author": "wasd"
+}
