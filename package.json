@@ -5,8 +5,9 @@
     "main": "app.js",
     "private": "true",
     "scripts": {
+      "preinstall": "cd wasd"
       "start": "react-scripts start",
-      "postinstall": "cd wasd & npm install"
+      "postinstall": "npm install"
     },
     "author": "wasd"
 }
