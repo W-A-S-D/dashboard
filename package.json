@@ -2,7 +2,6 @@
     "name": "wasd-monitoramento",
     "version": "1.0.0",
     "description": "wasd dashboard",
-    "main": "app.js",
     "private": "true",
     "scripts": {
       "preinstall": "cd wasd"
