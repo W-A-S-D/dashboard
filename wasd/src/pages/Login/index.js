@@ -11,7 +11,8 @@ import { AuthContext } from "../../contexts/auth"
 export default function Login() {
     const [login, setLogin] = React.useState('');
     const [senha, setSenha] = React.useState('');
-    const { signIn } = React.useContext(AuthContext);
+    const [wrongUser, setWrongUser] = React.useState('');
+    const { signIn, user } = React.useContext(AuthContext);
 
     const handleChangeEmail = (event) => {
         setLogin(event.target.value);
@@ -23,6 +24,11 @@ export default function Login() {
 
     const handleLogin = () => {
         signIn(login, senha);
+        if(user == null) {
+            setWrongUser('Email/Senha inválidos')
+            setLogin('')
+            setSenha('')
+        }
     }
 
     return (
@@ -53,8 +59,13 @@ export default function Login() {
                                 </Link>
                             </Typography>
                         </Grid>
+                        <Grid item xs={12} md={6} lg={6}>
+                            <Typography variant="subtitle1" component="span"  style={{ fontWeight: 'bold', textDecoration: 'none', color: '#F74F4F' }}>
+                                {wrongUser}
+                            </Typography>
+                        </Grid>
                     </Grid>
-                    <Box mt={6}>
+                    <Box mt={4}>
                         <ButtonWasd content="Entrar" />
                     </Box>
                 </form>

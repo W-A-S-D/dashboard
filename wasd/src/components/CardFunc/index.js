@@ -1,11 +1,18 @@
 import { Grid, IconButton } from "@material-ui/core";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import { useState } from "react";
+import api from "../../service/api";
 import Delete from "../Delete";
 import { styles } from "./style";
 
 function CardFunc(props) {
   const [modalState, setModalState] = useState(false);
+
+  const handleDeleteFunc = () => {
+    api.put(`/delete/${props.idFunc}`)
+    setModalState(false)
+    window.location.reload();
+  };
 
   return (
     <>
@@ -30,15 +37,17 @@ function CardFunc(props) {
             ></div>
           </div>
           <div style={styles.profileText}>{props.nome}</div>
-          <div style={{...styles.profileText, color: "#808080"}}>{props.email}</div>
-          <div style={styles.profileTextGame}>{props.jogo}</div>
+          <div style={{ ...styles.profileText, color: "#808080" }}>
+            {props.email}
+          </div>
         </div>
       </Grid>
       <Delete
         open={modalState}
-        onClick={() => {
+        onClick1={() => {
           setModalState(false);
         }}
+        onClick2={handleDeleteFunc}
       />
     </>
   );

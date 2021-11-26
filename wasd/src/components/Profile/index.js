@@ -1,6 +1,6 @@
 import MenuIcon from "@material-ui/icons/Menu";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import { styles, images } from "./style";
+import { styles } from "./style";
 import MiniCardSetor from "../MiniCardSetor";
 import { AuthContext } from "../../contexts/auth";
 import { useContext, useEffect, useState } from "react";
@@ -35,7 +35,7 @@ function Profile() {
             </div>
             <div style={styles.profileName}>Olá, {user.nome}</div>
             <div style={styles.profileStatus}>
-              {user.nivelAcesso == 1 ? "ADM" : "Funcionário"}
+              {user.nivelAcesso === 1 ? "ADM" : "Funcionário"}
             </div>
           </div>
 

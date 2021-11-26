@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ComputerIcon from "@material-ui/icons/Computer";
 import { styles } from "./style";
 
@@ -39,7 +39,10 @@ function Maquina(props) {
       }}
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
-      onClick={() => (window.location.href = "/detalhes")}
+      onClick={() => {
+        window.location.href = "/detalhes"
+        localStorage.setItem('@wasd:idMaq', props.idMaq);
+      }}
     >
       <ComputerIcon
         style={{

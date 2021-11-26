@@ -2,7 +2,7 @@ import * as React from "react";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 import Card from "../../components/Card";
-import Maquina from "../../components/Maquina";
+import Maquina from "../../components/Machine";
 import DashboardHolder from "../../components/DashboardHolder";
 import MainContainer from "../../components/MainContainer";
 import { styles } from "./styles";
@@ -34,7 +34,7 @@ function Setor() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   //   const handleChange = (nome) => {
   //     setTitleSetor(nome)
@@ -50,14 +50,14 @@ function Setor() {
             }}
             style={styles.Adicionar}
           />
-          {sectors.length == 0 ? (
+          {sectors.length === 0 ? (
             <div style={{marginLeft: '5%'}}>Não há setores cadastrados</div>
           ) : (
             sectors.map((sector) => {
               return (
                 <Card
                   key={sector.setor_id}
-                  imagens={sector.avatar_jogo}
+                  imagens={`http://localhost:4000/${sector.avatar_jogo}`}
                   descricao="lol"
                   nomeJogo={sector.jogo}
                   nomeFunc={sector.usuario.nome}
@@ -70,13 +70,14 @@ function Setor() {
         </ContentHolder>
 
         <ContentHolder title={titleSetor}>
-          {machines.length == 0 ? (
+          {machines.length === 0 ? (
             <div style={{marginLeft: '5%', marginBottom: '3%'}}>Não há máquinas cadastradas</div>
           ) : (
             machines.map((machine) => {
               return (
                 <Maquina
-                  key={machine.machine_id}
+                  idMaq={machine.maquina_id}
+                  key={machine.maquina_id}
                   computador={machine.nome}
                   alertas={machine.status}
                 />

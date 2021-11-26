@@ -1,7 +1,5 @@
 import React from "react";
 import { styles } from "./style"
-import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
-import { IconButton } from "@material-ui/core";
 
 function Card(props) {
     let [over, setOver] = React.useState(false);
@@ -39,9 +37,6 @@ function Card(props) {
                     <h4 style={{margin: '0', paddingTop: '5%'}}><b>{props.nomeJogo}</b></h4>
                     <p style={{margin: '0', paddingTop: '5%'}}>
                         {props.nomeFunc}
-                        <IconButton color="third">
-                            <ChatRoundedIcon></ChatRoundedIcon>
-                        </IconButton>
                     </p>
 
                 </div>

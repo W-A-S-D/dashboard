@@ -31,10 +31,6 @@ export const styles = {
         fontSize: '12px',
         lineHeight: '5%',
     },
-    setorImages: {
-        width: '8%',
-        height: '18%',
-    },
     linediv: { 
         borderTop: '2px solid rgba(136, 136, 136, 0.54)',   
         width: '90%',      

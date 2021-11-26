@@ -26,6 +26,7 @@ export function AuthProvider(props) {
     function signOut() {
         setUser(null)
         localStorage.removeItem('@wasd:token')
+        window.location.href = "/";
     }
 
     useEffect(() => {

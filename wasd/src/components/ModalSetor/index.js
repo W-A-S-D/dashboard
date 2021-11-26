@@ -6,16 +6,16 @@ import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import ModalInput from "../ModalInput";
 import { styles } from "./style.js";
 import ButtonWasd from "../ButtonWasd";
-import { AuthContext } from "../../contexts/auth";
 import api from "../../service/api";
 import { Button, MenuItem, Select } from "@material-ui/core";
 
+
 const ModalSetor = (props) => {
-  const { user } = React.useContext(AuthContext);
   const [users, setUsers] = React.useState([]);
   const [nome, setNome] = React.useState();
   const [imagem, setImagem] = React.useState();
   const [responsavel, setResponsavel] = React.useState();
+  let modalState = props.open;
 
   React.useEffect(() => {
     api
@@ -30,33 +30,42 @@ const ModalSetor = (props) => {
 
   const uploadFile = (event) => {
     setImagem(event.target.files[0]);
+    console.log(event.target.files)
   };
 
-  async function handleCreateSector(event) {
+  async function handleCreateSector(event, imagem, nome, responsavel) {
     event.preventDefault();
-
-    // let formData = new FormData();
-
-    // formData.append("file", imagem);
+  
+    let formData = new FormData();
+    
+    try {
+      formData.append("file", imagem);
+  
+     } catch(e) {
+       console.log(e)
+     }
+    console.log(formData)
     console.log(imagem)
-
+  
     if (!nome || !imagem) {
       return;
     }
-
+  
     const response = await api.post("sectors/create", {
       fk_usuario: responsavel,
       jogo: nome,
-      avatar_jogo: imagem,
+      productImage: formData,
     });
-
+  
     console.log(response)
+    modalState = false;
+    window.location.reload();
   }
-
+  
   return (
     <>
       <Modal
-        open={props.open}
+        open={modalState}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -85,7 +94,7 @@ const ModalSetor = (props) => {
               }}
             ></div>
           </div>
-          <form onSubmit={handleCreateSector}>
+          <form onSubmit={(event) => handleCreateSector(imagem, nome, responsavel)}>
             <ModalInput
               width={"100%"}
               label="Nome do Setor"

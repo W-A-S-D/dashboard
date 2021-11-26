@@ -1,5 +1,4 @@
-import { Grid } from "@material-ui/core";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import { Button, Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 
 import CardFunc from "../../components/CardFunc";
@@ -25,26 +24,18 @@ function CadastroFunc() {
       <MainContainer>
         <div style={styles.header}>
           <div style={styles.title}>Funcionários</div>
-          {/* <div style={styles.search}>
-            <SearchFunc />
-          </div> */}
+          <div style={styles.search}>
+            <Button variant="contained" color='primary' onClick={() => {
+                setModalState(true);
+              }}>Cadastrar</Button>
+          </div>
         </div>
         <Grid container style={styles.container}>
           {users.map(user => {
-            console.log(user)
             return (
-              <CardFunc key={user.id} nome={user.nome} email={user.email} imagem={user.avatar} jogo="League of Legends" />
+              <CardFunc idFunc={user.usuario_id} key={user.usuario_id} nome={user.nome} email={user.email} imagem={user.avatar} />
             );
           })}
-
-          <Grid item lg={3} md={3} style={styles.addUser}>
-            <AddCircleOutlineIcon
-              sx={{ fontSize: 50, color: "#888888", cursor: "pointer" }}
-              onClick={() => {
-                setModalState(true);
-              }}
-            />
-          </Grid>
         </Grid>
       </MainContainer>
       <Profile />

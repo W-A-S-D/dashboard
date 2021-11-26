@@ -21,7 +21,7 @@ export default function Cadastro() {
     // localStorage.getItem("@wasd:idEmpresa");
     console.log(empresa);
 
-    if (senha != confirmSenha) {
+    if (senha !== confirmSenha) {
       return;
     }
 

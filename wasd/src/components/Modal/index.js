@@ -14,6 +14,7 @@ const ModalComponent = (props) => {
   const [nome, setNome] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
+  let modalState = props.open;
 
   async function handleCreateFunc(event) {
     event.preventDefault();
@@ -22,22 +23,27 @@ const ModalComponent = (props) => {
       return;
     }
 
-    await api.post("create/func", { 
-        nome,
-        email,
-        senha, 
-        fkEmpresa: user.fk_empresa
-     });
+    console.log(nome + email + senha);
 
-     setNome("");
-     setEmail("");
-     setSenha("");
+    const response = await api.post("create/func", {
+      nome,
+      email,
+      pass: senha,
+      fkEmpresa: user.fk_empresa,
+    });
+
+    setNome("");
+    setEmail("");
+    setSenha("");
+
+    modalState = false
+    window.location.reload();
   }
 
   return (
     <>
       <Modal
-        open={props.open}
+        open={modalState}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
