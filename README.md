@@ -36,7 +36,7 @@ Inicie o servidor:
 npm start
 ```
 
-## 🎇 Tenha a sua `<WASD-API>` rodando em segundo plano"
+## 🎇 Tenha a sua `<WASD-API>` rodando em segundo plano
 
 No repositório da WASD-API, rode:
 ```
