@@ -30,38 +30,30 @@ const ModalSetor = (props) => {
 
   const uploadFile = (event) => {
     setImagem(event.target.files[0]);
-    console.log(event.target.files)
   };
 
   async function handleCreateSector(event, imagem, nome, responsavel) {
     event.preventDefault();
-  
-    let formData = new FormData();
-    
-    try {
-      formData.append("file", imagem);
-  
-     } catch(e) {
-       console.log(e)
-     }
-    console.log(formData)
     console.log(imagem)
-  
+
+    let formData = new FormData();
+    formData.append("productImage", imagem);
+
     if (!nome || !imagem) {
       return;
     }
-  
+
     const response = await api.post("sectors/create", {
-      fk_usuario: responsavel,
       jogo: nome,
-      productImage: formData,
-    });
-  
-    console.log(response)
+      fk_usuario: responsavel,
+    })
+
+    api.put(`sectors/upload/${response.data.setor_id}`, formData);
+
     modalState = false;
     window.location.reload();
   }
-  
+
   return (
     <>
       <Modal
@@ -94,7 +86,7 @@ const ModalSetor = (props) => {
               }}
             ></div>
           </div>
-          <form onSubmit={(event) => handleCreateSector(imagem, nome, responsavel)}>
+          <form onSubmit={(event) => handleCreateSector(event, imagem, nome, responsavel)} encType="multipart/form-data">
             <ModalInput
               width={"100%"}
               label="Nome do Setor"
@@ -135,10 +127,9 @@ const ModalSetor = (props) => {
               <label htmlFor="btn-upload">
                 <input
                   id="btn-upload"
-                  name="btn-upload"
+                  name="productImage"
                   style={{ display: "none" }}
                   type="file"
-                  accept="image/*"
                   onChange={uploadFile}
                 />
                 <Button

@@ -42,6 +42,13 @@ export const styles = {
         borderRadius: '300px',
         border: '2px solid #FFF'
     },
+    profileEdit: {
+      padding: '5px',
+      width: '150px',
+      height: '150px',
+      borderRadius: '300px',
+      border: '2px solid #FFF'
+  },
     profileName: {
         marginTop: '5%',
         fontSize: '22px',

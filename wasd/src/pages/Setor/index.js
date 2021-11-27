@@ -22,23 +22,28 @@ function Setor() {
       .get("sectors/company")
       .then((response) => {
         setSectors(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    api
-      .get("machines")
-      .then((response) => {
-        setMachines(response.data);
+        setTitleSetor(response.data[0].jogo)
+        changeMachines(response.data[0].setor_id)
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  //   const handleChange = (nome) => {
-  //     setTitleSetor(nome)
-  //   }
+  const changeMachines = (idSetor) => {
+    api
+      .get(`machines/sector/${idSetor}`)
+      .then((response) => {
+        setMachines(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  const handleChange = (nome) => {
+    setTitleSetor(nome)
+  }
 
   return (
     <DashboardHolder>
@@ -50,8 +55,8 @@ function Setor() {
             }}
             style={styles.Adicionar}
           />
-          {sectors.length === 0 ? (
-            <div style={{marginLeft: '5%'}}>Não há setores cadastrados</div>
+          {sectors.length === undefined ? (
+            <div style={{ marginLeft: '5%' }}>Não há setores cadastrados</div>
           ) : (
             sectors.map((sector) => {
               return (
@@ -62,7 +67,10 @@ function Setor() {
                   nomeJogo={sector.jogo}
                   nomeFunc={sector.usuario.nome}
                   bgColor="#B28BC1"
-                  // onClick={handleChange(sector.jogo)}
+                  onClick={() => {
+                    handleChange(sector.jogo)
+                    changeMachines(sector.setor_id)
+                  }}
                 />
               );
             })
@@ -70,8 +78,8 @@ function Setor() {
         </ContentHolder>
 
         <ContentHolder title={titleSetor}>
-          {machines.length === 0 ? (
-            <div style={{marginLeft: '5%', marginBottom: '3%'}}>Não há máquinas cadastradas</div>
+          {machines.length === undefined ? (
+            <div style={{ marginLeft: '5%', marginBottom: '3%' }}>Não há máquinas cadastradas</div>
           ) : (
             machines.map((machine) => {
               return (

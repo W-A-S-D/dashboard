@@ -17,8 +17,7 @@ export default function Cadastro() {
   async function handleCreateUser(event) {
     event.preventDefault();
 
-    const empresa = 11
-    // localStorage.getItem("@wasd:idEmpresa");
+    const empresa = localStorage.getItem("@wasd:idEmpresa");
     console.log(empresa);
 
     if (senha !== confirmSenha) {
@@ -43,7 +42,7 @@ export default function Cadastro() {
 
     console.log(response)
 
-    // window.location.href = "/";
+    window.location.href = "/";
 
     setPrimeiroNome("");
     setUltimoNome("");

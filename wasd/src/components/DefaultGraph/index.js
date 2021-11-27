@@ -97,7 +97,6 @@ export default function DefaultGraph() {
     setComponent("ram");
   }
 
-  console.log();
   return (
     <div>
       <div style={{ display: "flex", flexDirection: "row", margin: "0 auto" }}>
@@ -130,23 +129,25 @@ export default function DefaultGraph() {
               Temperatura GPU
             </Button>
           )}
-          {discos.map((d) => {
-            return (
-              <Button
-                style={{
-                  color: CorFont2,
-                  backgroundColor: Cor2,
-                  fontSize: "1rem",
-                }}
-                onClick={() => {
-                  setDiscoId(d.disco_id) 
-                  Disco()
-                }}
-              >
-                {d.nome}
-              </Button>
-            );
-          })}
+          {discos === undefined ?
+            discos.map((d) => {
+              return (
+                <Button
+                  style={{
+                    color: CorFont2,
+                    backgroundColor: Cor2,
+                    fontSize: "1rem",
+                  }}
+                  onClick={() => {
+                    setDiscoId(d.disco_id)
+                    Disco()
+                  }}
+                >
+                  {d.nome}
+                </Button>
+              )
+
+            }) : <></>}
           <Button
             style={{ color: CorFont3, backgroundColor: Cor3, fontSize: "1rem" }}
             onClick={RAM}
@@ -157,11 +158,11 @@ export default function DefaultGraph() {
         {componentMachine == "cpu" ? (
           <ChartCpu />
         ) : componentMachine == "ram" ? (
-          <ChartRam/>
+          <ChartRam />
         ) : componentMachine == "disco" ? (
-          <ChartDisco idDisco={discoId}/>
+          <ChartDisco idDisco={discoId} />
         ) : (
-          <ChartGpu/>
+          <ChartGpu />
         )}
       </div>
     </div>

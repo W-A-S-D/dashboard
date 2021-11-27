@@ -17,14 +17,7 @@ function Card(props) {
     }
 
     return (
-        <>
-            {/* <div style={styles.Card}>
-                <img style={styles.cardImage} src={props.imagens} alt={props.descricao} />
-                <div style={{ ...styles.container1, backgroundColor: props.bgColor }}>
-                    <h4 style={styles.CardH4}><b>{props.nomeJogo}</b></h4>
-                    <p style={styles.CardP}>{props.nomeFunc}</p>
-                </div>
-            </div> */}
+        <div onClick={props.onClick}>
             <div
                 style={{ ...styles.Card, ...hoverstyle }}
                 onMouseOver={() => setOver(true)}
@@ -41,7 +34,7 @@ function Card(props) {
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
