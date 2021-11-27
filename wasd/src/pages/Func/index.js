@@ -16,11 +16,9 @@ function Func() {
     api
       .get("sectors/user")
       .then((response) => {
-        console.log(response)
         api
           .get(`/machines/sector/${response.data.setor_id}`)
           .then((response) => {
-            console.log(response)
             setMachines(response.data);
           })
           .catch((error) => {
@@ -30,7 +28,7 @@ function Func() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   return (
     <DashboardHolder>
@@ -38,11 +36,11 @@ function Func() {
         <div style={styles.title}>Setor</div>
 
 
-        {machines.length === undefined ? (
+        {machines.length === undefined || machines.length === 0 ? (
           <>
             <div id="Maquinas" style={styles.maquinasContainer}>
               <div className="corpo_maquina" style={styles.corpoMaquina}>
-                <div style={{ marginLeft: "5%", marginBottom: "3%" }}>
+                <div>
                   Não há máquinas cadastradas
                 </div>
               </div>

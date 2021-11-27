@@ -42,9 +42,12 @@ export default function DefaultGraph() {
     });
 
     api.get(`/log/${idMaquin}`).then((response) => {
-      response.data.forEach((log) => {
-        setMaximoRam(parseInt(log.maquina.ram));
-      });
+      if(response !== undefined) {
+        response.data.forEach((log) => {
+          setMaximoRam(parseInt(log.maquina.ram));
+        });
+      }
+      
     });
   }, []);
 
