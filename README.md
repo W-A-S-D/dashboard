@@ -13,7 +13,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Instalando
 
-Para instalar a WASD-API, siga estas etapas:
+Para instalar a dashboard, siga estas etapas:
 
 
 ```
