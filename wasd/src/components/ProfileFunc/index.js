@@ -27,9 +27,8 @@ function ProfileFunc() {
   useEffect(() => {
     api.get("requests").then((response) => {
       setPedidos(response.data);
-      console.log(response.data)
     });
-  }, []);
+  });
 
   const uploadFile = (event) => {
     setImagem(event.target.files[0]);
@@ -78,7 +77,7 @@ function ProfileFunc() {
                 <div style={styles.contentHolder}>
                   <div style={styles.profile}>
                     <div style={styles.profileBorder}>
-                      <IconButton style={styles.profilePhoto}>
+                      <IconButton style={styles.profilePhoto} onClick={() => setModal(true)}>
                         <CameraAltIcon fontSize="large" />
                       </IconButton>
                     </div>
@@ -144,11 +143,11 @@ function ProfileFunc() {
                       Pedidos
                     </div>
                   </div>
-                  {pedidos.length === undefined ?
+                  {pedidos.length === undefined ||  pedidos.length === 0?
                     <div>Não há pedidos pendentes</div>
                     : pedidos.map((pedido) => {
                       return (
-                        <PedidoCard />
+                        <PedidoCard nome={pedido.hostname} idRequest={pedido.pedido_id}/>
                       );
                     })}
                 </div>

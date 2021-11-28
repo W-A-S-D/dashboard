@@ -65,8 +65,8 @@ function Setor() {
                   imagens={`http://localhost:4000/${sector.avatar_jogo}`}
                   descricao="lol"
                   nomeJogo={sector.jogo}
-                  nomeFunc={sector.usuario.nome}
-                  bgColor="#B28BC1"
+                  nomeFunc={sector.nome}
+                  status={sector.status}
                   onClick={() => {
                     handleChange(sector.jogo)
                     changeMachines(sector.setor_id)

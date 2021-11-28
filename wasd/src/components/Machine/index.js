@@ -11,9 +11,9 @@ function Maquina(props) {
 
   if (over) {
     hoverstyle.border = `0.4px solid ${
-      props.alertas === "Ok"
+      props.alertas === "Normal"
         ? "#7FB8C4"
-        : props.alertas === "alerta"
+        : props.alertas === "Alerta"
         ? "#D12F2F"
         : "#D1902F"
     }`;
@@ -30,9 +30,9 @@ function Maquina(props) {
         ...styles.MaqMaq1,
         ...hoverstyle,
         background: `${
-          props.alertas === "Ok"
+          props.alertas === "Normal"
             ? "linear-gradient(114.7deg, rgba(127, 184, 196, 0.38) 0%, rgba(255, 255, 255, 0.38) 97.69%)"
-            : props.alertas === "alerta"
+            : props.alertas === "Alerta"
             ? "linear-gradient(113.96deg, rgba(209, 47, 47, 0.38) 0%, rgba(255, 255, 255, 0.38) 98.96%)"
             : "linear-gradient(114.39deg, rgba(209, 144, 47, 0.38) 1.37%, rgba(255, 255, 255, 0.38) 98.13%)"
         }`,
@@ -47,9 +47,9 @@ function Maquina(props) {
       <ComputerIcon
         style={{
           color: `${
-            props.alertas === "Ok"
+            props.alertas === "Normal"
               ? "#7FB8C4"
-              : props.alertas === "alerta"
+              : props.alertas === "Alerta"
               ? "#D12F2F"
               : "#D1902F"
           } `,
@@ -75,9 +75,9 @@ function Maquina(props) {
             rx="3.85106"
             ry="3.74483"
             fill={
-              props.alertas === "Ok"
+              props.alertas === "Normal"
                 ? "#7FB8C4"
-                : props.alertas === "alerta"
+                : props.alertas === "Alerta"
                 ? "#D12F2F"
                 : "#D1902F"
             }

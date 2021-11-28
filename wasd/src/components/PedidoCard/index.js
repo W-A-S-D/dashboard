@@ -1,56 +1,45 @@
-import { styles } from './style'
+import { Button } from "@material-ui/core";
+import api from "../../service/api";
+import { styles } from "./style";
 
 const PedidoCard = (props) => {
-  const statusEnum = {
-    Alert: 'alert',
-    Warning: 'warning',
-    Normal: 'normal'
+
+  const handleRequest = (event, request) => {
+    event.preventDefault()
+    api.put("request/update", {
+      id: props.idRequest,
+      status: request
+    }).then(
+      window.location.reload()
+    )
   }
+  
+  
   return (
     <>
-      <div style={{
-        height: '21%',
-        width: '99%',
-        borderRadius: '5px',
-        overflowX: 'hidden',
-        overflowY: 'hidden',
-        rgba: '(255, 255, 255, 1)',
-        borderTop: '1px solid rgba(211, 211, 211, 1)',
-        borderRight: '1px solid rgba(211, 211, 211, 1)',
-        borderBottom: '1px solid rgba(211, 211, 211, 1)',
-        borderLeft: `6px solid ${props.status === statusEnum.Alert ? '#D12F2F' : props.status === statusEnum.Warning ? '#D1902F' : '#36ADC6'}`,
-        paddingLeft: '24px',
-        paddingTop: '8px',
-        boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.24)',
-        paddingBottom: '10px',
-        margin: '15px auto'
-      }}
-      onClick={() => window.location.href = "/setor"}
-      >
-        <div style={styles.alertaSetor}>
-          <img src={props.img} style={styles.setorImages} alt="Setor"></img>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={styles.gameSetorName}>`{props.label}</div>
-            <div style={styles.alinhamento}>
-              <div style={{
-                width: '6px',
-                height: '6px',
-                borderRadius: '50px',
-                marginLeft: '24px',
-                backgroundColor: props.status === statusEnum.Alert ? '#D12F2F' : props.status === statusEnum.Warning ? '#D1902F' : '#36ADC6'
-              }}></div>
-              <div style={{
-                marginLeft: '10px',
-                fontSize: '12px',
-                lineHeight: '16px',
-                color: props.status === statusEnum.Alert ? '#D12F2F' : props.status === statusEnum.Warning ? '#D1902F' : '#36ADC6'
-              }}>{props.status === statusEnum.Alert ? 'Alerta' : props.status === statusEnum.Warning ? 'Atenção' : 'Normal'}</div>
+      <div style={styles.cardContainer}>
+        <div style={styles.textContainer}>
+          <div
+            style={{ fontWeight: "800", fontSize: "14px", margin: "0 auto" }}
+          >
+            {props.nome}
+          </div>
+          <div style={styles.buttonContainer}>
+            <div style={{marginRight: '5%'}}>
+              <Button size="small" variant="contained" onClick={(event) => handleRequest(event, 1)}>
+                Aceitar
+              </Button>
+            </div>
+            <div>
+              <Button size="small" variant="outlined" onClick={(event) => handleRequest(event, 2)}>
+                Negar
+              </Button>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PedidoCard
+export default PedidoCard;

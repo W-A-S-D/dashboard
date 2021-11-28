@@ -12,33 +12,33 @@ import api from "../../service/api.js";
 
 const AdminPage = (props) => {
   const [machines, setMachines] = React.useState([]);
-  const [machinesStatus, setMachinesStatus] = React.useState({
-    Normal: 0,
-    Attention: 0,
-    Alert: 0,
-  });
+  const [sectors, setSectors] = React.useState([]);
+  const [normalMachines, setNormalMachines] = React.useState();
+  const [attentionMachines, setAttentionMachines] = React.useState();
+  const [alertMachines, setAlertMachines] = React.useState();
 
   React.useEffect(() => {
-    api.get("machines/").then((response) => {
-      response.data.forEach((status) => {
-        if (status.status == "ativo") {
-          setMachinesStatus({ Normal: machinesStatus.Normal + 1 });
-        } else if (status.status == "pendente") {
-          setMachinesStatus({ Attention: machinesStatus.Attention + 1 });
-        } else {
-          setMachinesStatus({ Alert: machinesStatus.Alert + 1 });
-        }
+    api
+      .get("sectors/company")
+      .then((response) => {
+        setSectors(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
 
-      setMachines(response.data);
-    });
+      api
+      .get("machines")
+      .then((response) => {
+        setMachines(response.data.accountTotalMachines);
+        setNormalMachines(response.data.accountNormalMachines);
+        setAttentionMachines(response.data.accountAttentionMachines);
+        setAlertMachines(response.data.accountAlertMachines);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
-
-  async function handleCreateCompany() {
-    const response = await api.get("machines/");
-  }
-
-  console.log(machinesStatus.Attention);
 
   return (
     <>
@@ -49,17 +49,17 @@ const AdminPage = (props) => {
             <StatusCard
               hoverColor="#D12F2F"
               type="alert"
-              value={machines.length * (machinesStatus.Alert / 100)}
+              value={machines / (alertMachines * 100)}
             />
             <StatusCard
               hoverColor="#D1902F"
               type="warning"
-              value={machines.length * (machinesStatus.Attention / 100)}
+              value={machines / (attentionMachines * 100)}
             />
             <StatusCard
               hoverColor="#7FB8C4"
               type="normal"
-              value={machines.length * (machinesStatus.Normal / 100)}
+              value={machines / (normalMachines * 100)}
             />
           </div>
           <div style={styles.grafico}>
@@ -70,9 +70,9 @@ const AdminPage = (props) => {
               </div>
             </div>
             <div style={styles.layout}>
-              <ProgressBar label="League of Legends" barValue={"35%"} />
-              <ProgressBar label="Fortnite" barValue="55%" />
-              <ProgressBar label="Minecraft" barValue="75%" />
+              {sectors.map((s) => {
+                return <ProgressBar label={s.jogo} barValue={s.status == "normal" ? "10%" : s.status == "alert" ? "90%" : "50%"} />;
+              })}
             </div>
           </div>
         </MainContainer>

@@ -16,9 +16,11 @@ function Func() {
     api
       .get("sectors/user")
       .then((response) => {
+        console.log(response.data)
         api
           .get(`/machines/sector/${response.data.setor_id}`)
           .then((response) => {
+            console.log(response)
             setMachines(response.data);
           })
           .catch((error) => {

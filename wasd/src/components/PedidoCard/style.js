@@ -1,47 +1,24 @@
 export const styles = {
-  miniCardSetor: {
-    height: '64px',
-    width: '90%',
-    borderRadius: '5px',
-    rgba: '(255, 255, 255, 1)',
-    borderTop: '1px solid rgba(211, 211, 211, 1)',
-    borderRight: '1px solid rgba(211, 211, 211, 1)',
-    borderBottom: '1px solid rgba(211, 211, 211, 1)',
-    borderLeft: '6px solid rgba(209, 47, 47, 1)',
-    boxShadow: '4px 4px 8px 0px rgba(0, 0, 0, 1)',
-    paddingLeft: '24px',
-    paddingTop: '8px',
-    paddingBottom: '10px'
+  cardContainer: {
+    width: "99%",
+    borderRadius: "5px",
+    overflowX: "hidden",
+    overflowY: "hidden",
+    rgba: "(255, 255, 255, 1)",
+    border: "1px solid rgba(211, 211, 211, 1)",
+    boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.24)",
+    margin: "15px auto",
   },
-  gameSetorName: {
-    marginLeft: '24px',
-    fontWeight: 'bold',
-    fontSize: '12px',
-    lineHeight: '16px',
-  },
-  gameSetorIcon: {
-    width: '6px',
-    height: '6px',
-    borderRadius: '50px',
-    marginLeft: '24px',
-    backgroundColor: '#D12F2F'
-  },
-  alinhamento: {
-    flexDirection: 'row',
+  textContainer: {
+    width: "80%",
+    margin: '10px auto',
     display: 'flex',
-    alignItems: 'center'
+    flexDirection: 'Column',
+    justifyContent: 'center'
   },
-  gameSetorTittle: {
-    marginLeft: '10px',
-    fontSize: '12px',
-    lineHeight: '16px',
-  },
-  setorImages: {
-    width: '46px',
-    height: '46px',
-  },
-  alertaSetor: {
-    flexDirection: 'row',
+  buttonContainer: {
     display: 'flex',
+    flexDirection: 'row',
+    margin: '4% auto'
   }
-}
+};
