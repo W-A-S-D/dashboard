@@ -7,9 +7,6 @@ import * as React from "react";
 import api from "../../service/api";
 
 export default function DefaultGraph() {
-  const [Minimo, setMinimo] = React.useState(0);
-  const [Maximo, setMaximo] = React.useState(100);
-  const [maximoRam, setMaximoRam] = React.useState(32);
   const [machine, setMachine] = React.useState({});
   const [discos, setDiscos] = React.useState([]);
   const [discoId, setDiscoId] = React.useState();
@@ -39,15 +36,6 @@ export default function DefaultGraph() {
 
     api.get(`/discos/${idMaquin}`).then((response) => {
       setDiscos(response.data);
-    });
-
-    api.get(`/log/${idMaquin}`).then((response) => {
-      if(response !== undefined) {
-        response.data.forEach((log) => {
-          setMaximoRam(parseInt(log.maquina.ram));
-        });
-      }
-      
     });
   }, []);
 
@@ -88,7 +76,6 @@ export default function DefaultGraph() {
   }
 
   function RAM() {
-    setMaximo(maximoRam);
     setCor("#FFF");
     setCor1("#FFF");
     setCor2("#FFF");
@@ -118,7 +105,7 @@ export default function DefaultGraph() {
           >
             Desempenho CPU
           </Button>
-          {machine.gpu == "sem gpu no sistema" ? (
+          {machine.gpu === "sem gpu no sistema" ? (
             <></>
           ) : (
             <Button
@@ -158,11 +145,11 @@ export default function DefaultGraph() {
             Uso RAM
           </Button>
         </div>
-        {componentMachine == "cpu" ? (
+        {componentMachine === "cpu" ? (
           <ChartCpu />
-        ) : componentMachine == "ram" ? (
+        ) : componentMachine === "ram" ? (
           <ChartRam />
-        ) : componentMachine == "disco" ? (
+        ) : componentMachine === "disco" ? (
           <ChartDisco idDisco={discoId} />
         ) : (
           <ChartGpu />

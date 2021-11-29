@@ -4,10 +4,10 @@ import api from "../../service/api";
 
 function CharCpu(props) {
   const [data, setData] = useState();
-  var dados = [["Horário" , "Desempenho", "Máximo Ideal"]]
 
   useEffect(() => {
     const idMaquin = localStorage.getItem("@wasd:idMaq");
+    var dados = [["Horário" , "Desempenho", "Máximo Ideal"]]
 
     api
       .get(`/log/${idMaquin}`)

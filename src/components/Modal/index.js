@@ -25,7 +25,7 @@ const ModalComponent = (props) => {
 
     console.log(nome + email + senha);
 
-    const response = await api.post("create/func", {
+    await api.post("create/func", {
       nome,
       email,
       pass: senha,
@@ -92,6 +92,7 @@ const ModalComponent = (props) => {
             />
             <ModalInput
               width={"100%"}
+              type="password"
               label="Senha"
               pass={true}
               onChange={(event) => setSenha(event.target.value)}

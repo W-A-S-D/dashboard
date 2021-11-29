@@ -3,13 +3,16 @@ import { Chart } from "react-google-charts";
 import api from "../../service/api";
 
 function ChartDisco(props) {
-  const [data, setData] = useState([["Horário ", "Disco utilizado GB", "Máxima Ideal"]]);
+  const [data, setData] = useState([
+    ["Horário ", "Disco utilizado GB", "Máxima Ideal"],
+  ]);
   const [maximo, setMaximo] = useState();
-  var dados = [["Horário ", "Disco utilizado GB", "Máxima Ideal"]];
 
-  useEffect(() => {
+  useEffect((props) => {
     const idMaquin = localStorage.getItem("@wasd:idMaq");
     const idDisco = props.idDisco;
+
+    var dados = [["Horário ", "Disco utilizado GB", "Máxima Ideal"]];
 
     api
       .get(`/log/${idMaquin}`)
@@ -30,7 +33,7 @@ function ChartDisco(props) {
                   parseFloat(responseD.disco.volume),
                 ];
 
-                console.log(responseD.disco)
+                console.log(responseD.disco);
 
                 dados.push(x);
               }

@@ -16,7 +16,6 @@ const ModalInput = (props) => {
             border: 0,
             boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.24)",
           }}
-          type={props.pass ? "password" : "text"}
           onChange={props.onChange}
         />
         

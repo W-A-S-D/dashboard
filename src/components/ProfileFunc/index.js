@@ -47,12 +47,12 @@ function ProfileFunc() {
       return;
     }
 
-    if (senha != confirmSenha) {
+    if (senha !== confirmSenha) {
       alert("Senhas Não Correspondem")
       return;
     }
 
-    const response = await api.put("update", {
+    await api.put("update", {
       email,
       senha
     })
@@ -120,7 +120,7 @@ function ProfileFunc() {
                     <div
                       style={{
                         ...styles.profilePhoto,
-                        backgroundImage: `url(${`http://localhost:4000/${user.avatar}`})`,
+                        backgroundImage: `url(${`https://wasdapi.herokuapp.com/${user.avatar}`})`,
                         backgroundSize: "cover",
                       }}
                     ></div>

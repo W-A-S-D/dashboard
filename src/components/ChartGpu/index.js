@@ -4,29 +4,26 @@ import api from "../../service/api";
 
 function ChartGpu(props) {
   const [data, setData] = useState();
-  var dados = [["Horário " , "Temperatura", "Máxima Ideal"]]
 
   useEffect(() => {
+    var dados = [["Horário ", "Temperatura", "Máxima Ideal"]];
     const idMaquin = localStorage.getItem("@wasd:idMaq");
 
     api
       .get(`/log/${idMaquin}`)
       .then((response) => {
-        
         response.data.forEach((log) => {
-          let newDate = new Date(log.criado)
+          let newDate = new Date(log.criado);
           let gpu = [newDate, parseFloat(log.temperatura), 100];
           dados.push(gpu);
         });
-        
-        setData(dados)
+
+        setData(dados);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-
-  
 
   return (
     <Chart

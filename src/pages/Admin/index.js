@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import { styles } from "./style.js";
 
@@ -71,7 +70,7 @@ const AdminPage = (props) => {
             </div>
             <div style={styles.layout}>
               {sectors.map((s) => {
-                return <ProgressBar label={s.jogo} barValue={s.status == "normal" ? "10%" : s.status == "alert" ? "90%" : "50%"} />;
+                return <ProgressBar label={s.jogo} barValue={s.status === "normal" ? "10%" : s.status === "alert" ? "90%" : "50%"} />;
               })}
             </div>
           </div>

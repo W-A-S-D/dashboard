@@ -4,28 +4,26 @@ import api from "../../service/api";
 
 function ChartRam(props) {
   const [data, setData] = useState();
-  var dados = [["Horário" , "Uso GB", "Máxima Ideal"]]
 
   useEffect(() => {
+    var dados = [["Horário", "Uso GB", "Máxima Ideal"]];
     const idMaquin = localStorage.getItem("@wasd:idMaq");
 
     api
       .get(`/log/${idMaquin}`)
       .then((response) => {
         response.data.forEach((log) => {
-          let newDate = new Date(log.criado)
+          let newDate = new Date(log.criado);
           let ram = [newDate, parseFloat(log.uso_ram), 32];
           dados.push(ram);
         });
 
-        setData(dados)
+        setData(dados);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-
-  
 
   return (
     <Chart

@@ -4,7 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import IconButton from "@material-ui/core/IconButton";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import { styles } from "./style.js";
-import { Button, MenuItem, Select } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 
 const ModalUpdate = (props) => {

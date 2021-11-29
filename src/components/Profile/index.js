@@ -45,12 +45,12 @@ function Profile() {
       return;
     }
 
-    if (senha != confirmSenha) {
+    if (senha !== confirmSenha) {
       alert("Senhas Não Correspondem");
       return;
     }
 
-    const response = await api.put("update", {
+    await api.put("update", {
       email,
       senha,
     });
@@ -137,7 +137,7 @@ function Profile() {
                   <div
                     style={{
                       ...styles.profilePhoto,
-                      backgroundImage: `url(${`http://localhost:4000/${user.avatar}`})`,
+                      backgroundImage: `url(${`https://wasdapi.herokuapp.com/${user.avatar}`})`,
                       backgroundSize: "cover",
                     }}
                   ></div>
@@ -165,7 +165,7 @@ function Profile() {
                     <MiniCardSetor
                       key={sector.setor_id}
                       label={sector.jogo}
-                      img={`http://localhost:4000/${sector.avatar_jogo}`}
+                      img={`https://wasdapi.herokuapp.com/${sector.avatar_jogo}`}
                       status={sector.status}
                     />
                   );
