@@ -16,6 +16,7 @@ const AdminPage = (props) => {
   const [normalMachines, setNormalMachines] = React.useState();
   const [attentionMachines, setAttentionMachines] = React.useState();
   const [alertMachines, setAlertMachines] = React.useState();
+  const [modal, setModal] = React.useState(false);
 
   React.useEffect(() => {
     api
@@ -35,6 +36,11 @@ const AdminPage = (props) => {
         setAttentionMachines(response.data.accountAttentionMachines);
         setAlertMachines(response.data.accountAlertMachines);
       })
+      .then(() => {
+        if (machines == 0) {
+          setModal(true)
+        }
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -46,7 +52,7 @@ const AdminPage = (props) => {
         <MainContainer>
           {
             machines == 0 ?
-              <NoMachine open={true}/>
+              <NoMachine open={modal} />
               :
               <>
                 <Title value="Home" />

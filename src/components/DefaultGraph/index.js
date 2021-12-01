@@ -46,10 +46,10 @@ export default function DefaultGraph() {
     });
   }, []);
 
-  const select = (id) => {
-    setSelected(!selected)
-    setSelectedId(id)
-  }
+  // const select = (id) => {
+  //   setSelected(!selected)
+  //   setSelectedId(id)
+  // }
 
   return (
     <div>
@@ -64,8 +64,12 @@ export default function DefaultGraph() {
           }}
         >
           <Button
-            style={selected && "50" == selectedId ? styles.selected : styles.default}
-            onClick={select("50")}
+            style={selected ? styles.selected : styles.default}
+            // onClick={select("50")}
+            onClick={() => {
+              setComponent("cpu")
+            }
+            }
           >
             Desempenho CPU
           </Button>
@@ -73,8 +77,12 @@ export default function DefaultGraph() {
             <></>
           ) : (
             <Button
-              style={selected && "70" == selectedId ? styles.selected : styles.default}
-              onClick={select("70")}
+              style={selected ? styles.selected : styles.default}
+              // onClick={select("70")}
+              onClick={() => {
+                setComponent("gpu")
+              }
+              }
             >
               Temperatura GPU
             </Button>
@@ -85,10 +93,11 @@ export default function DefaultGraph() {
             discos.map((d) => {
               return (
                 <Button
-                  style={selected && d.disco_id == selectedId ? styles.selected : styles.default}
+                  style={selected ? styles.selected : styles.default}
                   onClick={() => {
+                    setComponent("disco")
                     setDiscoId(d.disco_id)
-                    select(d.disco_id)
+                    // select(d.disco_id)
                   }}
                 >
                   {d.nome}
@@ -96,8 +105,10 @@ export default function DefaultGraph() {
               )
             })}
           <Button
-            style={selected && "80" == selectedId ? styles.selected : styles.default}
-            onClick={select("80")}
+            style={selected ? styles.selected : styles.default}
+            onClick={() => {
+              setComponent("ram")
+            }}
           >
             Uso RAM
           </Button>

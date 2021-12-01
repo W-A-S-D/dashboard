@@ -3,48 +3,48 @@ import { Chart } from "react-google-charts";
 import api from "../../service/api";
 
 function ChartDisco(props) {
-  const [data, setData] = useState([
-    ["Horário ", "Disco utilizado GB", "Máxima Ideal"],
-  ]);
+  const [data, setData] = useState();
   const [maximo, setMaximo] = useState();
 
   useEffect(() => {
     const idMaquin = localStorage.getItem("@wasd:idMaq");
     const idDisco = props.idDisco;
 
-    var dados = [["Horário ", "Disco utilizado GB", "Máxima Ideal"]];
+    var dados = [["Horário", "Uso GB", "Máxima Ideal"]];
 
-    api
-      .get(`/log/${idMaquin}`)
-      .then((response) => {
-        response.data.forEach((log) => {
-          api
-            .get(`/logDisco/${log.log_id}&${idDisco}`)
-            .then((responseDisco) => {
-              if (responseDisco.data.uso_disco != null) {
-                let responseD = responseDisco.data;
+    // if (responseDisco.data.uso_disco != null) {
+    //   let responseD = responseDisco.data;
 
-                setMaximo(responseD.disco.volume);
+    //   setMaximo(responseD.disco.volume);
 
-                let newDate = new Date(log.criado);
-                let x = [
-                  newDate,
-                  parseFloat(responseD.uso_disco),
-                  parseFloat(responseD.disco.volume),
-                ];
+    //   let newDate = new Date(log.criado);
+    //   let x = [
+    //     newDate,
+    //     parseFloat(responseD.uso_disco),
+    //     parseFloat(responseD.disco.volume),
+    //   ];
 
-                console.log(responseD.disco);
+    //   console.log(responseD.disco);
 
-                dados.push(x);
-              }
-            });
+    //   dados.push(x);
 
-          setData(dados);
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // api
+    //   .get(`/log/${idMaquin}`)
+    //   .then((response) => {
+    //     response.data.forEach((log) => {
+    //       console.log(log)
+    //       // api
+    //       //   .get(`/logDisco/${log.log_id}&${idDisco}`)
+    //       //   .then((responseDisco) => {
+    //       //     console.log(responseDisco)
+    //       //   })
+    //     });
+
+    //     setData(dados);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }, []);
 
   return (
@@ -60,10 +60,10 @@ function ChartDisco(props) {
         },
         colors: ["#422F8A", "#F67D7D"],
         vAxis: {
-          title: "Disco Usado GB",
+          title: "Memória Usada GB",
           viewWindow: {
             min: 0,
-            max: maximo,
+            max: 32,
           },
         },
         series: {

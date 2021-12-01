@@ -22,8 +22,9 @@ export default function Login() {
         setSenha(event.target.value);
     };
 
-    const handleLogin = () => {
-        signIn(login, senha);
+    const handleLogin = async () => {
+        await signIn(login, senha);
+
         if(user == null) {
             setWrongUser('Email/Senha inválidos')
             setLogin('')
