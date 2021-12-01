@@ -120,7 +120,7 @@ function ProfileFunc() {
                     <div
                       style={{
                         ...styles.profilePhoto,
-                        backgroundImage: `url(${`https://wasdapi.herokuapp.com/${user.avatar}`})`,
+                        backgroundImage: `url(${`https://wasdapi.herokuapp.com/uploads/${user.avatar}`})`,
                         backgroundSize: "cover",
                       }}
                     ></div>

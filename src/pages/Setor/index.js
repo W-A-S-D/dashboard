@@ -62,7 +62,7 @@ function Setor() {
               return (
                 <Card
                   key={sector.setor_id}
-                  imagens={`https://wasdapi.herokuapp.com/${sector.avatar_jogo}`}
+                  imagens={`https://wasdapi.herokuapp.com/uploads/${sector.avatar_jogo}`}
                   descricao="lol"
                   nomeJogo={sector.jogo}
                   nomeFunc={sector.nome}
