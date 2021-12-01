@@ -12,7 +12,7 @@ export const SignRoutes = () => {
         <Router>
             <Route exact path="/" component={Login} />
             <Route exact path="/cadastro" component={Cadastro} />
-            <Route exact path="/cadastro/empresa" component={CadastroEmpresa} />
+            <Route exact path="/cadastro-empresa" component={CadastroEmpresa} />
         </ Router>
     )
 }
