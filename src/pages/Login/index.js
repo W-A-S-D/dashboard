@@ -54,7 +54,7 @@ export default function Login() {
                         </Grid>
                         <Grid item xs={12} md={6} lg={6} mt={1}>
                             <Typography variant="subtitle1" component="span">
-                                <Link to="/cadastro" style={{ fontWeight: 'bold', textDecoration: 'none', color: '#A29BFE' }}>
+                                <Link to="/cadastro/empresa" style={{ fontWeight: 'bold', textDecoration: 'none', color: '#A29BFE' }}>
                                     Esqueceu a senha?
                                 </Link>
                             </Typography>
