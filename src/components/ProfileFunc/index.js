@@ -57,7 +57,7 @@ function ProfileFunc() {
       senha
     })
 
-    api.put(`upload/user/${user.usuario_id}`, formData);
+    await api.put(`upload/user/${user.usuario_id}`, formData);
 
     window.location.reload();
   }
@@ -120,7 +120,7 @@ function ProfileFunc() {
                     <div
                       style={{
                         ...styles.profilePhoto,
-                        backgroundImage: `url(${`https://wasdapi.herokuapp.com/uploads/${user.avatar}`})`,
+                        backgroundImage: `url(${`https://wasdapi.herokuapp.com/${user.avatar}`})`,
                         backgroundSize: "cover",
                       }}
                     ></div>
@@ -143,11 +143,20 @@ function ProfileFunc() {
                       Pedidos
                     </div>
                   </div>
-                  {pedidos.length === undefined ||  pedidos.length === 0?
-                    <div>Não há pedidos pendentes</div>
+                  {pedidos.length === undefined || pedidos.length === 0 ?
+                    <div style={styles.contentHolder}>
+                      <div
+                        style={{
+                          fontSize: "16px",
+                          marginTop: "14px",
+                        }}
+                      >
+                        Não há pedidos pendentes
+                      </div>
+                    </div>
                     : pedidos.map((pedido) => {
                       return (
-                        <PedidoCard nome={pedido.hostname} idRequest={pedido.pedido_id}/>
+                        <PedidoCard nome={pedido.hostname} idRequest={pedido.pedido_id} />
                       );
                     })}
                 </div>

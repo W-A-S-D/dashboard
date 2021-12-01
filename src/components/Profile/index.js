@@ -55,7 +55,7 @@ function Profile() {
       senha,
     });
 
-    api.put(`upload/user/${user.usuario_id}`, formData);
+    await api.put(`upload/user/${user.usuario_id}`, formData);
 
     window.location.reload();
   }
@@ -137,7 +137,7 @@ function Profile() {
                   <div
                     style={{
                       ...styles.profilePhoto,
-                      backgroundImage: `url(${`https://wasdapi.herokuapp.com/uploads/${user.avatar}`})`,
+                      backgroundImage: `url(${`https://wasdapi.herokuapp.com/${user.avatar}`})`,
                       backgroundSize: "cover",
                     }}
                   ></div>
@@ -161,11 +161,12 @@ function Profile() {
                   </div>
                 </div>
                 {sectors.map((sector) => {
+                  console.log(sector)
                   return (
                     <MiniCardSetor
                       key={sector.setor_id}
                       label={sector.jogo}
-                      img={`https://wasdapi.herokuapp.com/${sector.avatar_jogo}`}
+                      img={`https://wasdapi.herokuapp.com/${sector.avatar}`}
                       status={sector.status}
                     />
                   );

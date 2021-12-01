@@ -14,7 +14,7 @@ function ChartGpu(props) {
       .then((response) => {
         response.data.forEach((log) => {
           let newDate = new Date(log.criado);
-          let gpu = [newDate, parseFloat(log.temperatura), 100];
+          let gpu = [newDate, parseFloat(log.temperatura), 90];
           dados.push(gpu);
         });
 
@@ -39,10 +39,6 @@ function ChartGpu(props) {
         colors: ["#422F8A", "#F67D7D"],
         vAxis: {
           title: "Temperatura Cº",
-          viewWindow: {
-            min: 0,
-            max: 115,
-          },
         },
         series: {
           0: { curveType: "function" },

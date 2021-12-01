@@ -39,9 +39,9 @@ const DetailGraph = (props) => {
           <ComputerIcon
             style={{
               color: `${
-                machine.status === "ativo"
+                machine.status === "Normal"
                   ? "#7FB8C4"
-                  : machine.status === "alerta"
+                  : machine.status === "Alerta"
                   ? "#D12F2F"
                   : "#D1902F"
               } `,

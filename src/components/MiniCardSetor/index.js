@@ -9,7 +9,6 @@ const MiniCardSetor = (props) => {
   return (
     <>
       <div style={{
-        height: '21%',
         width: '99%',
         borderRadius: '5px',
         overflowX: 'hidden',

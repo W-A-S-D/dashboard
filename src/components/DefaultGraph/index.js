@@ -6,19 +6,26 @@ import ChartDisco from "../ChartDisco";
 import * as React from "react";
 import api from "../../service/api";
 
+const styles = {
+  selected: {
+    color: "#FFF",
+    background: "#A29BFE",
+    fontSize: "1rem"
+  },
+  default: {
+    color: "#000000",
+    background: "#FFF",
+    fontSize: "1rem"
+  }
+}
+
 export default function DefaultGraph() {
   const [machine, setMachine] = React.useState({});
   const [discos, setDiscos] = React.useState([]);
   const [discoId, setDiscoId] = React.useState();
 
-  const [Cor, setCor] = React.useState("#A29BFE");
-  const [Cor1, setCor1] = React.useState("#FFF");
-  const [Cor2, setCor2] = React.useState("#FFF");
-  const [Cor3, setCor3] = React.useState("#FFF");
-  const [CorFont, setCorFont] = React.useState("#FFF");
-  const [CorFont1, setCorFont1] = React.useState("#000000");
-  const [CorFont2, setCorFont2] = React.useState("#000000");
-  const [CorFont3, setCorFont3] = React.useState("#000000");
+  const [selected, setSelected] = React.useState(false);
+  const [selectedId, setSelectedId] = React.useState();
 
   const [componentMachine, setComponent] = React.useState("cpu");
 
@@ -39,52 +46,9 @@ export default function DefaultGraph() {
     });
   }, []);
 
-  function CPU() {
-    setCor("#A29BFE");
-    setCor1("#FFF");
-    setCor2("#FFF");
-    setCor3("#FFF");
-    setCorFont("#FFF");
-    setCorFont1("#000000");
-    setCorFont2("#000000");
-    setCorFont3("#000000");
-    setComponent("cpu");
-  }
-
-  function GPU() {
-    setCor("#FFF");
-    setCor1("#A29BFE");
-    setCor2("#FFF");
-    setCor3("#FFF");
-    setCorFont("#000000");
-    setCorFont1("#FFF");
-    setCorFont2("#000000");
-    setCorFont3("#000000");
-    setComponent("gpu");
-  }
-
-  function Disco() {
-    setCor("#FFF");
-    setCor1("#FFF");
-    setCor2("#A29BFE");
-    setCor3("#FFF");
-    setCorFont("#000000");
-    setCorFont1("#000000");
-    setCorFont2("#FFF");
-    setCorFont3("#000000");
-    setComponent("disco");
-  }
-
-  function RAM() {
-    setCor("#FFF");
-    setCor1("#FFF");
-    setCor2("#FFF");
-    setCor3("#A29BFE");
-    setCorFont("#000000");
-    setCorFont1("#000000");
-    setCorFont2("#000000");
-    setCorFont3("#FFF");
-    setComponent("ram");
+  const select = (id) => {
+    setSelected(!selected)
+    setSelectedId(id)
   }
 
   return (
@@ -100,8 +64,8 @@ export default function DefaultGraph() {
           }}
         >
           <Button
-            style={{ color: CorFont, backgroundColor: Cor, fontSize: "1rem" }}
-            onClick={CPU}
+            style={selected && "50" == selectedId ? styles.selected : styles.default}
+            onClick={select("50")}
           >
             Desempenho CPU
           </Button>
@@ -109,38 +73,31 @@ export default function DefaultGraph() {
             <></>
           ) : (
             <Button
-              style={{
-                color: CorFont1,
-                backgroundColor: Cor1,
-                fontSize: "1rem",
-              }}
-              onClick={GPU}
+              style={selected && "70" == selectedId ? styles.selected : styles.default}
+              onClick={select("70")}
             >
               Temperatura GPU
             </Button>
           )}
           {discos === undefined ?
+            <></>
+            :
             discos.map((d) => {
               return (
                 <Button
-                  style={{
-                    color: CorFont2,
-                    backgroundColor: Cor2,
-                    fontSize: "1rem",
-                  }}
+                  style={selected && d.disco_id == selectedId ? styles.selected : styles.default}
                   onClick={() => {
                     setDiscoId(d.disco_id)
-                    Disco()
+                    select(d.disco_id)
                   }}
                 >
                   {d.nome}
                 </Button>
               )
-
-            }) : <></>}
+            })}
           <Button
-            style={{ color: CorFont3, backgroundColor: Cor3, fontSize: "1rem" }}
-            onClick={RAM}
+            style={selected && "80" == selectedId ? styles.selected : styles.default}
+            onClick={select("80")}
           >
             Uso RAM
           </Button>

@@ -8,7 +8,7 @@ function ChartDisco(props) {
   ]);
   const [maximo, setMaximo] = useState();
 
-  useEffect((props) => {
+  useEffect(() => {
     const idMaquin = localStorage.getItem("@wasd:idMaq");
     const idDisco = props.idDisco;
 
