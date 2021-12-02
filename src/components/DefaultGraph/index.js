@@ -42,7 +42,11 @@ export default function DefaultGraph() {
       });
 
     api.get(`/discos/${idMaquin}`).then((response) => {
-      setDiscos(response.data);
+      if (response != undefined) {
+        setDiscos(response.data);
+
+      }
+
     });
   }, []);
 
@@ -64,7 +68,7 @@ export default function DefaultGraph() {
           }}
         >
           <Button
-            style={selected ? styles.selected : styles.default}
+            style={styles.default}
             // onClick={select("50")}
             onClick={() => {
               setComponent("cpu")
@@ -77,7 +81,7 @@ export default function DefaultGraph() {
             <></>
           ) : (
             <Button
-              style={selected ? styles.selected : styles.default}
+              style={styles.default}
               // onClick={select("70")}
               onClick={() => {
                 setComponent("gpu")
@@ -93,7 +97,7 @@ export default function DefaultGraph() {
             discos.map((d) => {
               return (
                 <Button
-                  style={selected ? styles.selected : styles.default}
+                  style={styles.default}
                   onClick={() => {
                     setComponent("disco")
                     setDiscoId(d.disco_id)
@@ -105,7 +109,7 @@ export default function DefaultGraph() {
               )
             })}
           <Button
-            style={selected ? styles.selected : styles.default}
+            style={styles.default}
             onClick={() => {
               setComponent("ram")
             }}

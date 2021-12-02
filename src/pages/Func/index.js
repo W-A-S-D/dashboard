@@ -20,8 +20,8 @@ function Func() {
         api
           .get(`/machines/sector/${response.data.setor_id}`)
           .then((response) => {
-            console.log(response)
             setMachines(response.data);
+
           })
           .catch((error) => {
             console.log(error);
@@ -55,6 +55,7 @@ function Func() {
                 {machines.map((machine) => {
                   return (
                     <Maquina
+                      idMaq={machine.maquina_id}
                       key={machine.machine_id}
                       computador={machine.nome}
                       alertas={machine.status}

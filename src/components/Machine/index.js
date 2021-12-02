@@ -40,8 +40,9 @@ function Maquina(props) {
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
       onClick={() => {
-        window.location.href = "/detalhes"
         localStorage.setItem('@wasd:idMaq', props.idMaq);
+        window.location.href = "/detalhes"
+     
       }}
     >
       <ComputerIcon
