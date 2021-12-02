@@ -19,11 +19,11 @@ const styles = {
   }
 }
 
-export default function DefaultGraph() {
+export default function DefaultGraph(props) {
   const [machine, setMachine] = React.useState({});
   const [discos, setDiscos] = React.useState([]);
   const [discoId, setDiscoId] = React.useState();
-
+  const [reload, setReload] = React.useState(props.reload)
   const [selected, setSelected] = React.useState(false);
   const [selectedId, setSelectedId] = React.useState();
 
@@ -48,7 +48,7 @@ export default function DefaultGraph() {
       }
 
     });
-  }, []);
+  }, [reload]);
 
   // const select = (id) => {
   //   setSelected(!selected)
@@ -118,7 +118,7 @@ export default function DefaultGraph() {
           </Button>
         </div>
         {componentMachine === "cpu" ? (
-          <ChartCpu />
+          <ChartCpu reload={reload} />
         ) : componentMachine === "ram" ? (
           <ChartRam />
         ) : componentMachine === "disco" ? (

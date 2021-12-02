@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import api from "../../service/api";
+import * as React from "react";
+
 
 function ChartGpu(props) {
-  const [data, setData] = useState();
+  const [data, setData] = React.useState();
+  const [reload, setReload] = React.useState(false);
 
   useEffect(() => {
     var dados = [["Horário ", "Temperatura", "Máxima Ideal"]];
@@ -23,8 +26,11 @@ function ChartGpu(props) {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
 
+
+
+  }, []);
+  setReload(props.reload)
   return (
     <Chart
       width={"43vw"}
