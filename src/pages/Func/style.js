@@ -48,16 +48,6 @@ export const styles = {
         margin: '0 auto',
         marginBottom: '30px'
     },
-    selected: {
-        color: "#FFF",
-        background: "#A29BFE",
-        fontSize: "1rem"
-    },
-    default: {
-        color: "#000000",
-        background: "#FFF",
-        fontSize: "1rem"
-    },
     DetailGraph: {
         height: '64px',
         width: '90%',
@@ -102,6 +92,16 @@ export const styles = {
     alertaSetor: {
         flexDirection: 'row',
         display: 'flex',
+    },
+    selected: {
+      color: "#FFF",
+      background: "#A29BFE",
+      fontSize: "1rem"
+    },
+    default: {
+      color: "#000000",
+      background: "#FFF",
+      fontSize: "1rem"
     }
 }
 

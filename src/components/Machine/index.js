@@ -20,8 +20,6 @@ function Maquina(props) {
     hoverstyle.border = `0.4px solid rgba(0,0,0,0)`;
   }
 
-  console.log(props.alerta);
-
   return (
     <div
       style={{

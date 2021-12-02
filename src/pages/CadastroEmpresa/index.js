@@ -8,6 +8,7 @@ import { styles, item } from "../Login/styles";
 import { Box } from "@material-ui/system";
 import InputForm from "../../components/InputForm";
 import api from "../../service/api";
+import axios from "axios";
 
 export default function CadastroEmpresa() {
   const [cnpj, setCnpj] = useState("");
@@ -33,6 +34,23 @@ export default function CadastroEmpresa() {
     }
   };
 
+  if(cep.length === 8) {
+    axios.get(`http://viacep.com.br/ws/${cep}/json/`)
+      .then(result => {
+        if(!result.data.erro) {
+          setEstado(result.data.uf)
+          setCidade(result.data.localidade)
+          setEndereco(result.data.logradouro)
+          setBairro(result.data.bairro)
+        } else {
+          setEstado("")
+          setCidade("")
+          setEndereco("")
+          setBairro("")
+        }
+      })
+  }
+
   async function handleCreateCompany(event) {
     event.preventDefault();
 
@@ -41,11 +59,11 @@ export default function CadastroEmpresa() {
       .replace("/", "")
       .replace("-", "");
 
-      let telefone_replaced = telefone
+    let telefone_replaced = telefone
       .replace("(", "")
       .replace(")", "")
       .replace("-", "");
-      
+
     const numeroCerto = parseInt(numero)
 
     if (

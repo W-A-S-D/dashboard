@@ -1,18 +1,12 @@
 import React from "react";
 
 import DashboardHolder from "../../components/DashboardHolder";
-import DefaultGraph from "../../components/DefaultGraph";
-import DetailGraph from "../../components/DetailGraph";
 import MainContainer from "../../components/MainContainer";
 import Maquina from "../../components/Machine";
-import { styles, images } from "./style";
+import { styles } from "./style";
 import api from "../../service/api";
 import ProfileFunc from "../../components/ProfileFunc";
 import { Button } from "@material-ui/core";
-import ChartCpu from "../../components/ChartCpu";
-import ChartGpu from "../../components/ChartGpu";
-import ChartRam from "../../components/ChartRam";
-import ChartDisco from "../../components/ChartDisco";
 import ComputerIcon from "@material-ui/icons/Computer";
 
 import { Chart } from "react-google-charts";
@@ -23,10 +17,11 @@ function Func() {
   const [reload, setReload] = React.useState(false);
   const [machine, setMachine] = React.useState({});
   const [discos, setDiscos] = React.useState([]);
-  const [discoId, setDiscoId] = React.useState();
+  const [discoId, setDiscoId] = React.useState(1);
   const [dataGpu, setDataGpu] = React.useState();
   const [dataRam, setDataRam] = React.useState();
   const [dataCpu, setDataCpu] = React.useState();
+  const [dataDisco, setDataDisco] = React.useState();
   const [componentMachine, setComponent] = React.useState("cpu");
 
 
@@ -34,22 +29,21 @@ function Func() {
     api
       .get("sectors/user")
       .then((response) => {
-        console.log(response.data)
         api
           .get(`/machines/sector/${response.data.setor_id}`)
           .then((response) => {
             setMachines(response.data);
-            if (localStorage.getItem('@wasd:idMaq') == undefined) {
+            if (localStorage.getItem('@wasd:idMaq') === undefined) {
               localStorage.setItem('@wasd:idMaq', response.data[0].maquina_id);
             }
 
           })
           .catch((error) => {
-            console.log(error);
+            console.log("erro machine setor" + error);
           });
       })
       .catch((error) => {
-        console.log(error);
+        console.log("erro sector" + error);
       });
 
 
@@ -61,13 +55,12 @@ function Func() {
         setMachine(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log("erro machine" + error);
       });
 
     api.get(`/discos/${idMaquin}`).then((response) => {
-      if (response != undefined) {
+      if (response !== undefined) {
         setDiscos(response.data);
-
       }
 
     });
@@ -76,6 +69,7 @@ function Func() {
     var dadosGpu = [["Horário ", "Temperatura", "Máxima Ideal"]];
     var dadosRam = [["Horário", "Uso GB", "Máxima Ideal"]];
     var dadosCpu = [["Horário", "Desempenho", "Máximo Ideal"]]
+    var dadosDisco = [["Horário", "Uso GB", "Máximo Ideal"]]
 
 
     api
@@ -99,12 +93,53 @@ function Func() {
 
       })
       .catch((error) => {
-        console.log(error);
+        console.log("erro log" + error);
+      });
+
+    api
+      .get(`/logDisco/${discoId}`)
+      .then((response) => {
+        response.data.forEach((disco) => {
+          let newDate = new Date(disco.criado);
+          let log_disco = [newDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
+
+          dadosDisco.push(log_disco);
+
+        });
+
+        setDataDisco(dadosDisco);
+
+      })
+      .catch((error) => {
+        console.log("erro log_disco" + error);
       });
 
 
 
   }, [reload]);
+
+  const handleClick = (id) => {
+    var dadosDisco = [["Horário", "Uso GB", "Máximo Ideal"]]
+    setDiscoId(id)
+
+    api
+      .get(`/logDisco/${id}`)
+      .then((response) => {
+        response.data.forEach((disco) => {
+          let newDate = new Date(disco.criado);
+          let log_disco = [newDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
+
+          dadosDisco.push(log_disco);
+
+        });
+
+        setDataDisco(dadosDisco);
+
+      })
+      .catch((error) => {
+        console.log("erro log_disco" + error);
+      });
+  }
 
   return (
     <DashboardHolder>
@@ -159,10 +194,10 @@ function Func() {
                     <ComputerIcon
                       style={{
                         color: `${machine.status === "Normal"
-                            ? "#7FB8C4"
-                            : machine.status === "Alerta"
-                              ? "#D12F2F"
-                              : "#D1902F"
+                          ? "#7FB8C4"
+                          : machine.status === "Alerta"
+                            ? "#D12F2F"
+                            : "#D1902F"
                           } `,
                         fontSize: "70",
                       }}
@@ -204,7 +239,7 @@ function Func() {
                       }}
                     >
                       <Button
-                        style={styles.default}
+                        style={componentMachine === "cpu" ? styles.selected : styles.default}
                         // onClick={select("50")}
                         onClick={() => {
                           setComponent("cpu")
@@ -217,8 +252,7 @@ function Func() {
                         <></>
                       ) : (
                         <Button
-                          style={styles.default}
-                          // onClick={select("70")}
+                          style={componentMachine === "gpu" ? styles.selected : styles.default}
                           onClick={() => {
                             setComponent("gpu")
                           }
@@ -233,11 +267,10 @@ function Func() {
                         discos.map((d) => {
                           return (
                             <Button
-                              style={styles.default}
+                              style={componentMachine === "disco" && discoId === d.disco_id ? styles.selected : styles.default}
                               onClick={() => {
                                 setComponent("disco")
-                                setDiscoId(d.disco_id)
-                                // select(d.disco_id)
+                                handleClick(d.disco_id)
                               }}
                             >
                               {d.nome}
@@ -245,7 +278,7 @@ function Func() {
                           )
                         })}
                       <Button
-                        style={styles.default}
+                        style={componentMachine === "ram" ? styles.selected : styles.default}
                         onClick={() => {
                           setComponent("ram")
                         }}
@@ -310,7 +343,29 @@ function Func() {
                         rootProps={{ "data-testid": "2" }}
                       />
                     ) : componentMachine === "disco" ? (
-                      <ChartDisco idDisco={discoId} />
+                      <Chart
+                        width={"43vw"}
+                        height={"33vh"}
+                        chartType="Line"
+                        loader={<div>Carregando informações...</div>}
+                        data={dataDisco}
+                        options={{
+                          hAxis: {
+                            title: "Horário",
+                          },
+                          colors: ["#422F8A", "#F67D7D"],
+                          vAxis: {
+                            title: "Disco Usado GB",
+                          },
+                          series: {
+                            0: { curveType: "function" },
+                          },
+                          chartArea: {
+                            width: "90%",
+                          },
+                        }}
+                        rootProps={{ "data-testid": "2" }}
+                      />
                     ) : (
                       <Chart
                         width={"43vw"}

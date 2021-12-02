@@ -88,6 +88,10 @@ function Setor() {
                   key={machine.maquina_id}
                   computador={machine.nome}
                   alertas={machine.status}
+                  onClick={() => {
+                    localStorage.setItem('@wasd:idMaq', machine.maquina_id);
+                    window.location.href="/detalhes"
+                  }}
                 />
               );
             })

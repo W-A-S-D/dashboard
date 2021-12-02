@@ -37,7 +37,7 @@ const AdminPage = (props) => {
         setAlertMachines(response.data.accountAlertMachines);
       })
       .then(() => {
-        if (machines == 0) {
+        if (machines === 0) {
           setModal(true)
         }
       })
@@ -51,7 +51,7 @@ const AdminPage = (props) => {
       <DashboardHolder>
         <MainContainer>
           {
-            machines == 0 ?
+            machines === 0 ?
               <NoMachine open={modal} />
               :
               <>
@@ -60,17 +60,17 @@ const AdminPage = (props) => {
                   <StatusCard
                     hoverColor="#D12F2F"
                     type="alert"
-                    value={machines == 0 ? 0 : (alertMachines * 100) / machines}
+                    value={machines === 0 ? 0 : (alertMachines * 100) / machines}
                   />
                   <StatusCard
                     hoverColor="#D1902F"
                     type="warning"
-                    value={machines == 0 ? 0 : (attentionMachines * 100) / machines}
+                    value={machines === 0 ? 0 : (attentionMachines * 100) / machines}
                   />
                   <StatusCard
                     hoverColor="#7FB8C4"
                     type="normal"
-                    value={machines == 0 ? 0 : (normalMachines * 100) / machines}
+                    value={machines === 0 ? 0 : (normalMachines * 100) / machines}
                   />
                 </div>
                 <div style={styles.grafico}>
@@ -82,7 +82,7 @@ const AdminPage = (props) => {
                   </div>
                   <div style={styles.layout}>
                     {
-                      sectors.length == 0 ?
+                      sectors.length === 0 ?
                         <div>Não há setores cadastrados</div>
                         :
                         sectors.map((s) => {
