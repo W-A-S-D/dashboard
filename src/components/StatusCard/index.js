@@ -53,7 +53,7 @@ const StatusCard = (props) => {
             loader={<div>Loading Chart</div>}
             data={[
               ["Task", "Hours per Day"],
-              ["", `${props.value}%`],
+              ["", props.value],
               ["", 100 - props.value],
             ]}
             options={{

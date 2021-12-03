@@ -77,9 +77,10 @@ function Func() {
       .then((response) => {
         response.data.forEach((log) => {
           let newDate = new Date(log.criado);
-          let gpu = [newDate, parseFloat(log.temperatura), 90];
-          let ram = [newDate, parseFloat(log.uso_ram), 32];
-          let cpu = [newDate, parseFloat(log.freq_cpu), 100];
+          let convertedDate = convertDate(newDate)
+          let gpu = [convertedDate, parseFloat(log.temperatura), 90];
+          let ram = [convertedDate, parseFloat(log.uso_ram), 32];
+          let cpu = [convertedDate, parseFloat(log.freq_cpu), 100];
 
           dadosGpu.push(gpu);
           dadosRam.push(ram);
@@ -101,7 +102,8 @@ function Func() {
       .then((response) => {
         response.data.forEach((disco) => {
           let newDate = new Date(disco.criado);
-          let log_disco = [newDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
+          let convertedDate = convertDate(newDate)
+          let log_disco = [convertedDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
 
           dadosDisco.push(log_disco);
 
@@ -118,6 +120,10 @@ function Func() {
 
   }, [reload]);
 
+  const convertDate = (date) => {
+    return new Date(date.toLocaleString("pt-BR", { timeZone: "UTC" }))
+  }
+
   const handleClick = (id) => {
     var dadosDisco = [["Horário", "Uso GB", "Máximo Ideal"]]
     setDiscoId(id)
@@ -127,7 +133,8 @@ function Func() {
       .then((response) => {
         response.data.forEach((disco) => {
           let newDate = new Date(disco.criado);
-          let log_disco = [newDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
+          let convertedDate = convertDate(newDate)
+          let log_disco = [convertedDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
 
           dadosDisco.push(log_disco);
 
@@ -290,7 +297,7 @@ function Func() {
                       <Chart
                         width={"43vw"}
                         height={"33vh"}
-                        chartType="Line"
+                        chartType="LineChart"
                         loader={<div>Carregando informações...</div>}
                         data={dataCpu}
                         options={{
@@ -298,6 +305,7 @@ function Func() {
                             title: "Horário",
                           },
                           colors: ["#422F8A", "#F67D7D"],
+                          legend: 'bottom',
                           vAxis: {
                             title: "Desempenho %",
                             viewWindow: {
@@ -309,7 +317,7 @@ function Func() {
                             0: { curveType: "function" },
                           },
                           chartArea: {
-                            width: "90%",
+                            width: "85%",
                           },
                         }}
                         rootProps={{ "data-testid": "2" }}
@@ -318,7 +326,7 @@ function Func() {
                       <Chart
                         width={"43vw"}
                         height={"33vh"}
-                        chartType="Line"
+                        chartType="LineChart"
                         loader={<div>Carregando informações...</div>}
                         data={dataRam}
                         options={{
@@ -326,6 +334,7 @@ function Func() {
                             title: "Horário",
                           },
                           colors: ["#422F8A", "#F67D7D"],
+                          legend: 'bottom',
                           vAxis: {
                             title: "Memória Usada GB",
                             viewWindow: {
@@ -337,7 +346,7 @@ function Func() {
                             0: { curveType: "function" },
                           },
                           chartArea: {
-                            width: "90%",
+                            width: "85%",
                           },
                         }}
                         rootProps={{ "data-testid": "2" }}
@@ -346,7 +355,7 @@ function Func() {
                       <Chart
                         width={"43vw"}
                         height={"33vh"}
-                        chartType="Line"
+                        chartType="LineChart"
                         loader={<div>Carregando informações...</div>}
                         data={dataDisco}
                         options={{
@@ -354,6 +363,7 @@ function Func() {
                             title: "Horário",
                           },
                           colors: ["#422F8A", "#F67D7D"],
+                          legend: 'bottom',
                           vAxis: {
                             title: "Disco Usado GB",
                           },
@@ -361,7 +371,7 @@ function Func() {
                             0: { curveType: "function" },
                           },
                           chartArea: {
-                            width: "90%",
+                            width: "85%",
                           },
                         }}
                         rootProps={{ "data-testid": "2" }}
@@ -370,7 +380,7 @@ function Func() {
                       <Chart
                         width={"43vw"}
                         height={"33vh"}
-                        chartType="Line"
+                        chartType="LineChart"
                         loader={<div>Carregando informações...</div>}
                         data={dataGpu}
                         options={{
@@ -378,6 +388,7 @@ function Func() {
                             title: "Horário",
                           },
                           colors: ["#422F8A", "#F67D7D"],
+                          legend: 'bottom',
                           vAxis: {
                             title: "Temperatura Cº",
                           },
@@ -385,7 +396,7 @@ function Func() {
                             0: { curveType: "function" },
                           },
                           chartArea: {
-                            width: "90%",
+                            width: "85%",
                           },
                         }}
                         rootProps={{ "data-testid": "2" }}

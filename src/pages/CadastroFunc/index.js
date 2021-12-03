@@ -33,7 +33,7 @@ function CadastroFunc() {
         <Grid container style={styles.container}>
           {users.map(user => {
             return (
-              <CardFunc idFunc={user.usuario_id} key={user.usuario_id} nome={user.nome} email={user.email} imagem={user.avatar} />
+              <CardFunc idFunc={user.usuario_id} key={user.usuario_id} nome={user.nome} email={user.email} imagem={`https://wasdapi.herokuapp.com/${user.avatar}`} />
             );
           })}
         </Grid>

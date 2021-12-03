@@ -8,22 +8,22 @@ import DefaultGraph from '../../components/DefaultGraph';
 import DetailGraph from '../../components/DetailGraph';
 
 const DadosSetor = () => {
-    return (
-        <>
-            <DashboardHolder>
-                <MainContainer>
-                    <Title value='Detalhamento' />
-                    <div style={styles.stylesPc}>
-                        <DetailGraph img = {images.ImagemPc}/>
-                    </div>
-                    <div style={styles.container}>
-                        <DefaultGraph />
-                    </div>
-                </MainContainer>
-                <Profile />
-            </DashboardHolder>
-        </>
-    )
+  return (
+    <>
+      <DashboardHolder>
+        <MainContainer>
+          <Title value='Detalhamento' />
+          <div style={styles.stylesPc}>
+            <DetailGraph img={images.ImagemPc} />
+          </div>
+          <div style={styles.container}>
+            <DefaultGraph />
+          </div>
+        </MainContainer>
+        <Profile />
+      </DashboardHolder>
+    </>
+  )
 }
 
 
