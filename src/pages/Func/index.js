@@ -6,10 +6,11 @@ import Maquina from "../../components/Machine";
 import { styles } from "./style";
 import api from "../../service/api";
 import ProfileFunc from "../../components/ProfileFunc";
-import { Button } from "@material-ui/core";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from "@material-ui/core";
 import ComputerIcon from "@material-ui/icons/Computer";
 
 import { Chart } from "react-google-charts";
+import { Box } from "@material-ui/system";
 
 
 function Func() {
@@ -22,6 +23,16 @@ function Func() {
   const [dataRam, setDataRam] = React.useState();
   const [dataCpu, setDataCpu] = React.useState();
   const [dataDisco, setDataDisco] = React.useState();
+  const [filter, setFilter] = React.useState("");
+
+  const [open, setOpen] = React.useState(false);
+  const [day, setDay] = React.useState('');
+  const [month, setMonth] = React.useState('');
+  const [year, setYear] = React.useState('');
+  const [dias, setDias] = React.useState(30);
+  const diasMes = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+  ]
   const [componentMachine, setComponent] = React.useState("cpu");
 
 
@@ -124,12 +135,130 @@ function Func() {
     return new Date(date.toLocaleString("pt-BR", { timeZone: "UTC" }))
   }
 
+  const handleChangeDate = (event) => {
+    setDay(Number(event.target.value) || '');
+  };
+
+  const handleChangeMonth = (event) => {
+    setMonth(Number(event.target.value) || '');
+    if (month == 2) {
+      setDias(28)
+    } else if (month % 2 !== 0) {
+      setDias(31)
+    } else {
+      setDias(30)
+    }
+  };
+
+  const handleChangeYear = (event) => {
+    setYear(Number(event.target.value) || '');
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason !== 'backdropClick') {
+      setOpen(false);
+    }
+  };
+
   const handleClick = (id) => {
     var dadosDisco = [["Horário", "Uso GB", "Máximo Ideal"]]
     setDiscoId(id)
 
+    if (filter === "") {
+      api
+        .get(`/logDisco/${id}`)
+        .then((response) => {
+          response.data.forEach((disco) => {
+            let newDate = new Date(disco.criado);
+            let convertedDate = convertDate(newDate);
+            let log_disco = [convertedDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
+
+            dadosDisco.push(log_disco);
+
+          });
+
+          setDataDisco(dadosDisco);
+
+        })
+        .catch((error) => {
+          console.log("erro log_disco" + error);
+        });
+    } else {
+      api
+        .post(`/logDisco/data/${id}`, {
+          date: filter
+        })
+        .then((response) => {
+          response.data.forEach((disco) => {
+            let newDate = new Date(disco.criado);
+            let convertedDate = convertDate(newDate);
+            let log_disco = [convertedDate, parseFloat(disco.uso_disco), parseFloat(disco.disco.volume)];
+
+            dadosDisco.push(log_disco);
+
+          });
+
+          setDataDisco(dadosDisco);
+
+        })
+        .catch((error) => {
+          console.log("erro log_disco" + error);
+        });
+    }
+
+
+  }
+
+  const handleChange = () => {
+    const date = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day)
+    setFilter(date)
+    getFilterData()
+    setOpen(false);
+  }
+
+  const getFilterData = () => {
+    const idMaquin = localStorage.getItem("@wasd:idMaq");
+
+    var dadosGpu = [["Horário ", "Temperatura", "Máxima Ideal"]];
+    var dadosRam = [["Horário", "Uso GB", "Máxima Ideal"]];
+    var dadosCpu = [["Horário", "Desempenho", "Máximo Ideal"]]
+    var dadosDisco = [["Horário", "Uso GB", "Máximo Ideal"]]
+
     api
-      .get(`/logDisco/${id}`)
+      .post(`/log/data/${idMaquin}`, {
+        date: filter
+      })
+      .then((response) => {
+        response.data.forEach((log) => {
+          let newDate = new Date(log.criado);
+          let convertedDate = convertDate(newDate)
+
+          let gpu = [convertedDate, parseFloat(log.temperatura), 90];
+          let ram = [convertedDate, parseFloat(log.uso_ram), 32];
+          let cpu = [convertedDate, parseFloat(log.freq_cpu), 100];
+
+          dadosGpu.push(gpu);
+          dadosRam.push(ram);
+          dadosCpu.push(cpu);
+        });
+
+        setDataGpu(dadosGpu);
+        setDataRam(dadosRam);
+        setDataCpu(dadosCpu);
+
+      })
+      .catch((error) => {
+        console.log("erro log" + error);
+      });
+
+    api
+      .post(`/logDisco/data/${discoId}`, {
+        date: filter
+      })
       .then((response) => {
         response.data.forEach((disco) => {
           let newDate = new Date(disco.criado);
@@ -146,6 +275,10 @@ function Func() {
       .catch((error) => {
         console.log("erro log_disco" + error);
       });
+  }
+
+  const handleClickClean = () => {
+    window.location.reload()
   }
 
   return (
@@ -232,7 +365,80 @@ function Func() {
                     </div>
                   </div>
                 </div>
+                <div style={{ margin: '0 0 2% 0', display: 'flex', flexDirection: 'row', width: '50%' }}>
+                  <Button onClick={handleClickOpen}>Filtrar</Button>
+                  <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
+                    <DialogTitle>Escolha a data</DialogTitle>
+                    <DialogContent>
+                      <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <FormControl sx={{ m: 1, minWidth: 80 }}>
+                          <InputLabel id="demo-dialog-select-label">Dia</InputLabel>
+                          <Select
+                            labelId="demo-dialog-select-label"
+                            id="demo-dialog-select"
+                            value={day}
+                            onChange={handleChangeDate}
+                            input={<OutlinedInput label="Data máxima" />}
+                          >
+                            <MenuItem value="">
+                            </MenuItem>
+                            {diasMes.map((d) => {
+                              if (d <= dias) {
+                                return <MenuItem value={d}>{d}</MenuItem>
+                              }
+                            })}
+                          </Select>
+                        </FormControl>
+                        <FormControl sx={{ m: 1, minWidth: 120 }}>
+                          <InputLabel id="demo-dialog-select-label">Mês</InputLabel>
+                          <Select
+                            labelId="demo-dialog-select-label"
+                            id="demo-dialog-select"
+                            value={month}
+                            onChange={handleChangeMonth}
+                            input={<OutlinedInput label="Mês" />}
+                          >
+                            <MenuItem value="">
+                            </MenuItem>
+                            <MenuItem value={1}>Janeiro</MenuItem>
+                            <MenuItem value={2}>Fevereiro</MenuItem>
+                            <MenuItem value={3}>Março</MenuItem>
+                            <MenuItem value={4}>Abril</MenuItem>
+                            <MenuItem value={5}>Maio</MenuItem>
+                            <MenuItem value={6}>Junho</MenuItem>
+                            <MenuItem value={7}>Julho</MenuItem>
+                            <MenuItem value={8}>Agosto</MenuItem>
+                            <MenuItem value={9}>Setembro</MenuItem>
+                            <MenuItem value={10}>Outubro</MenuItem>
+                            <MenuItem value={11}>Novembro</MenuItem>
+                            <MenuItem value={12}>Dezembro</MenuItem>
+                          </Select>
+                        </FormControl>
+                        <FormControl sx={{ m: 1, minWidth: 80 }}>
+                          <InputLabel id="demo-dialog-select-label">Ano</InputLabel>
+                          <Select
+                            labelId="demo-dialog-select-label"
+                            id="demo-dialog-select"
+                            value={year}
+                            onChange={handleChangeYear}
+                            input={<OutlinedInput label="Ano" />}
+                          >
+                            <MenuItem value="">
+                            </MenuItem>
+                            <MenuItem value={2021}>2021</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Box>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose}>Cancel</Button>
+                      <Button onClick={handleChange}>Ok</Button>
+                    </DialogActions>
+                  </Dialog>
+                  <Button onClick={handleClickClean}>Limpar Filtro</Button>
+                </div>
               </div>
+
               <div style={styles.containerGrafico}>
                 <div>
                   <div style={{ display: "flex", flexDirection: "row", margin: "0 auto" }}>

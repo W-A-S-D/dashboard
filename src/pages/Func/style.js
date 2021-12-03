@@ -42,7 +42,9 @@ export const styles = {
     },
     identificacao: {
         margin: '20px 10px 0 10px',
-        paddingLeft: '10px'
+        paddingLeft: '10px',
+        display: 'flex',
+        flexDirection: 'row'
     },
     containerGrafico: {
         margin: '0 auto',

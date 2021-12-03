@@ -106,7 +106,6 @@ export default function DefaultGraph(props) {
         console.log("erro log_disco" + error);
       });
 
-
   }, [reload]);
 
   const convertDate = (date) => {
@@ -194,6 +193,7 @@ export default function DefaultGraph(props) {
   const handleChange = () => {
     const date = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day)
     setFilter(date)
+    
     getFilterData()
     setOpen(false);
   }
@@ -205,12 +205,13 @@ export default function DefaultGraph(props) {
     var dadosRam = [["Horário", "Uso GB", "Máxima Ideal"]];
     var dadosCpu = [["Horário", "Desempenho", "Máximo Ideal"]]
     var dadosDisco = [["Horário", "Uso GB", "Máximo Ideal"]]
-
+    
     api
       .post(`/log/data/${idMaquin}`, {
         date: filter
       })
       .then((response) => {
+        
         response.data.forEach((log) => {
           let newDate = new Date(log.criado);
           let convertedDate = convertDate(newDate)
