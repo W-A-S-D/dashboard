@@ -27,6 +27,7 @@ export default function DefaultGraph(props) {
   const [dataCpu, setDataCpu] = React.useState();
   const [dataDisco, setDataDisco] = React.useState();
   const [filter, setFilter] = React.useState("");
+  const [alert, setAlert] = React.useState(false);
 
   const [componentMachine, setComponent] = React.useState("cpu");
   const [open, setOpen] = React.useState(false);
@@ -70,8 +71,9 @@ export default function DefaultGraph(props) {
           let convertedDate = convertDate(newDate)
 
           let gpu = [convertedDate, parseFloat(log.temperatura), 90];
-          let ram = [convertedDate, parseFloat(log.uso_ram), 32];
+          let ram = [convertedDate, parseFloat(log.uso_ram), parseFloat(log.maquina.ram)];
           let cpu = [convertedDate, parseFloat(log.freq_cpu), 100];
+
 
           dadosGpu.push(gpu);
           dadosRam.push(ram);
@@ -133,6 +135,7 @@ export default function DefaultGraph(props) {
 
   const handleClickOpen = () => {
     setOpen(true);
+    setAlert(false)
   };
 
   const handleClose = (event, reason) => {
@@ -191,33 +194,37 @@ export default function DefaultGraph(props) {
   }
 
   const handleChange = () => {
-    const date = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day)
-    setFilter(date)
-    
-    getFilterData()
-    setOpen(false);
+    if (month < 12 || day < 1 || day > 8) {
+      setAlert(true)
+    } else {
+      const date = year + "-" + (month < 10 ? "0" + month : month) + "-" + (day < 10 ? "0" + day : day)
+
+      setFilter(date)
+      getFilterData(date)
+      setOpen(false);
+    }
   }
 
-  const getFilterData = () => {
+  const getFilterData = (date) => {
     const idMaquin = localStorage.getItem("@wasd:idMaq");
 
     var dadosGpu = [["Horário ", "Temperatura", "Máxima Ideal"]];
     var dadosRam = [["Horário", "Uso GB", "Máxima Ideal"]];
     var dadosCpu = [["Horário", "Desempenho", "Máximo Ideal"]]
     var dadosDisco = [["Horário", "Uso GB", "Máximo Ideal"]]
-    
+
     api
       .post(`/log/data/${idMaquin}`, {
-        date: filter
+        date: date
       })
       .then((response) => {
-        
+
         response.data.forEach((log) => {
           let newDate = new Date(log.criado);
           let convertedDate = convertDate(newDate)
 
           let gpu = [convertedDate, parseFloat(log.temperatura), 90];
-          let ram = [convertedDate, parseFloat(log.uso_ram), 32];
+          let ram = [convertedDate, parseFloat(log.uso_ram), parseFloat(log.maquina.ram)];
           let cpu = [convertedDate, parseFloat(log.freq_cpu), 100];
 
           dadosGpu.push(gpu);
@@ -236,7 +243,7 @@ export default function DefaultGraph(props) {
 
     api
       .post(`/logDisco/data/${discoId}`, {
-        date: filter
+        date: date
       })
       .then((response) => {
         response.data.forEach((disco) => {
@@ -266,6 +273,12 @@ export default function DefaultGraph(props) {
         <Button onClick={handleClickOpen}>Filtrar</Button>
         <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
           <DialogTitle>Escolha a data</DialogTitle>
+          {
+            alert ?
+              <div style={{ color: 'red', marginLeft: '7%' }}>Não existe dados nesta data</div>
+              :
+              <></>
+          }
           <DialogContent>
             <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
               <FormControl sx={{ m: 1, minWidth: 80 }}>
@@ -439,7 +452,6 @@ export default function DefaultGraph(props) {
                 title: "Memória Usada GB",
                 viewWindow: {
                   min: 0,
-                  max: 32,
                 },
               },
               series: {

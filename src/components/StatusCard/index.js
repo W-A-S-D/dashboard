@@ -101,7 +101,7 @@ const StatusCard = (props) => {
               fontSize: "2.4ch",
             }}
           >
-            {props.value}%
+            {parseInt(props.value)}%
           </div>
         </div>
 
