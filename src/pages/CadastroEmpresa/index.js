@@ -35,7 +35,7 @@ export default function CadastroEmpresa() {
   };
 
   if(cep.length === 8) {
-    axios.get(`http://viacep.com.br/ws/${cep}/json/`)
+    axios.get(`https://viacep.com.br/ws/${cep}/json/`)
       .then(result => {
         if(!result.data.erro) {
           setEstado(result.data.uf)
