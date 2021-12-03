@@ -31,15 +31,17 @@ const AdminPage = (props) => {
     api
       .get("machines")
       .then((response) => {
+        console.log(response)
         setMachines(response.data.accountTotalMachines);
         setNormalMachines(response.data.accountNormalMachines);
         setAttentionMachines(response.data.accountAttentionMachines);
         setAlertMachines(response.data.accountAlertMachines);
-      })
-      .then(() => {
-        if (machines === 0) {
+
+        if (response.data.error == "Impossible to reach") {
           setModal(true)
         }
+      })
+      .then(() => {
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +53,7 @@ const AdminPage = (props) => {
       <DashboardHolder>
         <MainContainer>
           {
-            machines === 0 ?
+            machines === undefined ?
               <NoMachine open={modal} />
               :
               <>
