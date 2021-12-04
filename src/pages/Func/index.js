@@ -25,7 +25,6 @@ function Func() {
   const [dataDisco, setDataDisco] = React.useState();
   const [filter, setFilter] = React.useState("");
   const [alert, setAlert] = React.useState(false);
-
   const [open, setOpen] = React.useState(false);
   const [day, setDay] = React.useState('');
   const [month, setMonth] = React.useState('');
@@ -37,17 +36,28 @@ function Func() {
   const [componentMachine, setComponent] = React.useState("cpu");
 
 
+
   React.useEffect(() => {
+    let idMaquin = localStorage.getItem("@wasd:idMaq");
+    let muttableMachines = []
+    let newDisks = []
+
     api
       .get("sectors/user")
       .then((response) => {
         api
           .get(`/machines/sector/${response.data.setor_id}`)
           .then((response) => {
-            setMachines(response.data);
-            if (localStorage.getItem('@wasd:idMaq') === undefined) {
-              localStorage.setItem('@wasd:idMaq', response.data[0].maquina_id);
+            muttableMachines = response.data;
+            if ("@wasd:idMaq" in localStorage) {
+              idMaquin = localStorage.getItem("@wasd:idMaq");
+            } else {
+              localStorage.setItem('@wasd:idMaq', muttableMachines[0].maquina_id);
+              window.location.reload();
+
             }
+            setMachines(muttableMachines);
+            
 
           })
           .catch((error) => {
@@ -59,7 +69,6 @@ function Func() {
       });
 
 
-    const idMaquin = localStorage.getItem("@wasd:idMaq");
 
     api
       .get(`machine/${idMaquin}`)
@@ -377,8 +386,8 @@ function Func() {
                     <DialogTitle>Escolha a data</DialogTitle>
                     {
                       alert ?
-                        <div style={{color: 'red', marginLeft: '7%'}}>Não existe dados nesta data</div>
-                      :
+                        <div style={{ color: 'red', marginLeft: '7%' }}>Não existe dados nesta data</div>
+                        :
                         <></>
                     }
                     <DialogContent>
