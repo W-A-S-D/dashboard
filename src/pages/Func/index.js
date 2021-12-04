@@ -11,10 +11,13 @@ import ComputerIcon from "@material-ui/icons/Computer";
 
 import { Chart } from "react-google-charts";
 import { Box } from "@material-ui/system";
+import Pagination from '@material-ui/core/Pagination';
+import Stack from '@material-ui/core/Stack';
 
 
 function Func() {
   const [machines, setMachines] = React.useState([]);
+  const [machinesDisplayed, setMachinesDisplayed] = React.useState([])
   const [reload, setReload] = React.useState(false);
   const [machine, setMachine] = React.useState({});
   const [discos, setDiscos] = React.useState([]);
@@ -22,6 +25,7 @@ function Func() {
   const [dataGpu, setDataGpu] = React.useState();
   const [dataRam, setDataRam] = React.useState();
   const [dataCpu, setDataCpu] = React.useState();
+  const [currentPage, setCurrentPage] = React.useState(1);
   const [dataDisco, setDataDisco] = React.useState();
   const [filter, setFilter] = React.useState("");
   const [alert, setAlert] = React.useState(false);
@@ -35,6 +39,16 @@ function Func() {
   ]
   const [componentMachine, setComponent] = React.useState("cpu");
 
+
+  const handlePagination = (page, arr) => {
+    setCurrentPage(page);
+    const indexMin = (currentPage - 1) * 5;
+    const indexMax = indexMin + 5;
+    const paginatedArray = arr.filter(
+      (x, index) => index >= indexMin && index < indexMax
+    );
+    setMachinesDisplayed(paginatedArray);
+  }
 
 
   React.useEffect(() => {
@@ -56,8 +70,10 @@ function Func() {
               window.location.reload();
 
             }
+            handlePagination(currentPage, muttableMachines);
+
             setMachines(muttableMachines);
-            
+
 
           })
           .catch((error) => {
@@ -140,6 +156,10 @@ function Func() {
 
 
   }, [reload]);
+
+  React.useEffect(() => {
+    handlePagination(currentPage, machines);
+  }, [currentPage])
 
   const convertDate = (date) => {
     return new Date(date.toLocaleString("pt-BR", { timeZone: "UTC" }))
@@ -236,6 +256,8 @@ function Func() {
     }
   }
 
+
+
   const getFilterData = (date) => {
     const idMaquin = localStorage.getItem("@wasd:idMaq");
 
@@ -314,9 +336,11 @@ function Func() {
           </>
         ) : (
           <>
+
+
             <div id="Maquinas" style={styles.maquinasContainer}>
               <div className="corpo_maquina" style={styles.corpoMaquina}>
-                {machines.map((machine) => {
+                {machinesDisplayed.map((machine) => {
                   return (
                     <Maquina
                       idMaq={machine.maquina_id}
@@ -332,6 +356,7 @@ function Func() {
                 })}
               </div>
             </div>
+            <Pagination onChange={(e, value) => {handlePagination(value, machines)}} page={currentPage} count={Math.ceil(machines.length / 5)} color="primary" />
             <div style={styles.detalhesContainer}>
               <div style={styles.identificacao}>
                 <div
