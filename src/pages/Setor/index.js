@@ -10,12 +10,28 @@ import Profile from "../../components/Profile";
 import ModalSetor from "../../components/ModalSetor";
 import ContentHolder from "../../components/ContentHolder";
 import api from "../../service/api";
+import Pagination from '@material-ui/core/Pagination';
 
 function Setor() {
   const [modalState, setModalState] = React.useState(false);
   const [sectors, setSectors] = React.useState([]);
   const [machines, setMachines] = React.useState([]);
   const [titleSetor, setTitleSetor] = React.useState("");
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [machinesDisplayed, setMachinesDisplayed] = React.useState([])
+
+
+  const handlePagination = (page, arr) => {
+    setCurrentPage(page);
+    const indexMin = (currentPage - 1) * 5;
+    const indexMax = indexMin + 5;
+    const paginatedArray = arr.filter(
+      (x, index) => index >= indexMin && index < indexMax
+    );
+    setMachinesDisplayed(paginatedArray);
+  }
+
+
 
   React.useEffect(() => {
     api
@@ -30,10 +46,16 @@ function Setor() {
       });
   }, []);
 
+  React.useEffect(() => {
+    handlePagination(currentPage, machines);
+  }, [currentPage])
+
+
   const changeMachines = (idSetor) => {
     api
       .get(`machines/sector/${idSetor}`)
       .then((response) => {
+        handlePagination(currentPage, response.data);
         setMachines(response.data);
       })
       .catch((error) => {
@@ -81,7 +103,7 @@ function Setor() {
           {machines.length === undefined ? (
             <div style={{ marginLeft: '5%', marginBottom: '3%' }}>Não há máquinas cadastradas</div>
           ) : (
-            machines.map((machine) => {
+            machinesDisplayed.map((machine) => {
               return (
                 <Maquina
                   idMaq={machine.maquina_id}
@@ -90,13 +112,16 @@ function Setor() {
                   alertas={machine.status}
                   onClick={() => {
                     localStorage.setItem('@wasd:idMaq', machine.maquina_id);
-                    window.location.href="/detalhes"
+                    window.location.href = "/detalhes"
                   }}
                 />
               );
             })
           )}
+
         </ContentHolder>
+        <Pagination onChange={(e, value) => { handlePagination(value, machines) }} page={currentPage} count={Math.ceil(machines.length / 5)} color="primary" />
+
       </MainContainer>
       <Profile />
       <ModalSetor
