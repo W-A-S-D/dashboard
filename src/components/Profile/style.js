@@ -42,22 +42,23 @@ export const styles = {
         borderRadius: '300px',
         border: '2px solid #FFF'
     },
+
     profileName: {
         marginTop: '5%',
         fontSize: '22px',
         fontWeight: '800'
     },
     profileEdit: {
-      marginTop: '8%',
-      fontSize: '22px',
-      fontWeight: '800',
-      marginBottom: '5%'
-  },
+        marginTop: '8%',
+        fontSize: '22px',
+        fontWeight: '800',
+        marginBottom: '5%'
+    },
     profileEmail: {
-      marginTop: '6%',
-      fontSize: '22px',
-      fontWeight: '400'
-  },
+        marginTop: '6%',
+        fontSize: '22px',
+        fontWeight: '400'
+    },
     profileStatus: {
         marginTop: '5px',
         fontSize: '22px',
@@ -77,7 +78,7 @@ export const styles = {
         color: 'rgba(136,136,136, 0.54)'
     },
     profileButton: {
-      marginTop: "10%"
+        marginTop: "10%"
     }
 
 }

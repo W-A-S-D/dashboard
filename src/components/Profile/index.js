@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 
 import EditIcon from "@material-ui/icons/Edit";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
@@ -22,16 +22,26 @@ function Profile() {
   const [email, setEmail] = useState("");
   const [confirmSenha, setConfirmSenha] = useState("");
   const [senha, setSenha] = useState("");
+  const [editingImg, setEditingImg] = useState(`url(https://wasdapi.herokuapp.com/${user.avatar})`);
+  const inputFile = useRef(null)
+
 
   useEffect(() => {
     api.get("/sectors/company").then((response) => {
       setSector(response.data);
     });
-  }, []);
+  }, [editingImg]);
 
   const uploadFile = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+ 
     setImagem(event.target.files[0]);
-    setModal(false);
+    if (imagem != null || imagem != undefined || event.target.files.length != 0) {
+      const objectUrl = URL.createObjectURL(event.target.files[0]);
+      setEditingImg(`url(${objectUrl})`);
+      console.log(objectUrl);
+    }
   };
 
   async function handleEditUser(event, imagem, email, confirmSenha, senha) {
@@ -78,12 +88,30 @@ function Profile() {
               <div style={styles.contentHolder}>
                 <div style={styles.profile}>
                   <div style={styles.profileBorder}>
-                    <IconButton
-                      style={styles.profilePhoto}
-                      onClick={() => setModal(true)}
+                    <div
+                      style={{
+                        ...styles.profilePhoto,
+                        backgroundImage: `${editingImg}`,
+                        backgroundSize: "cover",
+                        position: 'relative',
+                      }}
                     >
-                      <CameraAltIcon fontSize="large" />
-                    </IconButton>
+                      <IconButton
+                        style={{
+                          ...styles.profilePhoto,
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          border: '0',
+                        }}
+                        onClick={() => inputFile.current.click()}
+                      >
+                        <input type='file' id='file' ref={inputFile} onChange={(e) => uploadFile(e)} style={{ display: 'none' }} />
+
+                        <CameraAltIcon fontSize="large" />
+                      </IconButton>
+                    </div>
+
                   </div>
 
                   <div style={styles.profileName}>Olá, {user.nome}</div>
@@ -103,6 +131,7 @@ function Profile() {
                     <TextField
                       id="standard-basic"
                       label="Nova Senha"
+                      type="password"
                       variant="standard"
                       onChange={(event) => setSenha(event.target.value)}
                     />
@@ -113,6 +142,7 @@ function Profile() {
                       id="standard-basic"
                       label="Confirmar Senha"
                       variant="standard"
+                      type="password"
                       onChange={(event) => setConfirmSenha(event.target.value)}
                     />
                   </div>
