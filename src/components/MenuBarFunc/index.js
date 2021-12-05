@@ -19,6 +19,7 @@ function MenuBarAdm() {
           <HomeIcon sx={{ fontSize: 40, marginTop: "5vh" }} color="primary" />
         </Link>
         <div
+          style={{cursor:'pointer'}}
           onClick={() => {
             window.location.href =
               "https://wasdenterprise.atlassian.net/servicedesk/customer/user/login?destination=portals";
@@ -31,7 +32,7 @@ function MenuBarAdm() {
         </div>
         <div
           onClick={() => handleLogOut()}
-          style={{ position: "absolute", bottom: 20 }}
+          style={{ position: "absolute", bottom: 20, cursor:'pointer' }}
         >
           <ExitToAppOutlinedIcon sx={{ fontSize: "2.5em" }} color="secondary" />
         </div>

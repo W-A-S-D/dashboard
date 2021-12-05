@@ -37,6 +37,7 @@ function MenubarAdm() {
           />
         </Link>
         <div
+          style={{cursor:'pointer'}}
           onClick={() => {
             window.location.href =
               "https://wasdenterprise.atlassian.net/servicedesk/customer/user/login?destination=portals";
@@ -47,7 +48,7 @@ function MenubarAdm() {
             color="primary"
           />
         </div>
-        <div onClick={() => handleLogOut()} style={{ position: 'absolute', bottom: 20 }}>
+        <div onClick={() => handleLogOut()} style={{ position: 'absolute', bottom: 20, cursor: 'pointer' }}>
           <ExitToAppOutlinedIcon
             sx={{ fontSize: "2.5em" }}
             color="secondary"
